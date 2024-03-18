@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/articles-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/articulos-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/articulos-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/carrito-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/carrito-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/carts-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/clientes-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/clientes-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/clients-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/envios-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/envios-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/payments-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/purchases-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shipments-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/stock-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/users-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/usuarios-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/usuarios-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ventas-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ventas-api/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
