@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Core.csproj",
-      "projectName": "2nf-Core",
-      "projectPath": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Core.csproj",
+      "projectUniqueName": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Domain.csproj",
+      "projectName": "2nf-Domain",
+      "projectPath": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Domain.csproj",
       "packagesPath": "C:\\Users\\Gio\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\obj\\",
       "projectStyle": "PackageReference",

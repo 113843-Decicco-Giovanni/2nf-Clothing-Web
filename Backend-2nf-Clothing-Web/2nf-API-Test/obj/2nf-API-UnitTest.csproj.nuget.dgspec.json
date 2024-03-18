@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Core.csproj": {}
+    "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\2nf-API-UnitTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Core.csproj": {
+    "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\2nf-API-UnitTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Core.csproj",
-        "projectName": "2nf-Core",
-        "projectPath": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Core.csproj",
+        "projectUniqueName": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\2nf-API-UnitTest.csproj",
+        "projectName": "2nf-API-UnitTest",
+        "projectPath": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\2nf-API-UnitTest.csproj",
         "packagesPath": "C:\\Users\\Gio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\obj\\",
+        "outputPath": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gio\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,6 +44,28 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.14.0, )"
+            },
+            "NUnit.Analyzers": {
+              "target": "Package",
+              "version": "[3.9.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -1,12 +1,54 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E5825138-B791-4DBC-AB99-CE229FFAA9CA}|2nf-Application\\2nf-Application.csproj|c:\\users\\gio\\documents\\2nf clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5825138-B791-4DBC-AB99-CE229FFAA9CA}|2nf-Application\\2nf-Application.csproj|solutionrelative:2nf-application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77571C53-A9DA-41FA-9F13-E44F7F7E12BC}|2nf-API-IntegrationTest\\2nf-API-IntegrationTest.csproj|c:\\users\\gio\\documents\\2nf clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api-integrationtest\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77571C53-A9DA-41FA-9F13-E44F7F7E12BC}|2nf-API-IntegrationTest\\2nf-API-IntegrationTest.csproj|solutionrelative:2nf-api-integrationtest\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Application\\Class1.cs",
+              "RelativeDocumentMoniker": "2nf-Application\\Class1.cs",
+              "ToolTip": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Application\\Class1.cs",
+              "RelativeToolTip": "2nf-Application\\Class1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T16:23:27.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-IntegrationTest\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "2nf-API-IntegrationTest\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-IntegrationTest\\UnitTest1.cs",
+              "RelativeToolTip": "2nf-API-IntegrationTest\\UnitTest1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T16:22:28.846Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
