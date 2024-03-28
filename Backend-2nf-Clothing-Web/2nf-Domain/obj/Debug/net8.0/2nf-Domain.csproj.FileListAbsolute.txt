@@ -1,0 +1,15 @@
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\bin\Debug\net8.0\2nf-Domain.deps.json
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\bin\Debug\net8.0\2nf-Domain.runtimeconfig.json
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\bin\Debug\net8.0\2nf-Domain.dll
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\bin\Debug\net8.0\2nf-Domain.pdb
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\obj\Debug\net8.0\2nf-Domain.csproj.AssemblyReference.cache
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\obj\Debug\net8.0\2nf-Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\obj\Debug\net8.0\2nf-Domain.AssemblyInfoInputs.cache
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\obj\Debug\net8.0\2nf-Domain.AssemblyInfo.cs
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\obj\Debug\net8.0\2nf-Domain.csproj.CoreCompileInputs.cache
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\obj\Debug\net8.0\2nf-Domain.sourcelink.json
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\obj\Debug\net8.0\2nf-Domain.dll
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\obj\Debug\net8.0\refint\2nf-Domain.dll
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\obj\Debug\net8.0\2nf-Domain.pdb
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\obj\Debug\net8.0\2nf-Domain.genruntimeconfig.cache
+C:\Users\giova\OneDrive\Documentos\2nf-Clothing\2nf-Clothing-Web\Backend-2nf-Clothing-Web\2nf-Domain\obj\Debug\net8.0\ref\2nf-Domain.dll

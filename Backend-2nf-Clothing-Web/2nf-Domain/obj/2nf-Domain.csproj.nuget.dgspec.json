@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Domain.csproj": {}
+    "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Domain.csproj": {
+    "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\2nf-API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Domain.csproj",
-        "projectName": "2nf-Domain",
-        "projectPath": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Domain.csproj",
-        "packagesPath": "C:\\Users\\Gio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\obj\\",
+        "projectUniqueName": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\2nf-API.csproj",
+        "projectName": "2nf-API",
+        "projectPath": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\2nf-API.csproj",
+        "packagesPath": "C:\\Users\\giova\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\giova\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +44,113 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.19.6, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Domain.csproj",
+        "projectName": "2nf-Domain",
+        "projectPath": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\2nf-Domain.csproj",
+        "packagesPath": "C:\\Users\\giova\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\giova\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\2nf-API.csproj": {
+                "projectPath": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\2nf-API.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -60,7 +167,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "_2nf_API.Controllers.ArticleController",
+    "Method": "AddArticle",
+    "RelativePath": "api/articles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "_2nf_API.Requests.ArticleRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_2nf_API.Controllers.ArticleController",
+    "Method": "GetArticles",
+    "RelativePath": "api/articles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

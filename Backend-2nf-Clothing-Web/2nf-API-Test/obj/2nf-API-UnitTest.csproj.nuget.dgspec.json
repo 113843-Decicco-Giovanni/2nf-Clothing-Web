@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\2nf-API-UnitTest.csproj": {}
+    "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\2nf-API-UnitTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\2nf-API-UnitTest.csproj": {
+    "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\2nf-API-UnitTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\2nf-API-UnitTest.csproj",
+        "projectUniqueName": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\2nf-API-UnitTest.csproj",
         "projectName": "2nf-API-UnitTest",
-        "projectPath": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\2nf-API-UnitTest.csproj",
-        "packagesPath": "C:\\Users\\Gio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gio\\Documents\\2nf Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\obj\\",
+        "projectPath": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\2nf-API-UnitTest.csproj",
+        "packagesPath": "C:\\Users\\giova\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API-Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\giova\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,9 +45,23 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.8.0, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "NUnit": {
               "target": "Package",
@@ -82,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

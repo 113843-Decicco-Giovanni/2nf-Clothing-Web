@@ -1,0 +1,27 @@
+body{
+    background-color: #262626;
+}
+.container-fluid{
+    background-color: #262626;
+    margin: 0;
+    width: 100%;
+}
+.card{
+    background-color: transparent;
+    color: #a7a7a7;
+    margin: 0;
+    padding: 0;
+    font-family: 'Almarai';
+    border: 0;
+    transition: transform 0.3s ease;
+}
+.card-title{
+    font-size: medium;
+}
+.card-text{
+    font-family: 'Almarai';
+    font-size: small;
+}
+.card:hover{
+    transform: scale(1.05);
+}

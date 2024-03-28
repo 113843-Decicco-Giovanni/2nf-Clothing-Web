@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+
+:root {
+    background-color: #262626;
+    color: white; /* Esto cambiará el color del texto a blanco para mejorar la legibilidad */
+    font-family: 'Almarai', sans-serif;
+  }
