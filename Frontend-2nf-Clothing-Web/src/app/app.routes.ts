@@ -14,7 +14,11 @@ export const routes: Routes = [
         path: 'administration',
         component: AdminHomeComponent,
         loadChildren: () => 
-            import('./administration/administration.routes')
+            import('./administration/admin.routes')
                 .then(m => m.ADMINISTRATION_ROUTES)
+    },
+    {
+        path: '**',
+        redirectTo: ''
     }
 ];

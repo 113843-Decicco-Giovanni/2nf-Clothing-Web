@@ -1,0 +1,38 @@
+.container-fluid{
+    background-color: #262626;
+}
+.container{
+    padding: 5%;
+    margin: auto;
+    width: 100%;
+    background-color: #262626;
+    color: #a7a7a7;
+    text-align: start;
+    font-family: 'Almarai';
+    letter-spacing: 1px;
+}
+body{
+    background-color: #262626;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.btn{
+    color:#262626;
+}
+.btn-selected{
+    background-color: #a7a7a7;
+    color:#ffffff;
+}
+.form-control, .form-select{
+    background-color: #4a4a4a;
+    border:0;
+    font-weight: 300;
+    font-size: medium;
+    color: #a7a7a7;
+    letter-spacing: 1px;
+}
+.form-control:focus{
+    border:none;
+    box-shadow: none;
+}

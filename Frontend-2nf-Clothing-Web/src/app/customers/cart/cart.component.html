@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="container w-100 pt-4">
+        <div class="card w-100">
+            <div class="card-title mt-4">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="text-center">Carrito de Compras</h3>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="card-body">
+                <table class="table" *ngIf="this.hasItems">
+                    <thead>
+                        <th colspan="2">Artículo</th>
+                        <th>Talle</th>
+                        <th>Cantidad</th>
+                        <th>Precio por unidad</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let detail of this.cart$ | async">
+                            <td><img [src]="detail.article.images[0]" alt=""></td>
+                            <td><a [routerLink]="['/article', detail.article.id]" routerLinkActive="router-link-active">{{detail.article.name}}</a></td>
+                            <td>{{detail.size.description}}</td>
+                            <td>{{detail.amount}}</td>
+                            <td>ARS${{detail.article.price}}</td>
+                            <td>ARS${{detail.article.price * detail.amount}}</td>
+                            <td><button class="btn btn-danger" (click)="deleteDetail(detail.id)">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5"></td>
+                            <td colspan="2">Total: ARS${{this.total$ | async}}</td>
+                        </tr>
+                    </tfoot>
+
+                </table>
+                <h5 class="text-center mb-3" *ngIf="this.hasItems">
+                    Quieres agregar más articulos a tu carrito?
+                    <a class="text-center" [routerLink]="['/home']" routerLinkActive="router-link-active">Seguir comprando</a>
+                </h5>
+                <h5 class="text-center" *ngIf="!this.hasItems">
+                    Tu carrito de compras se encuentra vacío...
+                    <a class="text-center" [routerLink]="['/home']" routerLinkActive="router-link-active">Seguir comprando</a>
+                </h5>
+                <button class="btn btn-secondary w-100" (click)="continueShopping()" *ngIf="this.hasItems">Continuar con el pago</button>
+            </div>
+        </div>
+    </div>
+</div>

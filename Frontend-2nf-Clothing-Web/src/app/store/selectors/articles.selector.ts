@@ -20,3 +20,15 @@ export const selectArticleDeleted = createSelector(
     selectArticlesFeature,
     (state: ArticlesState) => state.deleted
 )
+export const selectArticleTypes = createSelector(
+    selectArticlesFeature,
+    (state: ArticlesState) => state.articleTypes
+)
+export const selectArticleUpdated = createSelector(
+    selectArticlesFeature,
+    (state: ArticlesState) => state.updated
+)
+export const selectArticle = createSelector(
+    selectArticlesFeature,
+    (state: ArticlesState) => state.article
+)

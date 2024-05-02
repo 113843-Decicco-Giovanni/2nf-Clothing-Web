@@ -1,0 +1,210 @@
+<div class="container-fluid">
+    <div class="container pt-4">
+        <div class="card container-form">  
+            <div class="card-title pt-3">
+                <h3 class="text-center">Cliente</h3>
+                <hr>
+            </div>
+            <div class="card-body pt-0 mt-0">
+                <form class="form-inline" [formGroup]="this.formCliente" (ngSubmit)="submit()">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="name" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formCliente.get('name')?.hasError('required') && this.formCliente.get('name')?.touched }">
+                                Primer Nombre
+                            </label>
+                            <input formControlName="name" type="text" class="form-control m-0 pt-1 pb-1" name="name" id="name"
+                            [ngClass]="{ 'is-invalid': this.formCliente.get('name')?.hasError('required') && this.formCliente.get('name')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formCliente.get('name')?.valid && this.formCliente.get('name')?.touched }">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="secondName" class="form-label m-0 p-0">
+                                Segundo Nombre
+                            </label>
+                            <input formControlName="secondName" type="text" class="form-control m-0 pt-1 pb-1" name="secondName" id="secondName">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="surname" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formCliente.get('surname')?.hasError('required') && this.formCliente.get('surname')?.touched }">
+                                Primer Apellido
+                            </label>
+                            <input formControlName="surname" type="text" class="form-control m-0 pt-1 pb-1" name="surname" id="surname"
+                            [ngClass]="{ 'is-invalid': this.formCliente.get('surname')?.hasError('required') && this.formCliente.get('surname')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formCliente.get('surname')?.valid && this.formCliente.get('surname')?.touched }">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="secondSurname" class="form-label m-0 p-0">
+                                Segundo Apellido
+                            </label>
+                            <input formControlName="secondSurname" type="text" class="form-control m-0 pt-1 pb-1" name="secondSurname" id="secondSurname">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <label for="docId" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formCliente.get('docId')?.hasError('required') && this.formCliente.get('docId')?.touched }">
+                                Número de Documento
+                            </label>
+                            <input formControlName="docId" type="number" class="form-control m-0 pt-1 pb-1" name="docId" id="docId"
+                            [ngClass]="{ 'is-invalid': this.formCliente.get('docId')?.hasError('required') && this.formCliente.get('docId')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formCliente.get('docId')?.valid && this.formCliente.get('docId')?.touched }">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <hr>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <label for="street" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formCliente.get('street')?.hasError('required') && this.formCliente.get('street')?.touched }">
+                                Calle
+                            </label>
+                            <input formControlName="street" type="text" class="form-control m-0 pt-1 pb-1" name="street" id="street"
+                            [ngClass]="{ 'is-invalid': this.formCliente.get('street')?.hasError('required') && this.formCliente.get('street')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formCliente.get('street')?.valid && this.formCliente.get('street')?.touched }">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="streetNumber" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formCliente.get('streetNumber')?.hasError('required') && this.formCliente.get('streetNumber')?.touched 
+                            || this.formCliente.get('streetNumber')?.hasError('min') && this.formCliente.get('streetNumber')?.touched}">
+                                Número
+                            </label>
+                            <input formControlName="streetNumber" type="number" class="form-control m-0 pt-1 pb-1" name="streetNumber" id="streetNumber"
+                            [ngClass]="{ 'is-invalid': this.formCliente.get('streetNumber')?.hasError('required') && this.formCliente.get('streetNumber')?.touched 
+                            || this.formCliente.get('streetNumber')?.hasError('min') && this.formCliente.get('streetNumber')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formCliente.get('streetNumber')?.valid && this.formCliente.get('streetNumber')?.touched }">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="city" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formCliente.get('city')?.hasError('required') && this.formCliente.get('city')?.touched }">
+                                Ciudad
+                            </label>
+                            <input formControlName="city" type="text" class="form-control m-0 pt-1 pb-1" name="city" id="city"
+                            [ngClass]="{ 'is-invalid': this.formCliente.get('city')?.hasError('required') && this.formCliente.get('city')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formCliente.get('city')?.valid && this.formCliente.get('city')?.touched }">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="state" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formCliente.get('state')?.hasError('required') && this.formCliente.get('state')?.touched }">
+                                Provincia
+                            </label>
+                            <input formControlName="state" type="text" class="form-control m-0 pt-1 pb-1" name="state" id="state"
+                            [ngClass]="{ 'is-invalid': this.formCliente.get('state')?.hasError('required') && this.formCliente.get('state')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formCliente.get('state')?.valid && this.formCliente.get('state')?.touched }">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-3">
+                            <label for="country" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formCliente.get('country')?.hasError('required') && this.formCliente.get('country')?.touched }">
+                                País
+                            </label>
+                            <input formControlName="country" type="text" class="form-control m-0 pt-1 pb-1" name="country" id="country"
+                            [ngClass]="{ 'is-invalid': this.formCliente.get('country')?.hasError('required') && this.formCliente.get('country')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formCliente.get('country')?.valid && this.formCliente.get('country')?.touched }">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="postalCode" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formCliente.get('postalCode')?.hasError('required') && this.formCliente.get('postalCode')?.touched }">
+                                Código Postal
+                            </label>
+                            <input formControlName="postalCode" type="text" class="form-control m-0 pt-1 pb-1" name="postalCode" id="postalCode"
+                            [ngClass]="{ 'is-invalid': this.formCliente.get('postalCode')?.hasError('required') && this.formCliente.get('postalCode')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formCliente.get('postalCode')?.valid && this.formCliente.get('postalCode')?.touched }">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <hr>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-3">
+                            <label for="phone" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formCliente.get('phone')?.hasError('required') && this.formCliente.get('phone')?.touched }">
+                                Teléfono
+                            </label>
+                            <input formControlName="phone" type="text" class="form-control m-0 pt-1 pb-1" name="phone" id="phone"
+                            [ngClass]="{ 'is-invalid': this.formCliente.get('phone')?.hasError('required') && this.formCliente.get('phone')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formCliente.get('phone')?.valid && this.formCliente.get('phone')?.touched }">
+                        </div>
+                        <div class="col-md-5">
+                            <label for="email" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formCliente.get('email')?.hasError('required') && this.formCliente.get('email')?.touched 
+                            || this.formCliente.get('email')?.hasError('email') && this.formCliente.get('email')?.touched}">
+                                Correo Electrónico
+                            </label>
+                            <input formControlName="email" type="text" class="form-control m-0 pt-1 pb-1" name="email" id="email"
+                            [ngClass]="{ 'is-invalid': this.formCliente.get('email')?.hasError('required') && this.formCliente.get('email')?.touched 
+                            || this.formCliente.get('email')?.hasError('email') && this.formCliente.get('email')?.touched}"
+                            [ngClass]="{ 'is-valid': this.formCliente.get('email')?.valid && this.formCliente.get('email')?.touched }">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <hr>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <label for="userName" class="form-label m-0 p-0" 
+                            [ngClass]="{ 'text-danger': this.formCliente.get('userName')?.hasError('required') && this.formCliente.get('userName')?.touched 
+                            || this.formCliente.get('userName')?.hasError('minlength') && this.formCliente.get('userName')?.touched}">
+                                Nombre de Usuario
+                            </label>
+                            <input formControlName="userName" type="text" class="form-control m-0 pt-1 pb-1" name="userName" id="userName"
+                            [ngClass]="{ 'is-invalid': this.formCliente.get('userName')?.hasError('required') && this.formCliente.get('userName')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formCliente.get('userName')?.valid && this.formCliente.get('userName')?.touched }">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="password" class="form-label m-0 p-0"
+
+                            [ngClass]="{ 'text-danger': this.formCliente.get('password')?.hasError('required') && this.formCliente.get('password')?.touched 
+                            || this.formCliente.get('password')?.hasError('minlength') && this.formCliente.get('password')?.touched
+                            || this.formCliente.get('password')?.value != this.formCliente.get('confirmPassword')?.value && this.formCliente.get('password')?.touched }"
+
+                            [ngClass]="{ 'text-success': (this.formCliente.get('confirmPassword')?.value == this.formCliente.get('password')?.value) 
+                            && (this.formCliente.get('confirmPassword')?.touched && this.formCliente.get('password')?.touched) 
+                            && (this.formCliente.get('confirmPassword')?.valid 
+                            && this.formCliente.get('password')?.valid) }"
+                            >
+                                Contraseña
+                            </label>
+                            <input formControlName="password" type="password" class="form-control m-0 pt-1 pb-1" name="password" id="password"
+                            [ngClass]="{ 'is-invalid': this.formCliente.get('password')?.hasError('required') && this.formCliente.get('password')?.touched 
+                            || this.formCliente.get('password')?.hasError('minlength') && this.formCliente.get('password')?.touched
+                            || this.formCliente.get('password')?.value != this.formCliente.get('confirmPassword')?.value && this.formCliente.get('password')?.touched}"
+                            [ngClass]="{ 'is-valid': (this.formCliente.get('confirmPassword')?.value == this.formCliente.get('password')?.value) 
+                            && (this.formCliente.get('confirmPassword')?.touched 
+                            && this.formCliente.get('password')?.touched) 
+                            && (this.formCliente.get('confirmPassword')?.valid) 
+                            }">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="confirmPassword" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formCliente.get('confirmPassword')?.hasError('required') && this.formCliente.get('confirmPassword')?.touched 
+                            || this.formCliente.get('confirmPassword')?.hasError('minlength') && this.formCliente.get('confirmPassword')?.touched
+                            || this.formCliente.get('password')?.value != this.formCliente.get('confirmPassword')?.value && this.formCliente.get('confirmPassword')?.touched }"
+                            [ngClass]="{ 'text-success': (this.formCliente.get('confirmPassword')?.value == this.formCliente.get('password')?.value) 
+                            && (this.formCliente.get('confirmPassword')?.touched 
+                            && this.formCliente.get('password')?.touched) 
+                            && (this.formCliente.get('confirmPassword')?.valid) }">
+                                Confirmar Contraseña
+                            </label>
+                            <input type="password" class="form-control m-0 pt-1 pb-1" name="confirmPassword" id="confirmPassword" formControlName="confirmPassword"
+                            [ngClass]="{ 'is-invalid': this.formCliente.get('confirmPassword')?.hasError('required') && this.formCliente.get('confirmPassword')?.touched 
+                            || this.formCliente.get('confirmPassword')?.hasError('minlength') && this.formCliente.get('confirmPassword')?.touched
+                            || this.formCliente.get('password')?.value != this.formCliente.get('confirmPassword')?.value 
+                            && this.formCliente.get('confirmPassword')?.touched }"
+                            [ngClass]="{ 'is-valid': (this.formCliente.get('confirmPassword')?.value == this.formCliente.get('password')?.value) 
+                            && (this.formCliente.get('confirmPassword')?.touched 
+                            && this.formCliente.get('password')?.touched) 
+                            && (this.formCliente.get('confirmPassword')?.valid) }">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-succes w-100 mt-4 pt-1 pb-1" type="submit" [disabled]="this.formCliente.invalid">
+                            Registrarse
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -24,15 +24,26 @@ builder.Services.AddDbContext<_2nfDbContext>(options =>
 {
     options.UseMySQL(connectionString);
 });
+//services
 builder.Services.AddTransient<IArticleService, ArticleService>();
+builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IClientService, ClientService>();
+//repositories
 builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
+//validators
 builder.Services.AddTransient<IValidator<ArticleRequest>, ArticleRequestValidator>();
-
+builder.Services.AddTransient<IValidator<UserRequest>, UserRequestValidator>();
+builder.Services.AddTransient<IValidator<UserLoginRequest>, UserLoginRequestValidator>();
+builder.Services.AddTransient<IValidator<StockRequest>,  StockRequestValidator>();
+builder.Services.AddTransient<IValidator<ClientRequest>, ClientRequestValidator>();
+builder.Services.AddTransient<IValidator<ClientLoginRequest>, ClientLoginRequestValidator>();
+//mapper
 var mapperConfiguration = new MapperConfiguration(cfg =>
 {
     cfg.AddProfile<MappingProfile>();
 });
-
 var mapper = mapperConfiguration.CreateMapper();
 builder.Services.AddSingleton(mapper);
 

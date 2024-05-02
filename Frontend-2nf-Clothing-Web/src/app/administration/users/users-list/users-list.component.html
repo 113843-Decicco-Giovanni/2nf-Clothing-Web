@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="container w-100 pt-4">
+        <div class="card w-100">
+            <div class="card-title mt-4">
+                <div class="row">
+                    <div class="col-2">
+
+                    </div>
+                    <div class="col-8">
+                        <h3 class="text-center">Usuarios</h3>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-secondary float-end mt-0 m-4" (click)="newUser()">Nuevo</button>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm border-secondary">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">UserName</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Created At</th>
+                            <th scope="col">Last Login</th>
+                            <th scope="col">Admin</th>
+                            <th scope="col">Active</th>
+                            <th scope="col">Last Session Id</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users$ | async">
+                            <th scope="row">{{user.id}}</th>
+                            <td>{{user.userName}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.createdAt}}</td>
+                            <td>{{user.lastLogin}}</td>
+                            <td>
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [checked]="user.isUserAdmin" (change)="changeAdmin(user)" [disabled]="user.id == this.userId">
+                            </td>
+                            <td>
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [checked]="user.active" (change)="changeActivated(user)" [disabled]="user.id == this.userId">
+                            </td>
+                            <td>{{user.sessionId}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,6 +2,10 @@
 
 :root {
     background-color: #262626;
-    color: white; /* Esto cambiará el color del texto a blanco para mejorar la legibilidad */
+    color: white;
     font-family: 'Almarai', sans-serif;
   }
+
+  ::-webkit-scrollbar{
+    display: none;
+}

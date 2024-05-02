@@ -1,0 +1,67 @@
+.container-fluid{
+    background-color: #262626;
+}
+.container{
+    background-color: #262626;
+}
+.container-form{
+    max-width: 800px;
+    background-color: #262626 ;
+    font-family: 'Almarai';
+    letter-spacing: 1px;
+    box-shadow: 0 0 5px #0c0c0c9d;
+    color: #a7a7a7;
+    margin: auto;
+    font-weight: 300;
+    font-size: medium;
+}
+.form-control, .form-select{
+    background-color: #4a4a4a;
+    border:0;
+    font-weight: 300;
+    font-size: medium;
+    color: #a7a7a7;
+    letter-spacing: 1px;
+}
+input:focus, textarea:focus, select:focus{
+    background-color: #4a4a4a;
+    color: #a7a7a7;
+    box-shadow: 0 0 10px #0c0c0c9d;
+    border: 0;
+    caret-color: transparent;
+}
+.btn{
+    background-color: #4a4a4a;
+    color: #a7a7a7;
+    border: 0;
+    font-weight: 300;
+    font-size: medium;
+    font-family: 'Almarai';
+}
+.btn-succes:hover{
+    background-color: #006912;
+}
+.btn-danger:hover{
+    background-color: #640000;
+}
+.btn-secondary:hover{
+    background-color: #4837a8;
+}
+textarea{
+    resize: none;
+}
+hr{
+    width: 97%;
+    color: #a7a7a7;
+    margin:auto;
+}
+img{
+    max-height: 80px;
+    border-radius: 5px;
+}
+img:hover{
+    border: #910000 solid 2px;
+}
+.container-images{
+    background-color: #4a4a4a;
+}

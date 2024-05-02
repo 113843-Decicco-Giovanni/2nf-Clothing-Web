@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <div class="container w-100 pt-4">
+        <div class="card w-100">
+            <div class="card-title mt-4">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="text-center">Filtros</h3>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="card-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container w-100 pt-4">
+        <div class="card w-100">
+            <div class="card-title mt-4">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="text-center">Clientes</h3>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="card-body">
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div *ngFor="let client of clients$ | async let i = index">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#flush-collapse' + i" aria-expanded="false"
+                                    [attr.aria-controls]="'flush-collapse' + i">
+                                    {{client.name + ' ' + client.surname}}
+                                </button>
+                            </h2>
+                            <div [id]="'flush-collapse' + i" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <table class="table table-sm">
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-3">Nombres</td>
+                                                <td *ngIf="!client.secondName">{{client.name}}</td>
+                                                <td *ngIf="client.secondName">{{client.name + ' ' + client.secondName}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Apellidos</td>
+                                                <td *ngIf="!client.secondSurname">{{client.surname}}</td>
+                                                <td *ngIf="client.secondSurname">{{client.surname + ' ' + client.secondSurname}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Documento</td>
+                                                <td>{{client.docId}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Calle y Número</td>
+                                                <td>{{client.street + ' ' + client.streetNumber}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Localidad</td>
+                                                <td>{{client.city + ', ' + client.state + ', ' + client.country}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Código Postal</td>
+                                                <td>{{client.postalCode}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Email</td>
+                                                <td>{{client.user.email}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Número de teléfono</td>
+                                                <td>{{client.phone}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Compras</td>
+                                                <td><button class="btn btn-secondary">Detalles</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

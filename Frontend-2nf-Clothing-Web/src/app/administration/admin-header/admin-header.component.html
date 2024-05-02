@@ -1,1 +1,87 @@
-<p>admin-header works!</p>
+<header>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="assets/imagenes/logoMinimal3d.png" alt="Logo" width="60">
+      </a>
+      <button *ngIf="loggedIn$ | async" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <div *ngIf="loggedIn$ | async">
+            <li class="nav-item dropdown" >
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                articulos
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" [routerLink]="['/administration/articles/new']" routerLinkActive="router-link-active" >nuevo</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/administration/articles']" routerLinkActive="router-link-active" >consultar</a></li>
+              </ul>
+            </li>
+          </div>
+          <div *ngIf="loggedIn$ | async">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                stock
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" [routerLink]="['/administration/stock']" routerLinkActive="router-link-active">consultar</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/administration/stock/new']" routerLinkActive="router-link-active">nuevo</a></li>
+              </ul>
+            </li>
+          </div>
+          <div *ngIf="loggedIn$ | async">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                ventas
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">consultar</a></li>
+              </ul>
+            </li>
+          </div>
+          <div *ngIf="loggedIn$ | async">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                envios
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">nuevo</a></li>
+                <li><a class="dropdown-item" href="#">consultar</a></li>
+              </ul>
+            </li>
+          </div>
+          <div *ngIf="loggedIn$ | async">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                clientes
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" routerLink="/administration/clients" routerLinkActive="router-link-active">consultar</a></li>
+              </ul>
+            </li>
+          </div>
+          <div *ngIf="(loggedIn$ | async) && (loggedUser$ | async)?.isUserAdmin">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                usuarios
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" routerLink="/administration/users" routerLinkActive="router-link-active">consultar</a></li>
+                <li><a class="dropdown-item" routerLink="/administration/users/new" routerLinkActive="router-link-active">nuevo</a></li>
+              </ul>
+            </li>
+          </div>
+        </ul>
+        <div class="d-flex" *ngIf="loggedIn$ | async">
+          <span class="navbar-text me-2">
+            <a routerLink="/administration/profile" routerLinkActive="router-link-active" class="nav-link text-white">{{ (loggedUser$ | async)?.email }}</a>
+          </span>
+          <button class="btn btn-outline-danger" type="submit" (click)="logout()">Cerrar Sesión</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  </header>
+  

@@ -1,7 +1,7 @@
 <div class="container-fluid grid p-3 w-100">
-  <div class="row m-0 justify-content-center">
+  <div class="row m-0 ">
     <div class="col-lg-3 col-md-4 col-6 p-4" *ngFor="let article of articles$ | async">
-      <div class="card">
+      <div class="card" (click)="openArticle(article)">
         <div class="card-img">
           <img [src]="article.images.at(0)" class="card-img-top rounded" alt="...">
         </div>

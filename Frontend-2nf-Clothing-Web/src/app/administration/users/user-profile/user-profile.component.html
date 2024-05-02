@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="container pt-4">
+        <div class="card container-form">  
+            <div class="card-title pt-3">
+                <h3 class="text-center">Actualizar Credenciales</h3>
+                <hr>
+            </div>
+            <div class="card-body pt-0 mt-0">
+                <form class="form-inline" [formGroup]="this.formUpdate" (ngSubmit)="submit()">
+                    <div class="row">
+                        <div class="col">
+                            <label for="userName" class="form-label m-0 p-0">Username</label>
+                            <input formControlName="userName" type="text" class="form-control m-0 pt-1 pb-1" name="userName" id="userName">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <label for="email" class="form-label m-0 p-0">Email</label>
+                            <input formControlName="email" type="text" class="form-control m-0 pt-1 pb-1" name="email" id="email">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <label for="password" class="form-label m-0 p-0">Password</label>
+                            <input formControlName="password" type="text" class="form-control m-0 pt-1 pb-1" name="password" id="password">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <label for="newPassword" class="form-label m-0 p-0">New Password</label>
+                            <input formControlName="newPassword" type="text" class="form-control m-0 pt-1 pb-1" name="newPassword" id="newPassword">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <button class="btn btn-succes w-100 mt-4 pt-1 pb-1" type="submit">Guardar Cambios</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

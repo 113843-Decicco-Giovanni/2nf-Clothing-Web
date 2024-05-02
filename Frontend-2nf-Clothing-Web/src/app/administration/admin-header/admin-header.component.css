@@ -1,0 +1,53 @@
+header {
+    background-color: #393939;
+    font-family: 'Almarai';
+    letter-spacing: 1px;
+}
+nav{
+    background-color: #393939;
+    color: #a7a7a7;
+}
+div{
+    background-color: #393939;
+}
+input{
+    background-color: #4a4a4a;
+    border: 0;
+    color: #a7a7a7;
+    text-align: center;
+}
+input:focus{
+    background-color: #4a4a4a;
+    color: #a7a7a7;
+    box-shadow: 0 0 5px #0c0c0c9d;
+}
+input::placeholder{
+    color: #a7a7a7;
+}
+.container-fluid{
+    background-color: #393939;
+}
+.navbar{
+    background-color: #393939;
+    color: #a7a7a7;
+}
+a{
+    color: #a7a7a7;
+}
+button{
+    background-color: #4a4a4a;
+    color: #a7a7a7;
+    border: none;
+}
+.navbar-text{
+    color: #a7a7a7;
+    letter-spacing: 1px;
+}
+.dropdown-menu{
+    background-color: #393939;
+    color: #a7a7a7;
+}
+.dropdown-item:hover{
+    background-color: #4a4a4a;
+    color: #a7a7a7;
+}

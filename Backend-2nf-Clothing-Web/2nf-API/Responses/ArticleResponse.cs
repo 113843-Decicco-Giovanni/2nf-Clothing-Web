@@ -8,5 +8,8 @@
         public double Price { get; set; }
         public int Type { get; set; }
         public List<string> Images { get; set; }
+        public List<StockResponse> Stocks { get; set; }
+        public DateTime? DiscontinuedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }

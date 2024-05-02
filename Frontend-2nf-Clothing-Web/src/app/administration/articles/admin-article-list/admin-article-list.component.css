@@ -1,0 +1,36 @@
+img{
+    max-height: 80px;
+}
+.table{
+    width: 100%;
+}
+.card-title{
+    color: #a7a7a7;
+}
+.card{
+    background-color: #262626;
+    max-width: 1200px;
+    margin: auto;
+    font-family: 'Almarai';
+    letter-spacing: 1px;
+    box-shadow: 0 0 5px #0c0c0c9d;
+}
+.container-fluid{
+    background-color: #262626;
+}
+thead{
+    background-color: #262626;
+    color: #a7a7a7;
+}
+th{
+    background-color: #262626;
+    color: #a7a7a7;
+}
+td{
+    background-color: #262626;
+    color: #a7a7a7;
+}
+hr{
+    width: 96%;
+    margin:auto;
+}

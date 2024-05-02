@@ -21,3 +21,46 @@ input:focus{
 input::placeholder{
     color: #a7a7a7;
 }
+.navbar-text{
+    color: #a7a7a7;
+    letter-spacing: 1px;
+}
+.dropdown-menu{
+    background-color: #393939;
+    color: #a7a7a7;
+}
+.dropdown-item{
+    background-color: #393939;
+    color: #a7a7a7;
+}
+.dropdown-item:hover{
+    background-color: #4a4a4a;
+    color: #a7a7a7;
+}
+.navbar{
+    background-color: #393939;
+    color: #a7a7a7;
+}
+.nav-link{
+    color: #a7a7a7;
+}
+.navbar-toggler{
+    color: #a7a7a7;
+    background-color: #4a4a4a;
+}
+button{
+    background-color: #4a4a4a;
+    border: none;
+    color: #a7a7a7;
+    letter-spacing: 1px;
+    font-family: 'Almarai';
+}
+button:hover{
+    background-color: #727272;
+}
+.cerrar-sesion:hover{
+    background-color: #7a0000;
+}
+.iniciar-sesion:hover{
+    background-color: #005512;
+}

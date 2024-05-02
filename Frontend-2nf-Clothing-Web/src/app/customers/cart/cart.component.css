@@ -1,0 +1,61 @@
+img{
+    max-height: 80px;
+}
+.table{
+    width: 100%;
+    border-color: #4a4a4a;
+    border: 1px;
+}
+.card-title{
+    color: #a7a7a7;
+}
+.card{
+    background-color: #262626;
+    max-width: 1800px;
+    margin: auto;
+    font-family: 'Almarai';
+    letter-spacing: 1px;
+    box-shadow: 0 0 5px #0c0c0c9d;
+    text-align: center;
+}
+.container-fluid{
+    background-color: #262626;
+}
+thead{
+    background-color: #262626;
+    color: #a7a7a7;
+}
+th{
+    background-color: #262626;
+    color: #a7a7a7;
+}
+td{
+    background-color: #262626;
+    color: #a7a7a7;
+    border:none;
+    border-top:#4a4a4a 1px solid;
+    border-bottom: #4a4a4a 1px solid;
+}
+hr{
+    width: 100%;
+    margin:auto;
+}
+.btn-secondary, .btn-danger{
+    text-align: center;
+    border:none;
+    background-color: #4a4a4a;
+}
+.btn-danger:hover{
+    background-color: #960000;
+}
+.btn-secondary:hover{
+    background-color: #005218;
+}
+h5{
+    color: #a7a7a7;
+    font-weight: lighter;
+}
+a{
+    color: #a7a7a7;
+    text-decoration: underline #a7a7a7 1px; 
+}
