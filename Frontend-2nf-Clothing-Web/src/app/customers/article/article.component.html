@@ -2,18 +2,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <img [src]="article.images.at(0)" alt="" class="w-100">
+                <img [src]="(this.article$ | async)?.images?.at(0)" alt="" class="w-100">
             </div>
             <div class="col-md-6 p-3">
                 <div class="row">
                     <div class="col">
-                        <h1>{{article.name}}</h1>
+                        <h1>{{(this.article$ | async)?.name}}</h1>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col">
-                        <h4>ARS${{article.price}}</h4>
+                        <h4>ARS${{(this.article$ | async)?.price}}</h4>
                     </div>
                 </div>
                 <div class="row mt-4">
@@ -23,7 +23,7 @@
                             <button 
                             (click)="seleccionarTalle(size)" 
                             class="btn btn-secondary m-3" 
-                            [disabled]="hayTalle(size.id) | async"
+                            [disabled]="!(hayTalle(size.id) | async)"
                             [ngClass]="{ 'btn-selected': this.talleSeleccionado.id == size.id }">{{size.description}}</button>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
         <div class="row p-3 mt-4">
             <h3>Descripción</h3>
             <hr>
-            <p>{{article.description}}</p>
+            <p>{{(this.article$ | async)?.description}}</p>
         </div>
     </div>
 </div>

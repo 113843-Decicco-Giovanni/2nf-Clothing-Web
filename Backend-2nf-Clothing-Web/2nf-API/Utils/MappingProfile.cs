@@ -45,6 +45,11 @@ namespace _2nf_API.Utils
             CreateMap<ClientRequest, Client>()
                 .ForMember(x => x.CreatedAt, opt => opt.MapFrom(src => DateTime.Now));
             CreateMap<Client, ClientResponse>();
+            CreateMap<Shipment, ShipmentResponse>()
+                .ForMember(x => x.ShipmentState, opt => opt.ConvertUsing(new ShipmentSatusConverter(), src => src.ShipmentState));
+            CreateMap<SaleDetail, SaleDetailResponse>();
+            CreateMap<Sale, SaleResponse>();
+            CreateMap<ShipmentRequest, Shipment>();
         }
     }
 }

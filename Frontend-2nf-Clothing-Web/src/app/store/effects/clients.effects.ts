@@ -87,7 +87,7 @@ export class ClientsEffects {
     ))
     loadClients$ = createEffect(() => this.actions.pipe(
         ofType(loadClients),
-        mergeMap(() => this.service.get()
+        mergeMap((action) => this.service.get(action.name, action.docId)
             .pipe(
                 map(clients => ({type: GET_CLIENTS_SUCCESS, clients})),
                 catchError(() => EMPTY)

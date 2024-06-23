@@ -1,13 +1,15 @@
-<div class="container-fluid grid p-3 w-100">
-  <div class="row m-0 ">
-    <div class="col-lg-3 col-md-4 col-6 p-4" *ngFor="let article of articles$ | async">
-      <div class="card" (click)="openArticle(article)">
-        <div class="card-img">
-          <img [src]="article.images.at(0)" class="card-img-top rounded" alt="...">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title text-center">{{article.name}}</h5>
-          <p class="card-text text-center">ARS${{article.price}}</p>
+<div class="container-fluid w-100 h-100">
+  <div class="container h-100">
+    <div class="row m-0 p-0 h-100 w-100">
+      <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-4 d-flex" *ngFor="let article of articles$ | async">
+        <div class="card flex-fill w-100" (click)="openArticle(article)">
+          <div class="card-img w-100">
+            <img [src]="article.images.at(0)" class="card-img-top rounded" alt="...">
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-center">{{article.name}}</h5>
+            <p class="card-text text-center">ARS${{article.price}}</p>
+          </div>
         </div>
       </div>
     </div>

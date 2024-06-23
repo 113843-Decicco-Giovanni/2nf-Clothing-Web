@@ -1,8 +1,12 @@
-﻿namespace _2nf_API.Entities
+﻿
+using System.Text.Json.Serialization;
+
+namespace _2nf_API.Entities
 {
     public class Stock
     {
         public int Id { get; set; }
+        [JsonIgnore]
         public Article Article { get; set; }
         public Size Size { get; set; }
         public int Amount { get; set; }

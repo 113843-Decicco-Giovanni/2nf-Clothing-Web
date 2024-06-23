@@ -1,0 +1,91 @@
+<div class="container-fluid">
+    <div class="container w-100 pt-4">
+        <div class="card w-100">
+            <div class="card-title mt-4">
+                <div class="row">
+                    <div>
+                        <h3 class="text-center">Articulo</h3>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{(article$ | async)?.id}}</th>
+                            <td><img [src]="(article$ | async)?.images?.at(0)" alt=""></td>
+                            <td>{{(article$ | async)?.name}}</td>
+                            <td>ARS${{(article$ | async)?.price}}</td>
+                            <td class="text-center align-items-center">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-md-6 pb-2">
+                                        <button class="btn btn-secondary w-100" (click)="editArticle()">Modificar</button>
+
+                                    </div>
+                                    <div class="col-md-6 pb-2">
+                                        <button class="btn btn-danger w-100" (click)="deleteArticle()" *ngIf="!(this.article$ | async)?.discontinuedAt">Eliminar</button>
+                                        <button class="btn btn-success w-100" (click)="activateArticle()" *ngIf="(this.article$ | async)?.discontinuedAt">Activar</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+        <div class="card w-100 mt-4">
+            <div class="card-title mt-4">
+                <div class="row">
+                    <div>
+                        <h3 class="text-center">Stock</h3>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let size of sizes$ | async">{{size.description}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row" *ngFor="let size of sizes$ | async">{{(this.visualizarStock(size) | async)?.amount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <form [formGroup]="this.formStock" (submit)="addStock()" class="form-inline">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="size" class="form-label">Talle*</label>
+                                <select formControlName="size" name="size" id="size" class="form-control form-select">
+                                    <option *ngFor="let size of sizes$ | async" [value]="size.id">{{size.description}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="amount" class="form-label">Cantidad*</label>
+                                <input type="number" formControlName="amount" name="amount" id="amount" class="form-control">
+                            </div>
+                        </div>
+                        <div class="w-100 mt-3">
+                            <button type="submit" class="btn btn-secondary w-100">Agregar</button>
+                        </div>
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>

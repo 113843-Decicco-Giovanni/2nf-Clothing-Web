@@ -39,9 +39,9 @@ namespace _2nf_API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Get()
+        public async Task<ActionResult> Get(string? name, int? docId)
         {
-            List<ClientResponse> result = await _service.Get();
+            List<ClientResponse> result = await _service.Get(name, docId);
             return Ok(result);
         }
 

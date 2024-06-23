@@ -1,0 +1,1 @@
+export const MP_PUBLIC_KEY = 'TEST-f8aa0187-44ba-40f6-a727-65f8b396381d'

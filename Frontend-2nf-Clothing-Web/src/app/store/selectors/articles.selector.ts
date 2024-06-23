@@ -32,3 +32,7 @@ export const selectArticle = createSelector(
     selectArticlesFeature,
     (state: ArticlesState) => state.article
 )
+export const selectSizes = createSelector(
+    selectArticlesFeature,
+    (state: ArticlesState) => state.sizes
+)

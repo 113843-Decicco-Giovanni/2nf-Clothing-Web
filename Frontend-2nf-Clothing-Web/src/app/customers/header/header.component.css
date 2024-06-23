@@ -1,5 +1,6 @@
 header {
     background-color: #393939;
+    position: sticky;
 }
 nav{
     background-color: #393939;

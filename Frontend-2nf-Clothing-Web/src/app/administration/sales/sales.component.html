@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="container pt-4">
+        <div class="card m-auto">
+            <div class="card-title">
+                <h3 class="mt-2">Ventas</h3>
+                <div class="row p-3 pb-2">
+                    <div class="col-sm-6">
+                        <label for="fechaInicio">Fecha desde*</label>
+                        <input type="date" class="form-control" name="fechaInicio" id="fechaInicio" [(ngModel)]="this.fechaInicio">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="fechaFin">Fecha hasta*</label>
+                        <input type="date" class="form-control" name="fechaFin" id="fechaFin" [(ngModel)]="this.fechaFin">
+                    </div>
+                </div>
+                <div class="row p-3 pt-0">
+                    <div class="col-12">
+                        <label for="cliente">Documento del Cliente</label>
+                        <input type="text" class="form-control" name="cliente" id="cliente" [(ngModel)]="this.cliente">
+                    </div>
+                </div>
+                <div class="row p-3 pt-2">
+                    <div class="col-12">
+                        <button class="btn btn-secondary w-100" (click)="consultarVentas()">Filtrar</button>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <thead>
+                        <th>Fecha</th>
+                        <th>Cliente</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let sale of sales$ | async">
+                            <td>{{sale.date | date:'dd/MM/yyyy-HH:mm'}}</td>
+                            <td>{{sale.client.name + ' ' + sale.client.surname}}</td>
+                            <td>AR${{this.calcularTotal(sale)}}</td>
+                            <td><button class="btn btn-secondary" (click)="viewDetails(sale)">Detalles</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

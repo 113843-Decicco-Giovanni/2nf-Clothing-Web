@@ -67,7 +67,8 @@ export const updateClientFailed = createAction(
 )
 
 export const loadClients = createAction(
-    GET_CLIENTS
+    GET_CLIENTS,
+    props<{ name?: string, docId?: number }>()
 )
 export const loadClientsSuccess = createAction(
     GET_CLIENTS_SUCCESS,

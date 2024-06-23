@@ -17,6 +17,7 @@ import Swal from 'sweetalert2';
   styleUrl: './admin-article-list.component.css'
 })
 export class AdminArticleListComponent implements OnInit {
+
   articles$ : Observable<ReadonlyArray<Article>> = new Observable();
   constructor(
     private store: Store<AppState>,
@@ -90,5 +91,8 @@ export class AdminArticleListComponent implements OnInit {
   }
   addArticle(){
     this.router.navigate(['administration', 'articles', 'new']);
+  }
+  stock(article: Article) {
+    this.router.navigate(['administration', 'articles', 'stock', article.id]);
   }
 }

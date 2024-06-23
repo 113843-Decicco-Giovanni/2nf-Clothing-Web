@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="container pt-4">
+        <div class="card">
+            <div class="card-title pt-3">
+                <h3>Listado de Envios</h3>
+                <hr>
+                <div class="row p-3">
+                    <div class="col-md-4">
+                        <label for="estado" class="form-label">Estado</label>
+                        <select name="estado" id="estado" class="form-select" [(ngModel)]="this.estado">
+                            <option value="0" selected>Pendiente</option>
+                            <option value="1">Procesado</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="fechaDesde" class="form-label">Fecha Inicio</label>
+                        <input type="date" name="fechaDesde" id="fechaDesde" class="form-control" [(ngModel)]="this.fechaInicio">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="fechaFin" class="form-label">Fecha Fin</label>
+                        <input type="date" name="fechaFin" id="fechaFin" class="form-control" [(ngModel)]="this.fechaFin">
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col-md-6">
+                        <label for="cliente" class="form-label">Documento del Cliente</label>
+                        <input type="text" name="cliente" id="cliente" class="form-control" [(ngModel)]="this.cliente">
+                    </div>
+                    <div class="col-md-6 d-flex flex-column justify-content-end">
+                        <button class="btn btn-secondary w-100 mt-auto" (click)="consultarEnvios()">Filtrar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let shipment of shipments$ | async">
+                            <td>{{shipment.sale.client.name + ' ' + shipment.sale.client.surname}}</td>
+                            <td>{{shipment.sale.date | date:'dd/MM/yyyy-HH:mm'}}</td>
+                            <td>{{shipment.shipmentState == 'Pendiente' ? 'Pendiente' : 'Procesado'}}</td>
+                            <td><button class="btn btn-secondary" (click)="viewDetails(shipment)">Detalles</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

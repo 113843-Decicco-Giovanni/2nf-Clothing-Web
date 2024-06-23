@@ -10,6 +10,10 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { UserEffects } from './store/effects/user.effects';
 import { ClientsEffects } from './store/effects/clients.effects';
 import { CartEffects } from './store/effects/cart.effects';
+import { PaymentEffects } from './store/effects/payment.effects';
+import { ShipmentsEffects } from './store/effects/shipments.effects';
+import { SaleEfectts } from './store/effects/sale.effects';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,11 +24,15 @@ export const appConfig: ApplicationConfig = {
         ArticlesEffects,
         UserEffects,
         ClientsEffects,
-        CartEffects
+        CartEffects,
+        PaymentEffects,
+        ShipmentsEffects,
+        SaleEfectts
       ]
       ),
     provideStoreDevtools(),
     importProvidersFrom(HttpClientModule),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }), 
+    provideCharts(withDefaultRegisterables())
   ]
 };

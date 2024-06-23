@@ -68,9 +68,9 @@ namespace _2nf_API.Services.Imp
             return response;
         }
 
-        public async Task<List<ClientResponse>> Get()
+        public async Task<List<ClientResponse>> Get(string? name, int? docId)
         {
-            var clients = await _repository.Get();
+            var clients = await _repository.Get(name, docId);
             var result = _mapper.Map<List<ClientResponse>>(clients);
             return result;
         }

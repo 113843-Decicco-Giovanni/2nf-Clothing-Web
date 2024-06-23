@@ -16,14 +16,14 @@
                 <hr>
             </div>
             <div class="card-body">
-                <table class="table table-borderless">
+                <table class="table table-sm table-borderless text-center">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Imagen</th>
                             <th scope="col">Nombre</th>
+                            <th scope="col">Baja</th>
                             <th scope="col">Precio</th>
-                            <th scope="col">Descontinuado</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -32,15 +32,14 @@
                             <th scope="row">{{article.id}}</th>
                             <td><img [src]="article.images.at(0)" alt=""></td>
                             <td>{{article.name}}</td>
+                            <td *ngIf="article.discontinuedAt">Baja día {{article.discontinuedAt | date:'dd/MM/yyyy'}}</td>
+                            <td *ngIf="!article.discontinuedAt">Activo</td>
                             <td>ARS${{article.price}}</td>
-                            <td *ngIf="article.discontinuedAt == undefined">No</td>
-                            <td *ngIf="article.discontinuedAt != undefined">Si</td>
-                            <td><button class="btn btn-secondary" (click)="editArticle(article)">Editar</button></td>
                             <td>
-                                <button class="btn btn-danger w-75" (click)="deleteArticle(article)" *ngIf="!article.discontinuedAt">Eliminar</button>
-                                <button class="btn btn-success w-75" (click)="activateArticle(article)" *ngIf="article.discontinuedAt">Activar</button>
+                                <button class="btn btn-secondary w-100" (click)="editArticle(article)">Ver</button>
                             </td>
                         </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

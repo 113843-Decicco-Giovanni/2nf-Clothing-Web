@@ -9,6 +9,16 @@ import { UserProfileComponent } from "./users/user-profile/user-profile.componen
 import { ClientsViewComponent } from "./clients/clients-view/clients-view.component";
 import { AuthGuard } from "./auth.guard";
 import { AuthGuardAdmin } from "./auth.guard.admin";
+import { ArticleComponent } from "./articles/article-component/article.component";
+import { SalesComponent } from "./sales/sales.component";
+import { ShipmentsComponent } from "./shipments/shipments.component";
+import { SaleDetailComponent } from "./sale-detail/sale-detail.component";
+import { ShipmentDetailComponent } from "./shipment-detail/shipment-detail.component";
+import { ShipmentModifyComponent } from "./shipment-modify/shipment-modify.component";
+import { SalesByDayComponent } from "./reports/sales-by-day/sales-by-day.component";
+import { SalesByMonthComponent } from "./reports/sales-by-month/sales-by-month.component";
+import { BilledAmountByDayComponent } from "./reports/billed-amount-by-day/billed-amount-by-day.component";
+import { BilledAmountByMonthComponent } from "./reports/billed-amount-by-month/billed-amount-by-month.component";
 
 export const ADMINISTRATION_ROUTES: Routes = [
     {
@@ -30,6 +40,10 @@ export const ADMINISTRATION_ROUTES: Routes = [
             },
             {
                 path: ':id',
+                component: ArticleComponent
+            },
+            {
+                path: 'modify/:id',
                 component: AdminModifyArticleComponent
             }
         ]
@@ -51,11 +65,72 @@ export const ADMINISTRATION_ROUTES: Routes = [
     },
     {
         path: 'profile',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
         component: UserProfileComponent
     },
     {
         path: 'clients',
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
+        // canActivateChild: [AuthGuard],
         component: ClientsViewComponent
+    },
+    {
+        path: 'sales',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        children:[
+            {
+                path: '',
+                component: SalesComponent
+            },
+            {
+                path: ':id',
+                component: SaleDetailComponent
+            },
+            
+        ]
+    },
+    {
+        path:'shipments',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        children:[
+            {
+                path: '',
+                component: ShipmentsComponent
+            },
+            {
+                path: ':id',
+                component: ShipmentDetailComponent
+            },
+            {
+                path: 'modify/:id',
+                component: ShipmentModifyComponent
+            }
+        ]
+    },
+    {
+        path: 'reports',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        children:[
+            {
+                path: 'sales-by-day',
+                component: SalesByDayComponent
+            },
+            {
+                path: 'sales-by-month',
+                component: SalesByMonthComponent
+            },
+            {
+                path: 'billed-amount-by-day',
+                component: BilledAmountByDayComponent
+            },
+            {
+                path: 'billead-amount-by-month',
+                component: BilledAmountByMonthComponent
+            }
+        ]
     }
 ]

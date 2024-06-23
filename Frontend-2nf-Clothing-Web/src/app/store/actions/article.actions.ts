@@ -1,6 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 import { Article } from "../../models/articles/article";
 import { ArticleType } from "../../models/articles/article-type";
+import { Size } from "../../models/stocks/size";
 
 // savings
 export const ADD_ARTICLE = '[new-article] Add Article';
@@ -38,6 +39,11 @@ export const LOAD_ARTICLE_BY_ID_FAIL = '[article] Load Article By Id Fail';
 export const UPDATE_STOCK = '[stock] Update Stock';
 export const UPDATE_STOCK_SUCCESS = '[stock] Update Stock Success';
 export const UPDATE_STOCK_FAIL = '[stock] Update Stock Fail';
+
+//sizes
+export const LOAD_SIZES = '[Articles] Load Sizes';
+export const LOAD_SIZES_SUCCESS = '[Articles] Load Sizes Success';
+export const LOAD_SIZES_FAIL = '[Articles] Load Sizes Fail';
 
 export const loadArticles = createAction(
     LOAD_ARTICLES
@@ -124,4 +130,14 @@ export const updateStockSuccess = createAction(
 )
 export const updateStockFail = createAction(
     UPDATE_STOCK_FAIL
+)
+export const loadSizes = createAction(
+    LOAD_SIZES
+)
+export const loadSizesSuccess = createAction(
+    LOAD_SIZES_SUCCESS,
+    props<{ sizes: Size[] }>()
+)
+export const loadSizesFail = createAction(
+    LOAD_SIZES_FAIL
 )

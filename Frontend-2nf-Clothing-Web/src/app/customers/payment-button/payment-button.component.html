@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <div class="container m-auto pt-5">
+        <div class="card m-auto">
+            <div class="card-title mt-3 mb-0 p-3 pb-0">
+                <p>Detalles de la compra</p>
+                <hr>
+            </div>
+            <div class="card-body pt-1">
+                <table class="table">
+                    <thead>
+                        <th colspan="2">Artículo</th>
+                        <th>Talle</th>
+                        <th>Cantidad</th>
+                        <th>Precio por unidad</th>
+                        <th>Total</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let detail of this.cart$ | async">
+                            <td><img [src]="detail.article.images[0]" alt=""></td>
+                            <td>{{detail.article.name}}</td>
+                            <td>{{detail.size.description}}</td>
+                            <td>{{detail.amount}}</td>
+                            <td>ARS${{detail.article.price}}</td>
+                            <td>ARS${{detail.article.price * detail.amount}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5"></td>
+                            <td colspan="2">Total: ARS${{this.total$ | async}}</td>
+                        </tr>
+                    </tfoot>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container m-auto pt-5">
+        <div class="card m-auto">
+            <div class="card-title mt-3 mb-0 p-3 pb-0">
+                <p>Datos de envío</p>
+                <hr>
+            </div>
+            <div class="card-body pt-1">
+                <table class="table">
+                    <thead>
+                        <th>Cliente</th>
+                        <th>Documento</th>
+                        <th>Dirección</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{(this.client$ | async)?.name + ' ' + (this.client$ | async)?.surname}}</td>
+                            <td>{{(this.client$ | async)?.docId}}</td>
+                            <td>{{(this.shimpment$ | async)?.street + ' ' + 
+                            (this.shimpment$ | async)?.streetNumber + ', ' + 
+                            (this.shimpment$ | async)?.city + ', ' + 
+                            (this.shimpment$ | async)?.state + ', ' + 
+                            (this.shimpment$ | async)?.postalCode}}</td>
+                            <td>{{(this.shimpment$ | async)?.email}}</td>
+                            <td>{{(this.shimpment$ | async)?.phone}}</td>
+                        </tr>
+                        <tr *ngIf="(this.shimpment$ | async)?.details">
+                            <th>Details</th>
+                            <td colspan="5">{{(this.shimpment$ | async)?.details}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row m-2">
+                    <button class="btn btn-secondary col-12" (click)="this.confirm()" *ngIf="!this.botonCargado">Ir al Pago</button>
+                    <div id="wallet-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

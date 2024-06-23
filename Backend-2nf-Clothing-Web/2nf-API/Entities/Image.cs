@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace _2nf_API.Entities
 {
@@ -7,6 +8,7 @@ namespace _2nf_API.Entities
         [Key]
         public int Id { get; set; }
         public string URL { get; set; }
+        [JsonIgnore]
         public Article Article { get; set; }
     }
 }

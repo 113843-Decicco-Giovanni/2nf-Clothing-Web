@@ -4,7 +4,6 @@ using _2nf_API.Requests;
 using _2nf_API.Responses;
 using AutoMapper;
 using FluentValidation;
-using Microsoft.AspNetCore.Mvc;
 
 namespace _2nf_API.Services.Imp
 {

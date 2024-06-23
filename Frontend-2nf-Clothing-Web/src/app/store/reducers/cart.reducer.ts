@@ -15,7 +15,9 @@ export const cartReducer = createReducer(
     on(addToCart, (state) => {
         return {
             ...state,
-            loading: true
+            loading: true,
+            added: false,
+            deleted: false,
         }
     }),
     on(addToCartSuccess, (state, { cart }) => {

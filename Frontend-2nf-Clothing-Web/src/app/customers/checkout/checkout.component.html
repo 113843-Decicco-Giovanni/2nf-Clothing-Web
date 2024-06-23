@@ -1,0 +1,160 @@
+<div class="container-fluid">
+    <div class="container m-auto pt-5">
+        <div class="card m-auto">
+            <div class="card-title mt-3 mb-0 p-3 pb-0">
+                <p>Detalles de la compra</p>
+                <hr>
+            </div>
+            <div class="card-body pt-1">
+                <table class="table">
+                    <thead>
+                        <th colspan="2">Artículo</th>
+                        <th>Talle</th>
+                        <th>Cantidad</th>
+                        <th>Precio por unidad</th>
+                        <th>Total</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let detail of this.cart$ | async">
+                            <td><img [src]="detail.article.images[0]" alt=""></td>
+                            <td>{{detail.article.name}}</td>
+                            <td>{{detail.size.description}}</td>
+                            <td>{{detail.amount}}</td>
+                            <td>ARS${{detail.article.price}}</td>
+                            <td>ARS${{detail.article.price * detail.amount}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5"></td>
+                            <td colspan="2">Total: ARS${{this.total$ | async}}</td>
+                        </tr>
+                    </tfoot>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container m-auto pt-5">
+        <div class="card m-auto">
+            <div class="card-title mt-3 mb-0 p-3 pb-0">
+                <p>Datos de envío</p>
+                <hr>
+            </div>
+            <div class="card-body pt-1">
+                <form class="form-inline" [formGroup]="this.formDireccion" (ngSubmit)="submit()">
+                    <div class="row mt-3">
+                        <div class="col-md-8">
+                            <label for="street" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formDireccion.get('street')?.hasError('required') && this.formDireccion.get('street')?.touched }">
+                                Calle*
+                            </label>
+                            <input formControlName="street" type="text" class="form-control m-0 pt-1 pb-1" name="street" id="street"
+                            [ngClass]="{ 'is-invalid': this.formDireccion.get('street')?.hasError('required') && this.formDireccion.get('street')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formDireccion.get('street')?.valid && this.formDireccion.get('street')?.touched }">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="streetNumber" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formDireccion.get('streetNumber')?.hasError('required') && this.formDireccion.get('streetNumber')?.touched 
+                            || this.formDireccion.get('streetNumber')?.hasError('min') && this.formDireccion.get('streetNumber')?.touched}">
+                                Número*
+                            </label>
+                            <input formControlName="streetNumber" type="number" class="form-control m-0 pt-1 pb-1" name="streetNumber" id="streetNumber"
+                            [ngClass]="{ 'is-invalid': this.formDireccion.get('streetNumber')?.hasError('required') && this.formDireccion.get('streetNumber')?.touched 
+                            || this.formDireccion.get('streetNumber')?.hasError('min') && this.formDireccion.get('streetNumber')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formDireccion.get('streetNumber')?.valid && this.formDireccion.get('streetNumber')?.touched }">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="floor" class="form-label m-0 p-0">
+                                Piso
+                            </label>
+                            <input formControlName="floor" type="text" class="form-control m-0 pt-1 pb-1" name="floor" id="floor">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="appartament" class="form-label m-0 p-0">
+                                Dpto.
+                            </label>
+                            <input formControlName="appartement" type="text" class="form-control m-0 pt-1 pb-1" name="appartament" id="appartament">
+                        </div>
+                        
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-8">
+                            <label for="city" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formDireccion.get('city')?.hasError('required') && this.formDireccion.get('city')?.touched }">
+                                Ciudad*
+                            </label>
+                            <input formControlName="city" type="text" class="form-control m-0 pt-1 pb-1" name="city" id="city"
+                            [ngClass]="{ 'is-invalid': this.formDireccion.get('city')?.hasError('required') && this.formDireccion.get('city')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formDireccion.get('city')?.valid && this.formDireccion.get('city')?.touched }">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="state" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formDireccion.get('state')?.hasError('required') && this.formDireccion.get('state')?.touched }">
+                                Provincia*
+                            </label>
+                            <input formControlName="state" type="text" class="form-control m-0 pt-1 pb-1" name="state" id="state"
+                            [ngClass]="{ 'is-invalid': this.formDireccion.get('state')?.hasError('required') && this.formDireccion.get('state')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formDireccion.get('state')?.valid && this.formDireccion.get('state')?.touched }">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <!-- <div class="col-md-3">
+                            <label for="country" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formDireccion.get('country')?.hasError('required') && this.formDireccion.get('country')?.touched }">
+                                País*
+                            </label>
+                            <input formControlName="country" type="text" class="form-control m-0 pt-1 pb-1" name="country" id="country"
+                            [ngClass]="{ 'is-invalid': this.formDireccion.get('country')?.hasError('required') && this.formDireccion.get('country')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formDireccion.get('country')?.valid && this.formDireccion.get('country')?.touched }">
+                        </div> -->
+                        <div class="col-md-2">
+                            <label for="postalCode" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formDireccion.get('postalCode')?.hasError('required') && this.formDireccion.get('postalCode')?.touched }">
+                                Código Postal*
+                            </label>
+                            <input formControlName="postalCode" type="text" class="form-control m-0 pt-1 pb-1" name="postalCode" id="postalCode"
+                            [ngClass]="{ 'is-invalid': this.formDireccion.get('postalCode')?.hasError('required') && this.formDireccion.get('postalCode')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formDireccion.get('postalCode')?.valid && this.formDireccion.get('postalCode')?.touched }">
+                        </div>
+                        <!-- <div class="col-md-3">
+                            <label for="phone" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formDireccion.get('phone')?.hasError('required') && this.formDireccion.get('phone')?.touched }">
+                                Teléfono*
+                            </label>
+                            <input formControlName="phone" type="text" class="form-control m-0 pt-1 pb-1" name="phone" id="phone"
+                            [ngClass]="{ 'is-invalid': this.formDireccion.get('phone')?.hasError('required') && this.formDireccion.get('phone')?.touched }"
+                            [ngClass]="{ 'is-valid': this.formDireccion.get('phone')?.valid && this.formDireccion.get('phone')?.touched }">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="email" class="form-label m-0 p-0"
+                            [ngClass]="{ 'text-danger': this.formDireccion.get('email')?.hasError('required') && this.formDireccion.get('email')?.touched 
+                            || this.formDireccion.get('email')?.hasError('email') && this.formDireccion.get('email')?.touched}">
+                                Correo Electrónico*
+                            </label>
+                            <input formControlName="email" type="text" class="form-control m-0 pt-1 pb-1" name="email" id="email"
+                            [ngClass]="{ 'is-invalid': this.formDireccion.get('email')?.hasError('required') && this.formDireccion.get('email')?.touched 
+                            || this.formDireccion.get('email')?.hasError('email') && this.formDireccion.get('email')?.touched}"
+                            [ngClass]="{ 'is-valid': this.formDireccion.get('email')?.valid && this.formDireccion.get('email')?.touched }">
+                        </div> -->
+                        <div class="col-12 mt-3">
+                            <label for="details" class="form-label m-0 p-0">Detalles del envío</label>
+                            <textarea formControlName="details" name="details" id="details" class="form-control m-0 pt-1 pb-1" formControlName="details" cols="30" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12" >
+                            <button type="submit" class="btn btn-secondary col-12 mt-3">Confirmar datos de envio</button>
+                        </div>
+                        <!-- <div class="col-6" >
+                            <button type="submit" class="btn btn-secondary col-12 mt-3" (click)="this.changeAddress()">Modificar datos de envio</button>
+                        </div> -->
+                    </div>
+                </form>
+                <!-- <div class="row mt-3">
+                    <div id="wallet-container"></div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

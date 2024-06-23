@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { ACTIVATE_ARTICLE_SUCCESS, ADD_ARTICLE_SUCCESS, DELETE_ARTICLE_SUCCESS, LOAD_ARTICLES, LOAD_ARTICLES_SUCCESS, LOAD_ARTICLES_WITH_STOCK, LOAD_ARTICLE_BY_ID, LOAD_ARTICLE_BY_ID_SUCCESS, LOAD_ARTICLE_TYPES, LOAD_ARTICLE_TYPES_SUCCESS, UPDATE_ARTICLE_SUCCESS, activateArticle, addArticle, deleteArticle, loadArticleById, updateArticle, updateStock } from "../actions/article.actions";
+import { ACTIVATE_ARTICLE_SUCCESS, ADD_ARTICLE_SUCCESS, DELETE_ARTICLE_SUCCESS, LOAD_ARTICLES, LOAD_ARTICLES_SUCCESS, LOAD_ARTICLES_WITH_STOCK, LOAD_ARTICLE_BY_ID, LOAD_ARTICLE_BY_ID_SUCCESS, LOAD_ARTICLE_TYPES, LOAD_ARTICLE_TYPES_SUCCESS, LOAD_SIZES_SUCCESS, UPDATE_ARTICLE_SUCCESS, activateArticle, addArticle, deleteArticle, loadArticleById, loadSizes, updateArticle, updateStock } from "../actions/article.actions";
 import { EMPTY, catchError, map, mergeMap } from "rxjs";
 import { ArticleService } from "../../services/article.service";
+import Swal from "sweetalert2";
 
 @Injectable()
 export class ArticlesEffects{
@@ -91,7 +92,25 @@ export class ArticlesEffects{
         ofType(updateStock),
         mergeMap((action) => this.service.updateStock(action.articleId, action.stock)
             .pipe(
-                map(() => ({type: UPDATE_ARTICLE_SUCCESS})),
+                map(() => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Stock actualizado',
+                        background: '#262626',
+                        color: '#a7a7a7',
+                        confirmButtonColor: '#a7a7a7'
+                    })
+                    return ({type: UPDATE_ARTICLE_SUCCESS});
+                }),
+                catchError(() => EMPTY)
+            )
+        )
+    ))
+    loadSizes$ = createEffect(() => this.actions$.pipe(
+        ofType(loadSizes),
+        mergeMap(() => this.service.getSizes()
+            .pipe(
+                map(sizes => ({type: LOAD_SIZES_SUCCESS, sizes})),
                 catchError(() => EMPTY)
             )
         )

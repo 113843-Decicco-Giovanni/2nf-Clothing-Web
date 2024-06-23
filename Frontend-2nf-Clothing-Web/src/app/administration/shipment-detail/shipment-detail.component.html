@@ -1,0 +1,105 @@
+<div class="container-fluid">
+    <div class="container p-4">
+        <div class="card">
+            <div class="card-title mt-2">
+                <h3>
+                    Envío N°{{(this.shipment$ | async)?.id}}
+                </h3>
+                <hr>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <div class="row mb-3">
+                        <div class="col-lg-6 p-2">
+                            <table class="table table-sm text-center h-100">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Cliente</th>
+                                        <th>Estado</th>
+                                        <th>Contacto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{(this.shipment$ | async)?.sale?.date| date:'dd/MM/yyyy-HH:mm'}}</td>
+                                        <td>{{(this.shipment$ | async)?.sale?.client?.name + ' ' + (this.shipment$ | async)?.sale?.client?.surname}}</td>
+                                        <td>{{(this.shipment$ | async)?.shipmentState == 'Pendiente' ? 'Pendiente' : 'Procesado'}}</td>
+                                        <td>{{(this.shipment$ | async)?.sale?.client?.phone}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-lg-6 p-2">
+                            <table class="table table-sm text-center h-100">
+                                <thead>
+                                    <tr>
+                                        <th>Dirección</th>
+                                        <th>Códico Postal</th>
+                                        <th>Localidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{(this.shipment$ | async)?.street + ' ' + 
+                                              (this.shipment$ | async)?.streetNumber}}
+                                        </td>
+                                        <td>{{(this.shipment$ | async)?.postalCode}}</td>
+                                        <td>{{(this.shipment$ | async)?.city + ', ' + (this.shipment$ | async)?.state}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 p-2">
+                            <table class="table table-sm text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Id Articulo</th>
+                                        <th>Artículo</th>
+                                        <th>Talle</th>
+                                        <th>Cantidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let detail of (this.shipment$ | async)?.sale?.details">
+                                        <td>{{detail.article.id}}</td>
+                                        <td>{{detail.article.name}}</td>
+                                        <td>{{detail.size.description}}</td>
+                                        <td>{{detail.amount}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="servicio" class="form-label">Servicio*</label>
+                                    <input [disabled]="!this.editable" type="text" class="form-control" id="servicio" name="servicio" [(ngModel)]="this.service">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="nroSeguimiento" class="form-label">Nro de Seguimiento*</label>
+                                    <input [disabled]="!this.editable" type="number" class="form-control" id="nroSeguimiento" name="nroSeguimiento" [(ngModel)]="this.trackingId">
+                                </div>
+                                <div class="col-md-4 d-flex flex-column justify-content-end">
+                                    <button [disabled]="!this.editable" class="btn btn-secondary w-100" (click)="procesar()">Procesar Pedido</button>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="(this.shipment$ | async)?.shipmentState == 'Procesado'">
+                                <div class="col-12">
+                                    <button class="btn btn-danger w-100" (click)="this.editable = !this.editable" *ngIf="!this.editable">Modificar Estado</button>
+                                    <button class="btn btn-success w-100" (click)="this.editable = !this.editable" *ngIf="this.editable">Cancelar Edición</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer mt-3 mb-0 pb-0" *ngIf="(this.shipment$ | async)?.shipmentState == 'Pendiente'">
+                <hr>
+                <p class="text-center">Los datos son erroneos? <a class= "linkModificar" (click)="modificarEnvio()">Modificar</a></p>
+            </div>
+        </div>
+    </div>
+</div>

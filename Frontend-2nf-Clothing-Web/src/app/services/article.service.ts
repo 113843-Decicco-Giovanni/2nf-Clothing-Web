@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Article } from '../models/articles/article';
 import { Observable } from 'rxjs';
 import { ArticleType } from '../models/articles/article-type';
+import { Size } from '../models/stocks/size';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,8 @@ export class ArticleService {
   }
   updateStock(id: number, stock: {size: number, amount: number}): Observable<Article>{
     return this.http.put<Article>(this.url + '/stock/' + id, stock)
+  }
+  getSizes(): Observable<Size[]>{
+    return this.http.get<Size[]>(this.url + '/sizes')
   }
 }

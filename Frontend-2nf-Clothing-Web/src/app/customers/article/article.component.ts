@@ -1,13 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from '../../models/articles/article';
-import { Observable, map} from 'rxjs';
+import { Observable, async, map, take } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/states/app.state';
 import { CommonModule } from '@angular/common';
 import { Size } from '../../models/stocks/size';
 import { Stock } from '../../models/stocks/stock';
 import { FormsModule } from '@angular/forms';
+import { loadArticleById, loadSizes } from '../../store/actions/article.actions';
+import { selectArticle, selectSizes } from '../../store/selectors/articles.selector';
+import { addToCart } from '../../store/actions/cart.actions';
+import { CartDetail } from '../../models/cart/cartDetail';
+import { selectCart, selectCartAmount } from '../../store/selectors/cart.selector';
+
 
 
 @Component({
@@ -20,72 +26,44 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './article.component.html',
   styleUrl: './article.component.css'
 })
-export class ArticleComponent implements OnInit {
+export class ArticleComponent implements OnInit, OnDestroy {
 
-  article: Article = {
-    id: 0,
-    name: '',
-    description: '',
-    price: 0,
-    type: 0,
-    images: [''],
-    createdAt: new Date(),
-    stocks: []
-  };
-  stocks$: Observable<ReadonlyArray<Stock>> = new Observable();
+  article$: Observable<Article> = new Observable();
   sizes$: Observable<ReadonlyArray<Size>> = new Observable();
   talleSeleccionado: Size = {
     id: 0,
     description: ''
-  }
+  };
   amount: number = 1;
   disponibles: number = 0;
+  suscriptions: any[] = [];
 
   constructor(
-    private activatedRoute: ActivatedRoute, 
+    private activatedRoute: ActivatedRoute,
     private store: Store<AppState>
-    ) {
-
+  ) {
+  }
+  ngOnDestroy() {
+    this.suscriptions.forEach(x => x.unsubscribe());
   }
 
   ngOnInit() {
-    // //rehacer esta mierda
-    // this.store.dispatch(loadSizes());
-    // this.store.dispatch(loadStocks());
-    // this.activatedRoute.params.subscribe(params => {
-    //   const articleId = params['id'];
-  
-    //   // Cargar el artículo directamente si ya está disponible
-    //   this.store.select(selectArticles).pipe(
-    //     map(articles => articles.find(article => article.id === articleId))
-    //   ).subscribe(article => {
-    //     if (article) {
-    //       this.article = article;
-    //     } else {
-    //       // Si el artículo no está disponible, cargarlo
-    //       this.store.dispatch(loadArticleById({ id: articleId }));
-    //       // Suscribirse al artículo después de cargarlo
-    //       this.store.select(selectArticle).subscribe(article => {
-    //         if (article) {
-    //           this.article = article;
-    //         }
-    //       });
-  
-    //   // Cargar los stocks por el ID del artículo
-    //   }})});
-  
-    // // Suscribirse a los stocks y tamaños después de cargarlos
-    
-    // this.stocks$ = this.store.select(selectStocks);
-    // this.sizes$ = this.store.select(selectSizes);
+    this.store.dispatch(loadSizes());
+    this.store.dispatch(loadArticleById({ id: this.activatedRoute.snapshot.params['id'] }));
+    this.sizes$ = this.store.select(selectSizes);
+    this.article$ = this.store.select(selectArticle);
   }
 
-  hayTalle(id:number): Observable<boolean> {
-    return this.stocks$.pipe(
-      map(stocks => {
-        return !stocks.some(x => x.size == id)
+  hayTalle(id: number): Observable<boolean> {
+    return this.article$.pipe(
+      map(article => {
+        return article.stocks.some(x => x.size == id);
       })
-    )
+    );
+    // this.article$.pipe(take(1)).subscribe(article => {
+    //   return article.stocks?.some(x => x.size == id);
+    // })
+    // return new Observable(() => { false });
   }
 
   seleccionarTalle(size: Size) {
@@ -93,16 +71,36 @@ export class ArticleComponent implements OnInit {
     this.actualizarDisponibles();
   }
 
-  actualizarDisponibles(){
-    this.stocks$.subscribe(stocks => {
-      var stock = stocks.find(x => x.size == this.talleSeleccionado.id);
-      if(stock != undefined){
-        this.disponibles = stock.amount;
+  actualizarDisponibles() {
+    this.article$.subscribe(article => {
+      var stock = article.stocks.find(x => x.size == this.talleSeleccionado.id);
+      if (stock != undefined) {
+        this.disponibles = stock ? stock.amount : 0;
+        console.log('Disponibles: ' + this.disponibles);
+        console.log('Talle: ' + this.talleSeleccionado.id);
+        console.log('Amount: ' + this.amount);
       }
-    })
+    });
   }
 
   addToCart() {
-    
+    if (this.talleSeleccionado.id != 0 && this.amount != 0 && this.amount <= this.disponibles) {
+      var article: Article;
+      this.suscriptions.push(this.store.select(selectCartAmount).pipe(take(1)).subscribe(
+        cart => {
+          var id = cart + 1
+            this.suscriptions.push(this.article$.pipe(take(1)).subscribe(x => {
+              article = x
+              const cartDetail: CartDetail = {
+                id: id,
+                article: article,
+                size: this.talleSeleccionado,
+                amount: this.amount
+              }
+              this.store.dispatch(addToCart({ detail: cartDetail }));
+            }))
+        }
+      ))
+    }
   }
 }

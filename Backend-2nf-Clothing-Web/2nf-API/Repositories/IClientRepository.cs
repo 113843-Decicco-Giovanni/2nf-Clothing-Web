@@ -10,6 +10,6 @@ namespace _2nf_API.Repositories
         Task<Client> GetByUser(User user);
         Task<Client> GetById(int id);
         Task<Client> GetByDoc(int doc);
-        Task<List<Client>> Get();
+        Task<List<Client>> Get(string? name, int? docId);
     }
 }

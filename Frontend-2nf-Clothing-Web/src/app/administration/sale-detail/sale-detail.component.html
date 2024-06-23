@@ -1,0 +1,80 @@
+<div class="container-fluid">
+    <div class="container pt-4">
+        <div class="card">
+            <div class="card-title">
+                <p class="pt-3">Venta Nro° {{(this.sale$ | async)?.id}}</p>
+                <hr>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="container m-auto col-md-6">
+                        <h3>Datos del Cliente</h3>
+                        <table class="table table-sm text-center">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Documento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{(this.sale$ | async)?.client?.id}}</td>
+                                    <td>{{(this.sale$ | async)?.client?.name + ' ' + (this.sale$ | async)?.client?.surname}}</td>
+                                    <!-- <td>{{(this.sale$ | async)?.client?.surname}}</td> -->
+                                    <td>{{(this.sale$ | async)?.client?.docId}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="container m-auto col-md-6">
+                        <h3>Datos de la Venta</h3>
+                        <table class="table table-sm text-center">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Fecha</th>
+                                    <th>Id del Pago</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{(this.sale$ | async)?.id}}</td>
+                                    <td>{{(this.sale$ | async)?.date | date:'dd/MM/yyyy-HH:mm'}}</td>
+                                    <td>{{(this.sale$ | async)?.paymentId}}</td>
+                                    <td>AR${{calcularTotal((this.sale$ | async))}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="container m-auto">
+                    <h3>Items</h3>
+                    <table class="table table-sm text-center">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Descripcion</th>
+                                <th>Talle</th>
+                                <th>Cantidad</th>
+                                <th>Precio Unitario</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of (this.sale$ | async)?.details">
+                                <td>{{item.article.id}}</td>
+                                <td>{{item.article.name}}</td>
+                                <td>{{item.size.description}}</td>
+                                <td>{{item.amount}}</td>
+                                <td>AR${{item.unitPrice}}</td>
+                                <td>AR${{calcularSubtotal(item)}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

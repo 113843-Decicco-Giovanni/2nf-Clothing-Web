@@ -40,13 +40,14 @@
                 </table>
                 <h5 class="text-center mb-3" *ngIf="this.hasItems">
                     Quieres agregar más articulos a tu carrito?
-                    <a class="text-center" [routerLink]="['/home']" routerLinkActive="router-link-active">Seguir comprando</a>
+                    <a class="text-center" [routerLink]="['/home']" routerLinkActive="router-link-active">Seguir explorando</a>
                 </h5>
                 <h5 class="text-center" *ngIf="!this.hasItems">
                     Tu carrito de compras se encuentra vacío...
                     <a class="text-center" [routerLink]="['/home']" routerLinkActive="router-link-active">Seguir comprando</a>
                 </h5>
-                <button class="btn btn-secondary w-100" (click)="continueShopping()" *ngIf="this.hasItems">Continuar con el pago</button>
+                <button class="btn btn-secondary col-12" *ngIf="this.hasItems" (click)="continueShopping()">Continuar con la compra</button>
+                <div id="wallet-container" *ngIf="this.hasItems"></div>
             </div>
         </div>
     </div>

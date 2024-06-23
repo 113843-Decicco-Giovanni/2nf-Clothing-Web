@@ -22,7 +22,18 @@ export class ClientService {
   update(id: number, client: ClientRequest): Observable<Client> {
     return this.http.put<Client>(this.url + '/' + id, client)
   }
-  get(): Observable<Client[]> {
-    return this.http.get<Client[]>(this.url)
+  get(name?: string, docId?: number): Observable<Client[]> {
+    var url = this.url
+    if(name != undefined && name != null && name != '') {
+      url += '?name=' + name
+    }
+    if(docId != undefined && docId != null && docId != 0) {
+      if(name != undefined && name != null && name != '') {
+        url += '&docId=' + docId
+      } else {
+        url += '?docId=' + docId
+      }
+    }
+    return this.http.get<Client[]>(url)
   }
 }

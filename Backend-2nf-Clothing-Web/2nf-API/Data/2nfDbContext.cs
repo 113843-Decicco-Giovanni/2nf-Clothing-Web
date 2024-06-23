@@ -15,6 +15,9 @@ namespace _2nf_API.Data
         public DbSet<Client> Clients {  get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<Size> Sizes { get; set; }
+        public DbSet<Sale> Sales { get; set; }
+        public DbSet<SaleDetail> SaleDetails { get; set; }
+        public DbSet<Shipment> Shipments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

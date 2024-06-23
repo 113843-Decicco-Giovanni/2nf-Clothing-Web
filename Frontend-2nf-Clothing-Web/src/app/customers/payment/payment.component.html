@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="container m-auto pt-5">
+        <div class="card m-auto">
+            <div class="card-title mt-3 mb-0 p-3 pb-0">
+                <p *ngIf="this.status == 'approved'">
+                    <i class="fas fa-check-circle" style="color: green;"></i>
+                    Su pago fue aprobado
+                </p>
+                <p *ngIf="this.status != 'approved'">
+                    <i class="fas fa-hourglass-half" style="color: orange;"></i>
+                    Su pago está pendiente
+                </p>
+                <!-- <hr> -->
+            </div>
+            <div class="card-body pt-1">
+                <table class="table" *ngIf="this.hasItems">
+                    <thead>
+                        <th colspan="2">Artículo</th>
+                        <th>Talle</th>
+                        <th>Cantidad</th>
+                        <th>Precio por unidad</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let detail of this.cart$ | async">
+                            <td><img [src]="detail.article.images[0]" alt=""></td>
+                            <td><a [routerLink]="['/article', detail.article.id]" routerLinkActive="router-link-active">{{detail.article.name}}</a></td>
+                            <td>{{detail.size.description}}</td>
+                            <td>{{detail.amount}}</td>
+                            <td>ARS${{detail.article.price}}</td>
+                            <td>ARS${{detail.article.price * detail.amount}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5"></td>
+                            <td colspan="2">Total: ARS${{this.total$ | async}}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

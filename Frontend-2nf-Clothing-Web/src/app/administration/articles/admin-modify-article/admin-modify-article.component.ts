@@ -34,6 +34,7 @@ export class AdminModifyArticleComponent implements OnInit {
     description: '',
     price: 0,
     images: [],
+    stocks: [],
     createdAt: new Date()
   };
   constructor(

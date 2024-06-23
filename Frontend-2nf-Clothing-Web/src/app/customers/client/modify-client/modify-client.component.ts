@@ -41,7 +41,7 @@ export class ModifyClientComponent implements OnInit{
         docId: [client.docId, [Validators.required]],
         street: [client.street, [Validators.required]],
         streetNumber: [client.streetNumber, [Validators.required, Validators.min(1)]],
-        state: [client.street, [Validators.required]],
+        state: [client.state, [Validators.required]],
         city: [client.city, [Validators.required]],
         country: [client.country, [Validators.required]],
         postalCode: [client.postalCode, [Validators.required]],

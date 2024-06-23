@@ -37,9 +37,18 @@ namespace _2nf_API.Repositories.Imp
             throw new NullReferenceException();
         }
 
-        public async Task<List<Client>> Get()
+        public async Task<List<Client>> Get(string? name, int? docId)
         {
-            var result = await _dbContext.Clients.Include(x => x.User).ToListAsync();
+            var query = _dbContext.Clients
+                .Include(x => x.User)
+                .AsQueryable();
+            if(name != null && name != "")
+                query = query.Where(x => x.Name.StartsWith(name, StringComparison.CurrentCultureIgnoreCase) 
+                || x.Surname .StartsWith(name, StringComparison.CurrentCultureIgnoreCase));
+            if (docId.HasValue && docId != 0)
+                query = query.Where(x => x.DocId == docId);
+
+            var result = await query.ToListAsync();
             return result;
         }
 

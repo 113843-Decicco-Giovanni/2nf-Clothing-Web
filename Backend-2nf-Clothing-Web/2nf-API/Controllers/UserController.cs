@@ -36,6 +36,7 @@ namespace _2nf_API.Controllers
             UserResponse result = await _service.Login(request);
             return Ok(result);
         }
+
         [HttpPut]
         [Route("{id}")]
         public async Task<ActionResult> UpdateUser(int id, [FromBody] UserRequest request)

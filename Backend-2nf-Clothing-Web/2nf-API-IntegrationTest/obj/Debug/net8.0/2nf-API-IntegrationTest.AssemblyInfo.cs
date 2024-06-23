@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("2nf-API-IntegrationTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06a92cd270cc5b96a76eb787c89232801607a4c5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+daddc4798d5e4c5894964efa7e8d95ec537fac24")]
 [assembly: System.Reflection.AssemblyProductAttribute("2nf-API-IntegrationTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("2nf-API-IntegrationTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

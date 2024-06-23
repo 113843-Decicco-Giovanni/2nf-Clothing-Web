@@ -28,10 +28,16 @@ builder.Services.AddDbContext<_2nfDbContext>(options =>
 builder.Services.AddTransient<IArticleService, ArticleService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IClientService, ClientService>();
+builder.Services.AddTransient<ISaleService, SaleService>();
+builder.Services.AddTransient<IShipmentService, ShipmentService>();
+builder.Services.AddTransient<IReportsService, ReportsService>();
 //repositories
 builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
+builder.Services.AddScoped<ISaleRepository, SaleRepository>();
+builder.Services.AddScoped<IShipmentRepository, ShipmentRepository>();
+builder.Services.AddScoped<IReportsRepository, ReportsRepository>();
 //validators
 builder.Services.AddTransient<IValidator<ArticleRequest>, ArticleRequestValidator>();
 builder.Services.AddTransient<IValidator<UserRequest>, UserRequestValidator>();

@@ -153,6 +153,116 @@ namespace _2nf_API.Migrations
                     b.ToTable("Images");
                 });
 
+            modelBuilder.Entity("_2nf_API.Entities.Sale", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("ClientDoc")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<long>("PaymentId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.ToTable("Sales");
+                });
+
+            modelBuilder.Entity("_2nf_API.Entities.SaleDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ArticleId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SaleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SizeId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("UnitPrice")
+                        .HasColumnType("double");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArticleId");
+
+                    b.HasIndex("SaleId");
+
+                    b.HasIndex("SizeId");
+
+                    b.ToTable("SaleDetails");
+                });
+
+            modelBuilder.Entity("_2nf_API.Entities.Shipment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Appartament")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Details")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Floor")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("SaleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Service")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("ShipmentState")
+                        .HasColumnType("int");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("StreetNumber")
+                        .HasColumnType("int");
+
+                    b.Property<long?>("TrackingId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SaleId");
+
+                    b.ToTable("Shipments");
+                });
+
             modelBuilder.Entity("_2nf_API.Entities.Size", b =>
                 {
                     b.Property<int>("Id")
@@ -275,6 +385,49 @@ namespace _2nf_API.Migrations
                     b.Navigation("Article");
                 });
 
+            modelBuilder.Entity("_2nf_API.Entities.Sale", b =>
+                {
+                    b.HasOne("_2nf_API.Entities.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId");
+
+                    b.Navigation("Client");
+                });
+
+            modelBuilder.Entity("_2nf_API.Entities.SaleDetail", b =>
+                {
+                    b.HasOne("_2nf_API.Entities.Article", "Article")
+                        .WithMany()
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("_2nf_API.Entities.Sale", null)
+                        .WithMany("Details")
+                        .HasForeignKey("SaleId");
+
+                    b.HasOne("_2nf_API.Entities.Size", "Size")
+                        .WithMany()
+                        .HasForeignKey("SizeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Article");
+
+                    b.Navigation("Size");
+                });
+
+            modelBuilder.Entity("_2nf_API.Entities.Shipment", b =>
+                {
+                    b.HasOne("_2nf_API.Entities.Sale", "Sale")
+                        .WithMany()
+                        .HasForeignKey("SaleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Sale");
+                });
+
             modelBuilder.Entity("_2nf_API.Entities.Stock", b =>
                 {
                     b.HasOne("_2nf_API.Entities.Article", "Article")
@@ -299,6 +452,11 @@ namespace _2nf_API.Migrations
                     b.Navigation("Images");
 
                     b.Navigation("Stocks");
+                });
+
+            modelBuilder.Entity("_2nf_API.Entities.Sale", b =>
+                {
+                    b.Navigation("Details");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,65 @@
+.container-fluid{
+    background-color: #262626;
+}
+.container{
+    background-color: #262626;
+}
+.card{
+    max-width: 900px;
+    background-color: #2c2c2c ;
+    font-family: 'Almarai';
+    letter-spacing: 1px;
+    box-shadow: 0 0 5px #0c0c0c9d;
+}
+.container-md{
+    background-color: #262626;
+}
+.card-title{
+    color: #a7a7a7;
+}
+.card-body{
+    color: #a7a7a7;
+}
+p{
+    letter-spacing: 6px;
+    text-align: center;
+    font-size: xx-large;
+}
+input{
+    background-color: #4a4a4a;
+    border: 0;
+    color: #a7a7a7;
+    text-align: center;
+    letter-spacing: 1px;
+}
+input::placeholder{
+    color: #7a7a7a;
+}
+input:focus{
+    background-color: #585858;
+    color: #a7a7a7;
+    box-shadow: none;
+    border: none;
+    caret-color: transparent;
+}
+label{
+    color: #a7a7a7;
+    text-shadow: #262626 0 0 5px;
+}
+button{
+    background-color: #4a4a4a;
+    border: none;
+    color: #a7a7a7;
+    letter-spacing: 1px;
+    font-family: 'Almarai';
+}
+.registrarse:hover{
+    background-color: #005500;
+}
+.ingresar:hover{
+    background-color: #01003d;
+}
+.ingresar:disabled{
+    background-color: #3f3f3f;
+    color: #7a7a7a;
+}

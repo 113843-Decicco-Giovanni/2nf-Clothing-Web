@@ -1,0 +1,68 @@
+<div class="container-fluid">
+    <div class="container p-3">
+        <!-- <div class="col-md-4 ">
+                <div class="card">
+                    <div class="card-header mt-2">
+                        <h3 class="card-title">Cantidad de ventas por Día</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart
+                            [data]="barChartData"
+                            [options]="barChartOptions"
+                            [plugins]="barChartPlugins"
+                            [legend]="barChartLegend"
+                            [type]="'bar'">
+                        </canvas>
+                    </div>
+                    <div class="card-footer">
+                    </div>
+                </div>
+            </div> -->
+
+        <div class="card">
+            <div class="card-header mt-2">
+                <h3 class="card-title">Cantidad de ventas por Mes</h3>
+                <div class="row">
+                    <div class="col-md-4 mb-2">
+                        <label for="mesDesde" class="form-label">Mes Desde*</label>
+                        <input id="mesDesde" type="month" class="form-control" [(ngModel)]="this.mesDesde">
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <label for="mesHasta" class="form-label">Mes Hasta*</label>
+                        <input id="mesHasta" type="month" class="form-control" [(ngModel)]="this.mesHasta">
+                    </div>
+                    <div class="col-md-4 mb-2 d-flex flex-column justify-content-end">
+                        <button class="btn btn-secondary w-100" (click)="procesar()">Filtrar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas baseChart [data]="ventasPorMesData" [options]="barChartOptions" [plugins]="barChartPlugins"
+                        [legend]="barChartLegend" [type]="'bar'">
+                    </canvas>
+                </div>
+            </div>
+            <div class="card-footer">
+            </div>
+        </div>
+        <!-- <div class="col-md-4 ">
+                <div class="card">
+                    <div class="card-header mt-2">
+                        <h3 class="card-title">Monto facturado por mes</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart
+                            [data]="barChartData"
+                            [options]="barChartOptions"
+                            [plugins]="barChartPlugins"
+                            [legend]="barChartLegend"
+                            [type]="'bar'">
+                        </canvas>
+                    </div>
+                    <div class="card-footer">
+                    </div>
+                </div>
+            </div> -->
+    </div>
+</div>

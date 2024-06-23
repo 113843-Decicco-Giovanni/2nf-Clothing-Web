@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { ArticlesState } from "../states/articles.state";
-import { activateArticle, activateArticleFail, activateArticleSuccess, addArticle, addArticleSuccess, deleteArticle, deleteArticleFail, deleteArticleSuccess, loadArticleById, loadArticleByIdFail, loadArticleByIdSuccess, loadArticleTypes, loadArticleTypesSuccess, loadArticles, loadArticlesFail, loadArticlesSuccess, loadArticlesWithStock, updateArticle, updateArticleFail, updateArticleSuccess, updateStock, updateStockFail, updateStockSuccess } from "../actions/article.actions";
+import { activateArticle, activateArticleFail, activateArticleSuccess, addArticle, addArticleSuccess, deleteArticle, deleteArticleFail, deleteArticleSuccess, loadArticleById, loadArticleByIdFail, loadArticleByIdSuccess, loadArticleTypes, loadArticleTypesSuccess, loadArticles, loadArticlesFail, loadArticlesSuccess, loadArticlesWithStock, loadSizes, loadSizesFail, loadSizesSuccess, updateArticle, updateArticleFail, updateArticleSuccess, updateStock, updateStockFail, updateStockSuccess } from "../actions/article.actions";
 
 export const initialState: ArticlesState = {
     loading: false,
@@ -9,7 +9,8 @@ export const initialState: ArticlesState = {
     added: false,
     deleted: false,
     updated: false,
-    articleTypes: []
+    articleTypes: [],
+    sizes: []
 }
 
 export const articlesReducer = createReducer(
@@ -161,6 +162,25 @@ export const articlesReducer = createReducer(
         }
     }),
     on(updateStockFail, (state) => {
+        return {
+            ...state,
+            loading: false
+        }
+    }),
+    on(loadSizes, (state) => {
+        return {
+            ...state,
+            loading: true
+        }
+    }),
+    on(loadSizesSuccess, (state, { sizes }) => {
+        return {
+            ...state,
+            loading: false,
+            sizes
+        }
+    }),
+    on(loadSizesFail, (state) => {
         return {
             ...state,
             loading: false
