@@ -97,9 +97,11 @@ namespace _2nf_API.Services.Imp
             {
                 try
                 {
-                    var article = _mapper.Map<Article>(request);
-                    article.Id = id;
-                    var result = await _articleRepository.UpdateArticle(article);
+                    var article = await _articleRepository.GetById(id);
+                    var updatedArticle = _mapper.Map(request, article);
+                    //var article = _mapper.Map<Article>(request);
+                    //article.Id = id;
+                    var result = await _articleRepository.UpdateArticle(updatedArticle);
                     var response = _mapper.Map<ArticleResponse>(result);
                     return response;
                 }

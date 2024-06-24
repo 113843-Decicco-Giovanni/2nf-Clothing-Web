@@ -31,8 +31,9 @@ export class ArticleService {
   activateArticle(id: number): Observable<boolean>{
     return this.http.put<boolean>(this.url + '/activate/' + id, {})
   }
-  updateArticle(article: Article): Observable<Article>{
-    return this.http.put<Article>(this.url + '/' + article.id, article);
+  updateArticle(id: number, article: Article): Observable<Article>{
+    console.log(article);
+    return this.http.put<Article>(this.url + '/' + id, article);
   }
   getArticleById(id: number):Observable<Article>{
     return this.http.get<Article>(this.url + '/' + id);

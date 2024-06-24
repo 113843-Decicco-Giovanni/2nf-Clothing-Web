@@ -70,7 +70,7 @@ export const addArticleFail = createAction(
 )
 export const updateArticle = createAction(
     UPDATE_ARTICLE,
-    props<{ article: Article }>()
+    props<{ id: number, article: Article }>()
 )
 export const updateArticleSuccess = createAction(
     UPDATE_ARTICLE_SUCCESS

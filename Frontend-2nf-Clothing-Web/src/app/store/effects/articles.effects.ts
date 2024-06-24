@@ -72,7 +72,7 @@ export class ArticlesEffects{
     ))
     updateArticle$ = createEffect(() => this.actions$.pipe(
         ofType(updateArticle),
-        mergeMap((action) => this.service.updateArticle(action.article)
+        mergeMap((action) => this.service.updateArticle(action.id, action.article)
             .pipe(
                 map(article => ({type: UPDATE_ARTICLE_SUCCESS, article})),
                 catchError(() => EMPTY)

@@ -45,6 +45,7 @@ namespace _2nf_API.Repositories.Imp
                 .Include(x => x.Type)
                 .Include(x => x.Stocks)
                     .ThenInclude(x => x.Size)
+                .OrderBy(x => x.DiscontinuedAt)
                 .ToListAsync();
         }
 

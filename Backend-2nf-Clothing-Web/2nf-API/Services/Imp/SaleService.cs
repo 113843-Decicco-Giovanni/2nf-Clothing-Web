@@ -146,15 +146,11 @@ namespace _2nf_API.Services.Imp
             {
                 Items = items,
                 BackUrls = backUrls,
-                NotificationUrl = "https://c59c-190-120-112-27.ngrok-free.app/api/sale/webhook-payment",
+                NotificationUrl = "https://9871-190-120-112-27.ngrok-free.app/api/sale/webhook-payment",
                 AutoReturn = "approved",
                 BinaryMode = true,
                 Payer = payer,
                 Shipments = shipment,
-                Metadata = new Dictionary<string, object>()
-                {
-                    { "DNI", payer.Identification.Number }
-                },
                 AdditionalInfo = shipment.ReceiverAddress.City
             };
         }

@@ -89,7 +89,7 @@ export class AdminModifyArticleComponent implements OnInit {
           if (resultado.isConfirmed) {
             var result = this.formArticulo.value as Article;
             result.images = this.listImages;
-            this.store.dispatch(updateArticle({ article: result }));
+            this.store.dispatch(updateArticle({ id: this.activatedRoute.snapshot.params['id'] , article: result }));
             this.store.select(selectArticleUpdated).subscribe(
               updated => {
                 if (updated) {
