@@ -9,13 +9,13 @@
                 <form class="form-inline" [formGroup]="this.formArticulo" (ngSubmit)="submit()">
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="name" class="form-label m-0 p-0">Nombre</label>
+                            <label for="name" class="form-label m-0 p-0">Nombre*</label>
                             <input formControlName="name" type="text" class="form-control m-0 pt-1 pb-1" name="name" id="name"
                             [ngClass]="{ 'is-invalid': !this.formArticulo.get('name')?.valid && this.formArticulo.get('name')?.touched}"
                             [ngClass]="{ 'is-valid': this.formArticulo.get('name')?.valid }">
                         </div>
                         <div class="col-md-6">
-                            <label for="type" class="form-label m-0 p-0">Tipo</label>
+                            <label for="type" class="form-label m-0 p-0">Tipo*</label>
                             <select formControlName="type" name="type" id="type" class="form-select m-0 pt-1 pb-1"
                             [ngClass]="{ 'is-invalid': !this.formArticulo.get('type')?.valid && this.formArticulo.get('type')?.touched}"
                             [ngClass]="{ 'is-valid': this.formArticulo.get('type')?.valid }">
@@ -25,7 +25,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col">
-                            <label for="" class="form-label m-0 p-0">Descripción</label>
+                            <label for="" class="form-label m-0 p-0">Descripción*</label>
                             <textarea formControlName="description" name="description" id="description" cols="30" rows="6" class="form-control pt-1 pb-1"
                             [ngClass]="{ 'is-invalid': !this.formArticulo.get('description')?.valid && this.formArticulo.get('description')?.touched}"
                             [ngClass]="{ 'is-valid': this.formArticulo.get('description')?.valid }"></textarea>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-9">
-                            <label for="" class="form-label m-0 p-0">Imagenes Agregadas</label>
+                            <label for="" class="form-label m-0 p-0">Imagenes Agregadas*</label>
                             <div class="card container-images">
                                 <div class="card-body">
                                     <div class="row">
@@ -59,7 +59,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-4">
-                            <label for="">Precio (ARS$)</label>
+                            <label for="">Precio* (ARS$)</label>
                             <input formControlName="price" type="number" class="form-control pt-1 pb-1"
                             [ngClass]="{ 'is-invalid': !this.formArticulo.get('price')?.valid && this.formArticulo.get('price')?.touched}"
                             [ngClass]="{ 'is-valid': this.formArticulo.get('price')?.valid }">

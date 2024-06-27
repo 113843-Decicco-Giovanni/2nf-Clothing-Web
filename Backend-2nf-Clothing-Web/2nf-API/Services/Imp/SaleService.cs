@@ -10,7 +10,8 @@ using MercadoPago.Config;
 using MercadoPago.Resource.Payment;
 using MercadoPago.Resource.Preference;
 using Newtonsoft.Json;
-using System.Collections.Generic;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 
 namespace _2nf_API.Services.Imp
@@ -146,7 +147,7 @@ namespace _2nf_API.Services.Imp
             {
                 Items = items,
                 BackUrls = backUrls,
-                NotificationUrl = "https://9871-190-120-112-27.ngrok-free.app/api/sale/webhook-payment",
+                NotificationUrl = "https://500f-190-120-112-27.ngrok-free.app/api/sale/webhook-payment",
                 AutoReturn = "approved",
                 BinaryMode = true,
                 Payer = payer,
@@ -263,6 +264,7 @@ namespace _2nf_API.Services.Imp
             var shipment = new Shipment
             {
                 Floor = payment.AdditionalInfo.Shipments.ReceiverAddress.Floor,
+                ClientDoc = dni,
                 Appartament = payment.AdditionalInfo.Shipments.ReceiverAddress.Apartment,
                 Street = payment.AdditionalInfo.Shipments.ReceiverAddress.StreetName,
                 StreetNumber = int.Parse(payment.AdditionalInfo.Shipments.ReceiverAddress.StreetNumber),
@@ -275,9 +277,109 @@ namespace _2nf_API.Services.Imp
 
             Shipment shipmentEntity = await _shipmentRepository.Save(shipment);
 
-            //await _saleRepository.AddShipmentSale(sale);
+            EnviarCorreo(client, sale, shipment);
 
             return respuesta;
+        }
+
+        private void EnviarCorreo(Client client, Sale sale, Shipment shipment)
+        {
+            try
+            {
+                // Configuración del mensaje de correo
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("2nf.clothing@gmail.com");
+                mail.To.Add(client.User.Email);
+                mail.Subject = "¡Se confirmó la compra de tus productos!";
+
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("Estimado/a " + client.Name + " " + client.Surname + ",");
+                sb.AppendLine();
+                sb.AppendLine("Gracias por su compra. A continuación, encontrará los detalles de su pedido:");
+                sb.AppendLine();
+
+                sb.AppendLine("Datos del Cliente:");
+                sb.AppendLine("Nombre: " + client.Name + " " + client.Surname);
+                sb.AppendLine("Documento: " + client.DocId);
+                sb.AppendLine("Teléfono: " + client.Phone);
+                sb.AppendLine("Dirección: " + client.Street + " " + client.StreetNumber + ", " + client.City + ", " + client.State + ", " + client.Country);
+                sb.AppendLine("Código Postal: " + client.PostalCode);
+                sb.AppendLine();
+
+                sb.AppendLine("Datos de la Venta:");
+                sb.AppendLine("Fecha de la venta: " + sale.Date.ToString("dd/MM/yyyy"));
+                sb.AppendLine("ID de Pago: " + sale.PaymentId);
+                sb.AppendLine();
+
+                sb.AppendLine("Detalles de la Venta:");
+                foreach (var detail in sale.Details)
+                {
+                    sb.AppendLine("- Artículo: " + detail.Article.Name);
+                    sb.AppendLine("  Tamaño: " + detail.Size.Description);
+                    sb.AppendLine("  Cantidad: " + detail.Amount);
+                    sb.AppendLine("  Precio Unitario: $" + detail.UnitPrice);
+                    sb.AppendLine("  Subtotal: $" + (detail.Amount * detail.UnitPrice));
+                    sb.AppendLine();
+                }
+                double total = CalcularTotal(sale.Details);
+                sb.AppendLine("Total: $" + total);
+                sb.AppendLine();
+
+                sb.AppendLine("Datos del Envío:");
+                sb.AppendLine("Dirección: " + shipment.Street + " " + shipment.StreetNumber + ", " + shipment.City + ", " + shipment.State);
+                if (!string.IsNullOrEmpty(shipment.Floor))
+                {
+                    sb.AppendLine("Piso: " + shipment.Floor);
+                }
+                if (!string.IsNullOrEmpty(shipment.Appartament))
+                {
+                    sb.AppendLine("Departamento: " + shipment.Appartament);
+                }
+                sb.AppendLine("Código Postal: " + shipment.PostalCode);
+                sb.AppendLine("Estado del Envío: " + (shipment.ShipmentState == 0 ? "Pendiente" : "Procesado"));
+                if (shipment.TrackingId.HasValue)
+                {
+                    sb.AppendLine("ID de Seguimiento: " + shipment.TrackingId.Value);
+                }
+                if (!string.IsNullOrEmpty(shipment.Service))
+                {
+                    sb.AppendLine("Servicio: " + shipment.Service);
+                }
+                sb.AppendLine();
+
+                sb.AppendLine("Si tiene alguna pregunta o necesita más información, no dude en ponerse en contacto con nosotros.");
+                sb.AppendLine();
+                sb.AppendLine("Saludos cordiales,");
+                sb.AppendLine("Equipo de Atención al Cliente");
+
+                mail.Body = sb.ToString();
+
+                // Si necesitas adjuntar un archivo
+                // mail.Attachments.Add(new Attachment("ruta/al/archivo"));
+
+                // Configuración del cliente SMTP
+                SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+                smtpServer.Port = 587; // O el puerto que uses
+                smtpServer.Credentials = new NetworkCredential(_configuration["Email:Direction"], _configuration["Email:Token"]);
+                smtpServer.EnableSsl = true; // True si el servidor SMTP requiere SSL
+
+                // Enviar el correo
+                smtpServer.Send(mail);
+                Console.WriteLine("Correo enviado exitosamente.");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        private double CalcularTotal(List<SaleDetail> details)
+        {
+            double total = 0;
+            foreach (var detail in details)
+            {
+                total += detail.Amount * detail.UnitPrice;
+            }
+            return total;
         }
 
         private async Task DescontarStock(Sale sale)
@@ -306,6 +408,15 @@ namespace _2nf_API.Services.Imp
         public async Task<SaleResponse> GetSaleById(int id)
         {
             Sale sale = await _saleRepository.GetById(id);
+
+            var response = _mapper.Map<SaleResponse>(sale);
+
+            return response;
+        }
+
+        public async Task<SaleResponse> GetSaleByPaymentId(long id)
+        {
+            Sale sale = await _saleRepository.GetByPaymentId(id);
 
             var response = _mapper.Map<SaleResponse>(sale);
 

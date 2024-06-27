@@ -18,6 +18,7 @@ namespace _2nf_API.Repositories.Imp
             var sale = await _context.Sales
                 .Include(x => x.Details)
                     .ThenInclude(x => x.Article)
+                        .ThenInclude(x => x.Images)
                 .Include(x => x.Details)
                     .ThenInclude(x => x.Size)
                 .Include(x => x.Client)
@@ -28,7 +29,14 @@ namespace _2nf_API.Repositories.Imp
 
         public async Task<Sale> GetByPaymentId(long id)
         {
-            var sale = await _context.Sales.FirstOrDefaultAsync(x => x.PaymentId == id);
+            var sale = await _context.Sales
+                .Include(x => x.Client)
+                .Include(x => x.Details)
+                    .ThenInclude(x => x.Size)
+                .Include(x => x.Details)
+                    .ThenInclude(x => x.Article)
+                    .ThenInclude(x => x.Images)
+                .FirstOrDefaultAsync(x => x.PaymentId == id);
 
             return sale; 
         }
@@ -47,6 +55,7 @@ namespace _2nf_API.Repositories.Imp
             var sales = await _context.Sales
                 .Include(x => x.Details)
                     .ThenInclude(x => x.Article)
+                        .ThenInclude(x => x.Images)
                 .Include(x => x.Details)
                     .ThenInclude(x => x.Size)
                 .Include(x => x.Client)
@@ -61,6 +70,7 @@ namespace _2nf_API.Repositories.Imp
             var sales = await _context.Sales
                 .Include(x => x.Details)
                     .ThenInclude(x => x.Article)
+                        .ThenInclude(x => x.Images)
                 .Include(x => x.Details)
                     .ThenInclude(x => x.Size)
                 .Include(x => x.Client)

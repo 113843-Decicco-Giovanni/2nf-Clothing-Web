@@ -10,5 +10,6 @@ namespace _2nf_API.Repositories
         Task<Shipment> Save(Shipment shipment);
         Task<Shipment> Update(Shipment shipment);
         Task<List<Shipment>> Get(int? estado, DateTime? fechaInicio, DateTime? fechaFin, int? clientDoc);
+        Task<Shipment> GetBySaleId(int id);
     }
 }

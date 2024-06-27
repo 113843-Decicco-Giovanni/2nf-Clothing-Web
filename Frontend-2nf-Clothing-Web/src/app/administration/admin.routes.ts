@@ -71,8 +71,8 @@ export const ADMINISTRATION_ROUTES: Routes = [
     },
     {
         path: 'clients',
-        // canActivate: [AuthGuard],
-        // canActivateChild: [AuthGuard],
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
         component: ClientsViewComponent
     },
     {
@@ -128,7 +128,7 @@ export const ADMINISTRATION_ROUTES: Routes = [
                 component: BilledAmountByDayComponent
             },
             {
-                path: 'billead-amount-by-month',
+                path: 'billed-amount-by-month',
                 component: BilledAmountByMonthComponent
             }
         ]

@@ -18,6 +18,8 @@ namespace _2nf_API.Data
         public DbSet<Sale> Sales { get; set; }
         public DbSet<SaleDetail> SaleDetails { get; set; }
         public DbSet<Shipment> Shipments { get; set; }
+        public DbSet<Devolution> Devolutions { get; set; }
+        public DbSet<Refund> Refunds { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

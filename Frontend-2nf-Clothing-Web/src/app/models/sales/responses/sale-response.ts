@@ -8,4 +8,5 @@ export interface SaleResponse{
     details: SaleDetailResponse[];
     // shipment: ShipmentResponse;
     paymentId: number;
+    canceled: boolean;
 }

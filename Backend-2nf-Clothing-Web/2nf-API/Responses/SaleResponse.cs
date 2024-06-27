@@ -7,5 +7,6 @@
         public ClientResponse Client { get; set; }
         public List<SaleDetailResponse> Details { get; set; }
         public long PaymentId { get; set; }
+        public bool Canceled { get; set; }
     }
 }

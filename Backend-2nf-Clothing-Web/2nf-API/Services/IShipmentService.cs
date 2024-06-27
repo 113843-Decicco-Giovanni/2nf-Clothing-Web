@@ -6,6 +6,7 @@ namespace _2nf_API.Services
     public interface IShipmentService
     {
         Task<ShipmentResponse> GetShipmentById(int id);
+        Task<ShipmentResponse> GetShipmentBySaleId(int saleId);
         Task<List<ShipmentResponse>> GetShipments(
             int? estado,
             DateTime? fechaInicio,

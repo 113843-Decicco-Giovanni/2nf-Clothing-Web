@@ -77,6 +77,22 @@ namespace _2nf_API.Repositories.Imp
             return shipment;
         }
 
+        public async Task<Shipment> GetBySaleId(int id)
+        {
+            var shipment = await _context.Shipments
+                .Include(x => x.Sale)
+                    .ThenInclude(x => x.Client)
+                .Include(x => x.Sale)
+                    .ThenInclude(x => x.Details)
+                        .ThenInclude(x => x.Article)
+                .Include(x => x.Sale)
+                    .ThenInclude(x => x.Details)
+                        .ThenInclude(x => x.Size)
+                .FirstOrDefaultAsync(x => x.Sale.Id == id);
+
+            return shipment;
+        }
+
         public async Task<List<Shipment>> GetByState(int state)
         {
             var shipments = await _context.Shipments
@@ -104,7 +120,8 @@ namespace _2nf_API.Repositories.Imp
 
         public async Task<Shipment> Update(Shipment shipment)
         {
-            var updated = _context.Shipments.Update(shipment);
+            var updated = _context.Shipments
+                .Update(shipment);
 
             await _context.SaveChangesAsync();
             return updated.Entity;

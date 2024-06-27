@@ -66,6 +66,14 @@ export class ArticleComponent implements OnInit, OnDestroy {
     // return new Observable(() => { false });
   }
 
+  estaDescontinuado(): Observable<boolean> {
+    return this.article$.pipe(
+      map(article => {
+        return article.discontinuedAt != null;
+      })
+    );
+  }
+
   seleccionarTalle(size: Size) {
     this.talleSeleccionado = size;
     this.actualizarDisponibles();

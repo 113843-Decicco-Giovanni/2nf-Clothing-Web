@@ -34,6 +34,14 @@ namespace _2nf_API.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        [Route("sale/{saleId}")]
+        public async Task<IActionResult> GetShipmentBySaleId(int saleId)
+        {
+            ShipmentResponse result = await _shipmentService.GetShipmentBySaleId(saleId);
+            return Ok(result);
+        }
+
         [HttpPost]
         [Route("process/{shipmentId}")]
         public async Task<IActionResult> UpdateShipmentState(int shipmentId, long trackingId, string service)

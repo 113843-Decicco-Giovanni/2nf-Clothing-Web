@@ -14,7 +14,6 @@ namespace _2nf_API.Controllers
         {
             _saleService = saleService;
         }
-
         [HttpGet]
         [Route("status/{paymentId}")]
         public async Task<IActionResult> GetPaymentStatus(long paymentId)
@@ -22,7 +21,6 @@ namespace _2nf_API.Controllers
             var result = await _saleService.GetPaymentStatus(paymentId);
             return Ok(result);
         }
-
         [HttpPost]
         [Route("preference")]
         public async Task<IActionResult> CreatePreference([FromBody] CreatePreferenceRequest request)
@@ -50,6 +48,13 @@ namespace _2nf_API.Controllers
         public async Task<IActionResult> GetSaleById(int id)
         {
             SaleResponse result = await _saleService.GetSaleById(id);
+            return Ok(result);
+        }
+        [HttpGet]
+        [Route("payment/{id}")]
+        public async Task<IActionResult> GetSaleByPaymentId(long id)
+        {
+            SaleResponse result = await _saleService.GetSaleByPaymentId(id);
             return Ok(result);
         }
     }

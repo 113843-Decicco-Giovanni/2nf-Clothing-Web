@@ -17,14 +17,14 @@ export class SaleEfectts{
         mergeMap((action) => this.service.getSales(action.fechaInicio, action.fechaFin, action.clientDoc)
             .pipe(
                 map(sales => {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Listado de ventas',
-                        text: 'Se cargó con éxito el listado de ventas',
-                        background: '#262626',
-                        color: '#a7a7a7',
-                        confirmButtonColor: '#a7a7a7'
-                    })
+                    // Swal.fire({
+                    //     icon: 'success',
+                    //     title: 'Listado de ventas',
+                    //     text: 'Se cargó con éxito el listado de ventas',
+                    //     background: '#262626',
+                    //     color: '#a7a7a7',
+                    //     confirmButtonColor: '#a7a7a7'
+                    // })
                     return ({type: LOAD_SALES_SUCCESS, sales});
                 }),
                 catchError(() => EMPTY)

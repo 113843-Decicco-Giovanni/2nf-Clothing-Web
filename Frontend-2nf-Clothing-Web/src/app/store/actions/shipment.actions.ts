@@ -14,6 +14,10 @@ export const LOAD_SHIPMENT_BY_ID = '[shipment] Load Shipment By Id';
 export const LOAD_SHIPMENT_BY_ID_SUCCESS = '[shipment] Load Shipment By Id Success';
 export const LOAD_SHIPMENT_BY_ID_FAIL = '[shipment] Load Shipment By Id Fail';
 
+export const LOAD_SHIPMENT_BY_SALE_ID = '[shipment] Load Shipment By Sale Id';
+export const LOAD_SHIPMENT_BY_SALE_ID_SUCCESS = '[shipment] Load Shipment By Sale Id Success';
+export const LOAD_SHIPMENT_BY_SALE_ID_FAIL = '[shipment] Load Shipment By Sale Id Fail';
+
 export const PROCESS_SHIPMENT = '[shipment] Process Shipment';
 export const PROCESS_SHIPMENT_SUCCESS = '[shipment] Process Shipment Success';
 export const PROCESS_SHIPMENT_FAIL = '[shipment] Process Shipment Fail';
@@ -53,6 +57,18 @@ export const loadShipmentByIdSuccess = createAction(
 )
 export const loadShipmentByIdFail = createAction(
     LOAD_SHIPMENT_BY_ID_FAIL
+)
+
+export const loadShipmentBySaleId = createAction(
+    LOAD_SHIPMENT_BY_SALE_ID,
+    props<{ saleId: number }>()
+)
+export const loadShipmentBySaleIdSuccess = createAction(
+    LOAD_SHIPMENT_BY_SALE_ID_SUCCESS,
+    props<{ shipmentResponse: ShipmentResponse }>()
+)
+export const loadShipmentBySaleIdFail = createAction(
+    LOAD_SHIPMENT_BY_SALE_ID_FAIL
 )
 
 export const processShipment = createAction(

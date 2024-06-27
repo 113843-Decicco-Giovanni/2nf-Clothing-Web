@@ -32,6 +32,7 @@
                         <th>Fecha</th>
                         <th>Cliente</th>
                         <th>Total</th>
+                        <th>Estado</th>
                         <th>Acciones</th>
                     </thead>
                     <tbody>
@@ -39,6 +40,7 @@
                             <td>{{sale.date | date:'dd/MM/yyyy-HH:mm'}}</td>
                             <td>{{sale.client.name + ' ' + sale.client.surname}}</td>
                             <td>AR${{this.calcularTotal(sale)}}</td>
+                            <td>{{sale.canceled ? 'CANCELADA' : 'ACTIVA'}}</td>
                             <td><button class="btn btn-secondary" (click)="viewDetails(sale)">Detalles</button></td>
                         </tr>
                     </tbody>

@@ -133,6 +133,42 @@ namespace _2nf_API.Migrations
                     b.ToTable("Clients");
                 });
 
+            modelBuilder.Entity("_2nf_API.Entities.Devolution", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("ClientDoc")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Detail")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("ShipmentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("State")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShipmentId");
+
+                    b.ToTable("Devolutions");
+                });
+
             modelBuilder.Entity("_2nf_API.Entities.Image", b =>
                 {
                     b.Property<int>("Id")
@@ -153,11 +189,46 @@ namespace _2nf_API.Migrations
                     b.ToTable("Images");
                 });
 
+            modelBuilder.Entity("_2nf_API.Entities.Refund", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("ClientDoc")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("SaleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("State")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SaleId");
+
+                    b.ToTable("Refunds");
+                });
+
             modelBuilder.Entity("_2nf_API.Entities.Sale", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<bool>("Canceled")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("ClientDoc")
                         .HasColumnType("int");
@@ -223,6 +294,9 @@ namespace _2nf_API.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int>("ClientDoc")
+                        .HasColumnType("int");
+
                     b.Property<string>("Details")
                         .HasColumnType("longtext");
 
@@ -232,6 +306,9 @@ namespace _2nf_API.Migrations
                     b.Property<string>("PostalCode")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("ProcessDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("SaleId")
                         .HasColumnType("int");
@@ -374,6 +451,17 @@ namespace _2nf_API.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("_2nf_API.Entities.Devolution", b =>
+                {
+                    b.HasOne("_2nf_API.Entities.Shipment", "Shipment")
+                        .WithMany()
+                        .HasForeignKey("ShipmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Shipment");
+                });
+
             modelBuilder.Entity("_2nf_API.Entities.Image", b =>
                 {
                     b.HasOne("_2nf_API.Entities.Article", "Article")
@@ -383,6 +471,17 @@ namespace _2nf_API.Migrations
                         .IsRequired();
 
                     b.Navigation("Article");
+                });
+
+            modelBuilder.Entity("_2nf_API.Entities.Refund", b =>
+                {
+                    b.HasOne("_2nf_API.Entities.Sale", "Sale")
+                        .WithMany()
+                        .HasForeignKey("SaleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Sale");
                 });
 
             modelBuilder.Entity("_2nf_API.Entities.Sale", b =>

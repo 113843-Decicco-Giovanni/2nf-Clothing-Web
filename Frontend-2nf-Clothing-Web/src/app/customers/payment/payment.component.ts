@@ -8,6 +8,8 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { getPaymentStatus } from '../../store/actions/payment.actions';
 import { CartDetail } from '../../models/cart/cartDetail';
 import { selectCart } from '../../store/selectors/cart.selector';
+import { SaleServiceService } from '../../services/sale-service.service';
+import { SaleResponse } from '../../models/sales/responses/sale-response';
 
 @Component({
   selector: 'app-payment',
@@ -22,17 +24,16 @@ import { selectCart } from '../../store/selectors/cart.selector';
 export class PaymentComponent implements OnInit{
   status: string = 'pending';
   hasItems: boolean = false;
-  cart$ : Observable<CartDetail[]> = new Observable<CartDetail[]>();
+  sale$: Observable<SaleResponse> = new Observable<SaleResponse>();
   total$ : Observable<number> = new Observable<number>();
 
   constructor(
     private store: Store<AppState>, 
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private service: SaleServiceService) { }
   
   ngOnInit(): void {
-    this.cart$ = this.store.select(selectCart);
-    this.calcularTotal();
 
     this.activatedRoute.queryParams.pipe(take(1)).subscribe(params => {
       var param = params['payment_id'];
@@ -44,8 +45,8 @@ export class PaymentComponent implements OnInit{
   }
 
   calcularTotal () {
-    this.total$ = this.cart$.pipe(
-      map(cart => cart.reduce((acc, curr) => acc + curr.amount * curr.article.price, 0))
+    this.total$ = this.sale$.pipe(
+      map(sale => sale.details.reduce((acc, curr) => acc + curr.amount * curr.unitPrice, 0))
     )
   }
 
@@ -53,7 +54,11 @@ export class PaymentComponent implements OnInit{
     console.log("consultarStatus")
     this.store.select(selectPaymentStatus).subscribe(status => {
       if (status.status == 'approved') {
+        console.log(this.activatedRoute.snapshot.queryParams['payment_id'])
         this.status = 'approved';
+        this.sale$ = this.service.getByPaymentId(this.activatedRoute.snapshot.queryParams['payment_id'])
+        this.hasItems = true;
+        this.calcularTotal();
       }
     })
   }

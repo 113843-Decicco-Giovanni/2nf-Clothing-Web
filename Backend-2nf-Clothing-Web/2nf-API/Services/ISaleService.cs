@@ -9,6 +9,7 @@ namespace _2nf_API.Services
         Task<PreferenceResponse> CreatePreference(CreatePreferenceRequest request);
         Task<PaymentStatusResponse> GetPaymentStatus(long paymentId);
         Task<SaleResponse> GetSaleById(int id);
+        Task<SaleResponse> GetSaleByPaymentId(long id);
         Task<List<SaleResponse>> GetSales(DateTime fechaInicio, DateTime fechaFin, int? clientDoc);
         Task<Sale> ReadWebHook(HttpRequest request);
     }

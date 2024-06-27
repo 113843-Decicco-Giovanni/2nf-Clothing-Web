@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="container pt-4">
+        <div class="card">
+            <div class="card-title">
+                <p class="pt-3">Venta Nro° {{(this.sale$ | async)?.id}}</p>
+                <hr>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <h3>Datos de la Venta</h3>
+                    <table class="table table-sm text-center">
+                        <thead>
+                            <tr>
+                                <th>Nro°</th>
+                                <th>Fecha</th>
+                                <!-- <th>Id del Pago</th> -->
+                                <th>Estado del envío</th>
+                                <th>Total</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{(this.sale$ | async)?.id}}</td>
+                                <td>{{(this.sale$ | async)?.date | date:'dd/MM/yyyy-HH:mm'}}</td>
+                                <td>{{(this.shipment$ | async)?.shipmentState}}</td>
+                                <!-- <td>{{(this.sale$ | async)?.paymentId}}</td> -->
+                                <td>AR${{calcularTotal((this.sale$ | async))}}</td>
+                                <td>
+                                    <button class="btn btn-secondary"
+                                    *ngIf="(this.seProcesoElEnvio() | async)"
+                                    (click)="devolucion()" 
+                                    [disabled]="!(sePuedeDevolver() | async)">
+                                        {{!(sePuedeDevolver() | async) ? 'Devolución caducada' : 'Reclamar devolución'}}
+                                    </button>
+                                    <button class="btn btn-danger" *ngIf="!(this.seProcesoElEnvio() | async)" (click)="cancelarCompra()">
+                                        Cancelar Compra
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container m-auto">
+                    <h3>Items</h3>
+                    <table class="table table-sm text-center">
+                        <thead>
+                            <tr>
+                                <th>Artículo</th>
+                                <th>Talle</th>
+                                <th>Cantidad</th>
+                                <th>Precio Unitario</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of (this.sale$ | async)?.details">
+                                <td>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img [src]="item.article.images[0]" alt="">
+                                        </div>
+                                        <div class="col-md-6 d-flex flex-column justify-content-center">
+                                            <a [routerLink]="['/article', item.article.id]" routerLinkActive="router-link-active">{{item.article.name}}</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{item.size.description}}</td>
+                                <td>{{item.amount}}</td>
+                                <td>AR${{item.unitPrice}}</td>
+                                <td>AR${{calcularSubtotal(item)}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

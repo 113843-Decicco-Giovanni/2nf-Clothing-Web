@@ -25,7 +25,7 @@ export class BilledAmountByDayComponent {
   public ventasPorMesData: ChartConfiguration<'bar'>['data'] = {
     labels: [  ],
     datasets: [
-      { data: [  ], label: 'Monto facturado' }
+      { data: [  ], label: 'Monto facturado en pesos argentinos' }
     ]
   };
 

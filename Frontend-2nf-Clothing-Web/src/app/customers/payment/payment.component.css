@@ -17,6 +17,10 @@
 .card-title{
     color: #a7a7a7;
 }
+img{
+    max-width: 100px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
 .card-body{
     color: #a7a7a7;
 }
@@ -62,4 +66,26 @@ button{
 .ingresar:disabled{
     background-color: #3f3f3f;
     color: #7a7a7a;
+}
+h6{
+    color: #a7a7a7;
+    text-shadow: #262626 0 0 5px;
+    letter-spacing: 1px;
+    font-family: 'Almarai';
+}
+thead{
+    background-color: #2c2c2c;
+    color: #a7a7a7;
+}
+th{
+    background-color: #2c2c2c;
+    color: #a7a7a7;
+}
+td{
+    background-color: #2c2c2c;
+    color: #a7a7a7;
+    border:none;
+    border-top:#4a4a4a 1px solid;
+    border-bottom: #4a4a4a 1px solid;
+    vertical-align: middle;
 }

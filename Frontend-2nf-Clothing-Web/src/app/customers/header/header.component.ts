@@ -80,4 +80,8 @@ export class HeaderComponent implements OnInit{
   register(){
     this.router.navigate(['/register']);
   }
+
+  misCompras(){
+    this.router.navigate(['/my-shopping']);
+  }
 }

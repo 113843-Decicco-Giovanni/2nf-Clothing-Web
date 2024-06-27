@@ -80,7 +80,7 @@ namespace _2nf_API.Repositories.Imp
 
         public async Task<Client> GetByDoc(int doc)
         {
-            var client = await _dbContext.Clients.FirstOrDefaultAsync(x => x.DocId == doc);
+            var client = await _dbContext.Clients.Include(x => x.User).FirstOrDefaultAsync(x => x.DocId == doc);
             return client;
         }
     }

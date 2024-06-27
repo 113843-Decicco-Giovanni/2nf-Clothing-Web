@@ -10,6 +10,9 @@ import { CheckoutComponent } from "./checkout/checkout.component";
 import { PaymentButtonComponent } from "./payment-button/payment-button.component";
 import { TermsAndConditionsComponent } from "./terms-and-conditions/terms-and-conditions.component";
 import { FrecuentQuestionsComponent } from "./frecuent-questions/frecuent-questions.component";
+import { MyShoppingComponent } from "./my-shopping/my-shopping.component";
+import { MyShoppingDetailComponent } from "./my-shopping-detail/my-shopping-detail.component";
+import { DevolutionComponent } from "./devolution/devolution.component";
 
 export const CUSTOMER_ROUTES: Routes = [
     {
@@ -60,5 +63,22 @@ export const CUSTOMER_ROUTES: Routes = [
     {
         path: 'frequently-asked-questions',
         component: FrecuentQuestionsComponent
+    },
+    {
+        path: 'my-shopping',
+        children:[
+            {
+                path:'',
+                component: MyShoppingComponent
+            },
+            {
+                path:':id',
+                component: MyShoppingDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'devolution',
+        component: DevolutionComponent
     }
 ]

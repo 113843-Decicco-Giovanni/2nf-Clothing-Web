@@ -1,1 +1,28 @@
-<p>my-shopping works!</p>
+<div class="container-fluid">
+    <div class="container pt-4">
+        <div class="card m-auto">
+            <div class="card-title">
+                <h3 class="mt-2">Ventas</h3>
+                <hr>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <thead>
+                        <th>Fecha</th>
+                        <th>Cliente</th>
+                        <th>Total</th>
+                        <!-- <th>Acciones</th> -->
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let sale of sales$ | async" (click)="viewDetails(sale)">
+                            <td>{{sale.date | date:'dd/MM/yyyy-HH:mm'}}</td>
+                            <td>{{sale.client.name + ' ' + sale.client.surname}}</td>
+                            <td>AR${{this.calcularTotal(sale)}}</td>
+                            <!-- <td><button class="btn btn-secondary" (click)="viewDetails(sale)">Detalles</button></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

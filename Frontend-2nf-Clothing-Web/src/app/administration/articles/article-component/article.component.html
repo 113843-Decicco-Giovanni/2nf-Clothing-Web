@@ -33,7 +33,7 @@
 
                                     </div>
                                     <div class="col-md-6 pb-2">
-                                        <button class="btn btn-danger w-100" (click)="deleteArticle()" *ngIf="!(this.article$ | async)?.discontinuedAt">Eliminar</button>
+                                        <button class="btn btn-danger w-100" (click)="deleteArticle()" *ngIf="!(this.article$ | async)?.discontinuedAt">Descontinuar</button>
                                         <button class="btn btn-success w-100" (click)="activateArticle()" *ngIf="(this.article$ | async)?.discontinuedAt">Activar</button>
                                     </div>
                                 </div>

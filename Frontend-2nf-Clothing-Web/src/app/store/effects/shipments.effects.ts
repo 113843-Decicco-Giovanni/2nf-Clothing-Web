@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, mergeMap, of } from "rxjs";
-import { confirmShipment, confirmShipmentSuccess, loadShipmentById, loadShipmentByIdSuccess, loadShipments, loadShipmentsSuccess, modifyShipment, processShipment, processShipmentSuccess } from "../actions/shipment.actions";
+import { confirmShipment, confirmShipmentSuccess, loadShipmentById, loadShipmentByIdSuccess, loadShipmentBySaleId, loadShipmentBySaleIdSuccess, loadShipments, loadShipmentsSuccess, modifyShipment, processShipment, processShipmentSuccess } from "../actions/shipment.actions";
 import { ShipmentService } from "../../services/shipment.service";
 import Swal from "sweetalert2";
 
@@ -58,6 +58,27 @@ export class ShipmentsEffects {
                             confirmButtonColor: '#a7a7a7'
                         })
                         return of({type: 'loadShipmentByIdFail'})
+                    })
+                )
+        })
+    ));
+
+    loadShipmentBySaleId$ = createEffect(() => this.actions.pipe(
+        ofType(loadShipmentBySaleId),
+        mergeMap((action) => {
+            return this.service.getShipmentBySaleId(action.saleId)
+                .pipe(
+                    map(shipmentResponse => loadShipmentBySaleIdSuccess({shipmentResponse})),
+                    catchError(() => {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Error al cargar el envío',
+                            background: '#262626',
+                            color: '#a7a7a7',
+                            confirmButtonColor: '#a7a7a7'
+                        })
+                        return of({type: 'loadShipmentBySaleIdFail'})
                     })
                 )
         })

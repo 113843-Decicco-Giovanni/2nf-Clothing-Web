@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { ShipmentState } from "../states/shipment.state";
-import { confirmShipment, confirmShipmentSuccess, loadShipmentById, loadShipmentByIdSuccess, loadShipments, loadShipmentsFail, loadShipmentsSuccess, processShipment, processShipmentSuccess } from "../actions/shipment.actions";
+import { confirmShipment, confirmShipmentSuccess, loadShipmentById, loadShipmentByIdSuccess, loadShipmentBySaleId, loadShipmentBySaleIdSuccess, loadShipments, loadShipmentsFail, loadShipmentsSuccess, processShipment, processShipmentSuccess } from "../actions/shipment.actions";
 import { loadSaleById } from "../actions/sale.actions";
 
 export const initialState : ShipmentState = {
@@ -85,6 +85,25 @@ export const shipmentReducer = createReducer(
             ...state,
             loading: false,
             shipmentResponse
+        }
+    }),
+    on(loadShipmentBySaleId, (state) => {
+        return {
+            ...state,
+            loading: true
+        }
+    }),
+    on(loadShipmentBySaleIdSuccess, (state, { shipmentResponse }) => {
+        return {
+            ...state,
+            loading: false,
+            shipmentResponse
+        }
+    }),
+    on(loadShipmentsFail, (state) => {
+        return {
+            ...state,
+            loading: false
         }
     })
 )

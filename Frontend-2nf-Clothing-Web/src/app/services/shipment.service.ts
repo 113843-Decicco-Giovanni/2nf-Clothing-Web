@@ -33,4 +33,8 @@ export class ShipmentService {
   modifyShipment(id: number, shipment: ShipmentRequest): Observable<ShipmentResponse> {
     return this.http.put<ShipmentResponse>(`http://localhost:5260/api/shipments/${id}`, shipment)
   }
+
+  getShipmentBySaleId(id: number): Observable<ShipmentResponse> {
+    return this.http.get<ShipmentResponse>(`http://localhost:5260/api/shipments/sale/${id}`)
+  }
 }
