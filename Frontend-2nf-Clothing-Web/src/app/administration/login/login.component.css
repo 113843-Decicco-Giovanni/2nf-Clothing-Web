@@ -3,6 +3,7 @@
 }
 .container{
     background-color: #262626;
+    min-height: 100vh;
 }
 .card{
     max-width: 900px;

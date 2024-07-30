@@ -7,7 +7,7 @@ namespace _2nf_API.Services
     {
         Task<RefundResponse> Create(RefundRequest request);
         Task<RefundResponse> GetById(int id);
-        Task<RefundResponse> Get(int? state, int? clientDoc, DateTime fechaInicio, DateTime fechaFin);
-        Task<List<RefundResponse>> TryAgain(int id);
+        Task<List<RefundResponse>> Get(int? state, int? clientDoc, DateTime? fechaInicio, DateTime? fechaFin);
+        //Task<RefundResponse> TryAgain(int id);
     }
 }

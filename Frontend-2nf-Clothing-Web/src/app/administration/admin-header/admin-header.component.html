@@ -32,23 +32,16 @@
           </div>
           <div *ngIf="loggedIn$ | async">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link" [routerLink]="['/administration/shipments']">
                 envios
               </a>
-              <ul class="dropdown-menu">
-                <!-- <li><a class="dropdown-item" href="#">nuevo</a></li> -->
-                <li><a class="dropdown-item" routerLink="/administration/shipments" routerLinkActive="router-link-active">consultar</a></li>
-              </ul>
             </li>
           </div>
           <div *ngIf="loggedIn$ | async">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link" [routerLink]="['/administration/clients']">
                 clientes
               </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" routerLink="/administration/clients" routerLinkActive="router-link-active">consultar</a></li>
-              </ul>
             </li>
           </div>
           <div *ngIf="(loggedIn$ | async) && (loggedUser$ | async)?.isUserAdmin">
@@ -62,6 +55,20 @@
               </ul>
             </li>
           </div>
+          <div *ngIf="loggedIn$ | async">
+            <li class="nav-item dropdown">
+              <a class="nav-link" [routerLink]="['/administration/devolutions']">
+                devoluciones
+              </a>
+            </li>
+          </div>
+          <!-- <div *ngIf="loggedIn$ | async">
+            <li class="nav-item dropdown">
+              <a class="nav-link" [routerLink]="['/administration/refunds']">
+                reembolsos
+              </a>
+            </li>
+          </div> -->
           <div *ngIf="loggedIn$ | async">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

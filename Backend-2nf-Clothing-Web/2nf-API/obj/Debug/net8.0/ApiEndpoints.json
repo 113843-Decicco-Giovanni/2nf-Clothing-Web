@@ -252,6 +252,111 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "_2nf_API.Controllers.DevolutionController",
+    "Method": "Get",
+    "RelativePath": "api/devolution",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "state",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "dni",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "fechaInicio",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "fechaFin",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_2nf_API.Controllers.DevolutionController",
+    "Method": "Create",
+    "RelativePath": "api/devolution",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "_2nf_API.Requests.DevolutionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_2nf_API.Controllers.DevolutionController",
+    "Method": "GetById",
+    "RelativePath": "api/devolution/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_2nf_API.Controllers.DevolutionController",
+    "Method": "UpdateState",
+    "RelativePath": "api/devolution/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "state",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "detail",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_2nf_API.Controllers.DevolutionController",
+    "Method": "GetByShipmentId",
+    "RelativePath": "api/devolution/shipment/{shipmentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "shipmentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "_2nf_API.Controllers.ReportController",
     "Method": "GetMontoFacturadoPorDia",
     "RelativePath": "api/reports/montoFacturadoDia",
@@ -411,6 +516,22 @@
   },
   {
     "ContainingType": "_2nf_API.Controllers.SaleController",
+    "Method": "UpdateRefundPending",
+    "RelativePath": "api/sale/refund/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_2nf_API.Controllers.SaleController",
     "Method": "GetPaymentStatus",
     "RelativePath": "api/sale/status/{paymentId}",
     "HttpMethod": "GET",
@@ -498,6 +619,22 @@
       {
         "Name": "request",
         "Type": "_2nf_API.Requests.ShipmentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_2nf_API.Controllers.ShipmentController",
+    "Method": "CancelShipment",
+    "RelativePath": "api/shipments/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

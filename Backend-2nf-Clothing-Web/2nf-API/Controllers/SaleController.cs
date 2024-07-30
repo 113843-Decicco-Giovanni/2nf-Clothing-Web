@@ -57,5 +57,12 @@ namespace _2nf_API.Controllers
             SaleResponse result = await _saleService.GetSaleByPaymentId(id);
             return Ok(result);
         }
+        [HttpPut]
+        [Route("refund/{id}")]
+        public async Task<IActionResult> UpdateRefundPending(int id)
+        {
+            await _saleService.UpdateRefundPending(id);
+            return Ok();
+        }
     }
 }

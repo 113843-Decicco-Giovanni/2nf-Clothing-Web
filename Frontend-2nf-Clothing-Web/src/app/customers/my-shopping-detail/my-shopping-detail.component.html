@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="container pt-4">
+    <div class="container pt-4 pb-4">
         <div class="card">
             <div class="card-title">
                 <p class="pt-3">Venta Nro° {{(this.sale$ | async)?.id}}</p>
@@ -28,13 +28,9 @@
                                 <td>AR${{calcularTotal((this.sale$ | async))}}</td>
                                 <td>
                                     <button class="btn btn-secondary"
-                                    *ngIf="(this.seProcesoElEnvio() | async)"
                                     (click)="devolucion()" 
-                                    [disabled]="!(sePuedeDevolver() | async)">
+                                    [disabled]="!((this.shipment$ | async)?.shipmentState == 'Procesado')">
                                         {{!(sePuedeDevolver() | async) ? 'Devolución caducada' : 'Reclamar devolución'}}
-                                    </button>
-                                    <button class="btn btn-danger" *ngIf="!(this.seProcesoElEnvio() | async)" (click)="cancelarCompra()">
-                                        Cancelar Compra
                                     </button>
                                 </td>
                             </tr>

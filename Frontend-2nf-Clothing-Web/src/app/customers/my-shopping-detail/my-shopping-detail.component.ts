@@ -11,6 +11,9 @@ import { AppState } from '../../store/states/app.state';
 import { ShipmentResponse } from '../../models/sales/responses/shipment-response';
 import { loadShipmentBySaleId } from '../../store/actions/shipment.actions';
 import { selectShipmentResponse } from '../../store/selectors/shipments.selector';
+import { createDevolution } from '../../store/actions/devolution.actions';
+import Swal from 'sweetalert2';
+import { DevolutionRequest } from '../../models/devolutions/devolution.request';
 
 @Component({
   selector: 'app-my-shopping-detail',
@@ -48,7 +51,37 @@ export class MyShoppingDetailComponent {
   }
 
   devolucion(){
-
+    var text;
+    this.shipment$.pipe(take(1)).subscribe(shipment => {
+        Swal.fire({
+        title: '¿Desea realizar la devolución?',
+        showCancelButton: true,
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No',
+        icon: 'warning',
+        background: '#262626',
+        input: 'text',
+        inputLabel: 'Motivo de la devolución',
+        inputPlaceholder: 'Escriba el motivo de la devolución',
+        color: '#a7a7a7',
+        inputValidator: (value) => {
+          if (!value) {
+            return 'Debe escribir el motivo de la devolución';
+          }
+          text = value
+          return
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          var devolution: DevolutionRequest = {
+            shipmentId: shipment?.id as number,
+            reason: result.value as string
+          }
+          this.store.dispatch(createDevolution({devolution}));
+          this.store.dispatch(loadShipmentBySaleId({saleId: this.activatedRoute.snapshot.params['id']}));
+        }
+      })
+    }) 
   }
 
   cancelarCompra(){

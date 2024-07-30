@@ -14,5 +14,6 @@ namespace _2nf_API.Repositories
         Task<Article> GetById(int id);
         Task<List<Size>> GetSizes();
         Task<Size> GetSizeById(int size);
+        Task<Stock> UpdateStock(Stock stock);
     }
 }

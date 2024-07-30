@@ -10,6 +10,7 @@ import { CartDetail } from '../../models/cart/cartDetail';
 import { selectCart } from '../../store/selectors/cart.selector';
 import { SaleServiceService } from '../../services/sale-service.service';
 import { SaleResponse } from '../../models/sales/responses/sale-response';
+import { clearCart } from '../../store/actions/cart.actions';
 
 @Component({
   selector: 'app-payment',
@@ -57,6 +58,7 @@ export class PaymentComponent implements OnInit{
         console.log(this.activatedRoute.snapshot.queryParams['payment_id'])
         this.status = 'approved';
         this.sale$ = this.service.getByPaymentId(this.activatedRoute.snapshot.queryParams['payment_id'])
+        this.store.dispatch(clearCart());
         this.hasItems = true;
         this.calcularTotal();
       }

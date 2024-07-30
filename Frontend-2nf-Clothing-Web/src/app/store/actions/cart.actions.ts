@@ -17,6 +17,8 @@ export const LOAD_CART = '[Cart] Load Cart';
 export const LOAD_CART_SUCCESS = '[Cart] Load Cart Success';
 export const LOAD_CART_FAIL = '[Cart] Load Cart Fail';
 
+export const CLEAR_CART = '[Cart] Clear Cart';
+
 export const addToCart = createAction(
     ADD_TO_CART,
     props<{ detail: CartDetail }>()
@@ -39,4 +41,8 @@ export const removeFromCartSuccess = createAction(
 )
 export const removeFromCartFail = createAction(
     REMOVE_FROM_CART_FAIL
+)
+
+export const clearCart = createAction(
+    CLEAR_CART
 )

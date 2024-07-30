@@ -10,7 +10,8 @@ img{
     color: #a7a7a7;
 }
 .card{
-    background-color: #262626;
+    background-color: #262626c1;
+    backdrop-filter: blur(2px);
     max-width: 1200px;
     margin: auto;
     font-family: 'Almarai';
@@ -19,21 +20,21 @@ img{
     text-align: center;
 }
 .container-fluid{
-    background-color: #262626;
+    background-color: transparent;
 }
 thead{
-    background-color: #262626;
+    background-color: transparent;
     color: #a7a7a7;
 }
 th{
-    background-color: #262626;
+    background-color: transparent;
     color: #a7a7a7;
 }
 td{
-    background-color: #262626;
+    background-color: transparent;
     color: #a7a7a7;
     vertical-align: middle;
-    border-bottom: none;
+    border-color: #4a4a4a;
 }
 hr{
     width: 100%;
@@ -59,10 +60,10 @@ hr{
     color: #a7a7a7;
     letter-spacing: 1px;
 }
-tbody tr:hover{
+/* tbody tr:hover{
     background-color: #4a4a4a;
     color: #a7a7a7;
     box-shadow: 0 0 10px #0c0c0c9d;
     border: 0;
     caret-color: transparent;
-}
+} */

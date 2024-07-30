@@ -4,6 +4,7 @@ import { Size } from "../../models/stocks/size";
 
 export interface ArticlesState{
     loading: boolean;
+    articlesWithStock: ReadonlyArray<Article> | null;
     articles: ReadonlyArray<Article>;
     article: any;
     added: boolean;

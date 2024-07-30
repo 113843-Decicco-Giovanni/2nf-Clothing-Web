@@ -36,3 +36,7 @@ export const selectSizes = createSelector(
     selectArticlesFeature,
     (state: ArticlesState) => state.sizes
 )
+export const selectArticlesWithStock = createSelector(
+    selectArticlesFeature,
+    (state: ArticlesState) => state.articlesWithStock
+)

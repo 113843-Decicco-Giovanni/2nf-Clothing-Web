@@ -41,6 +41,7 @@ namespace _2nf_API.Controllers
             return Ok(result);
         }
         [HttpPut]
+        [Route("{id}")]
         public async Task<IActionResult> UpdateState(int id, int state, string detail)
         {
             var result = await _devolutionService.UpdateState(id, state, detail);

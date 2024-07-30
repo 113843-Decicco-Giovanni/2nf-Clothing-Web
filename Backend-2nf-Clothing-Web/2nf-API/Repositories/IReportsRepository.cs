@@ -8,5 +8,6 @@ namespace _2nf_API.Repositories
         Task<List<VentasMesReportResponse>> GetVentasPorMes(DateTime mesDesde, DateTime mesHasta);
         Task<List<MontoFacturadoDiaReportResponse>> GetMontoFacturadoDia(DateTime fechaDesde, DateTime fechaHasta);
         Task<List<MontoFacturadoMesReportResponse>> GetMontoFacturadoMes(DateTime fechaDesde, DateTime fechaHasta);
+
     }
 }

@@ -1,18 +1,11 @@
-<header>
+<header [ngClass]="{ 'header-side-open' : isSideNavOpen}">
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid d-flex">
       <div class="me-auto">
         <div class="dropdown col">
-          <button class="btn profile" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person"></i>
+          <button class="btn profile" type="button"  (click)="openSideNav()">
+            <i class="bi bi-justify"></i>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-            <li *ngIf="!(loggedIn$ | async)"><a class="dropdown-item" (click)="login()">Login</a></li>
-            <li *ngIf="!(loggedIn$ | async)"><a class="dropdown-item" (click)="register()">Register</a></li>
-            <li *ngIf="loggedIn$ | async"><a class="dropdown-item" (click)="logout()">Logout</a></li>
-            <li *ngIf="loggedIn$ | async"><a class="dropdown-item" (click)="profile()">Profile</a></li>
-            <li *ngIf="loggedIn$ | async"><a class="dropdown-item" (click)="misCompras()">Mis Compras</a></li>
-          </ul>
         </div>
       </div>
       <a class="navbar-brand m-1 mt-0 mb-0">
@@ -44,3 +37,16 @@
     </div>
   </nav>
 </header>
+<!-- <app-side-nav [isOpen]="true" (closeNavOutput)="this.isSideNavOpen = false"> -->
+<app-side-nav [isOpen]="isSideNavOpen" (closeNavOutput)="this.isSideNavOpen = false">
+  <div class="row">
+    <img src="assets/imagenes/logoMinimal3d.png" class="logo-side-panel m-auto p-3">
+  </div>
+  <div class="row">
+    <button class="btn mb-2" *ngIf="!(loggedIn$ | async)" (click)="login()">Login</button>
+    <button class="btn mb-2" *ngIf="!(loggedIn$ | async)" (click)="register()">Register</button>
+    <button class="btn mb-2" *ngIf="loggedIn$ | async" (click)="logout()">Logout</button>
+    <button class="btn mb-2" *ngIf="loggedIn$ | async" (click)="profile()">Profile</button>
+    <button class="btn mb-2" *ngIf="loggedIn$ | async" (click)="misCompras()">Mis Compras</button>
+  </div>
+</app-side-nav>

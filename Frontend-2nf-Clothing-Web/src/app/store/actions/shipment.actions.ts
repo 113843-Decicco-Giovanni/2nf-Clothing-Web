@@ -26,6 +26,10 @@ export const MODIFY_SHIPMENT = '[shipment] Modify Shipment';
 export const MODIFY_SHIPMENT_SUCCESS = '[shipment] Modify Shipment Success';
 export const MODIFY_SHIPMENT_FAIL = '[shipment] Modify Shipment Fail';
 
+export const CANCEL_SHIPMENT = '[shipment] Cancel Shipment';
+export const CANCEL_SHIPMENT_SUCCESS = '[shipment] Cancel Shipment Success';
+export const CANCEL_SHIPMENT_FAIL = '[shipment] Cancel Shipment Fail';
+
 export const confirmShipment = createAction(
     CONFIRM_SHIPMENT,
     props<{ shipment: Shipment }>()
@@ -93,4 +97,15 @@ export const modifyShipmentSuccess = createAction(
 )
 export const modifyShipmentFail = createAction(
     MODIFY_SHIPMENT_FAIL
+)
+
+export const cancelShipment = createAction(
+    CANCEL_SHIPMENT,
+    props<{ id: number }>()
+)
+export const cancelShipmentSuccess = createAction(
+    CANCEL_SHIPMENT_SUCCESS
+)
+export const cancelShipmentFail = createAction(
+    CANCEL_SHIPMENT_FAIL
 )

@@ -1,0 +1,105 @@
+img{
+    max-height: 80px;
+}
+.table{
+    width: 100%;
+    border: 1px solid #4a4a4a;
+    vertical-align: middle;
+}
+.card-title{
+    color: #a7a7a7;
+}
+h3{
+    text-align: center;
+}
+h4{
+    color: #a7a7a7;
+}
+.card{
+    background-color: #262626;
+    max-width: 1200px;
+    margin: auto;
+    font-family: 'Almarai';
+    letter-spacing: 1px;
+    box-shadow: 0 0 5px #0c0c0c9d;
+}
+.form-label{
+    color: #a7a7a7;
+    font-weight: 300;
+    font-size: medium;
+    letter-spacing: 1px;
+}
+.btn{
+    background-color: #4a4a4a;
+    color: #a7a7a7;
+    border: 0;
+    font-weight: 300;
+    font-size: medium;
+    font-family: 'Almarai';
+}
+.btn-secondary:hover{
+    background-color: #4837a8;
+}
+input:disabled{
+    background-color: #353535;
+    color: #838383;
+}
+.btn-danger:hover{
+    background-color: #b90f0f;
+}
+.btn-success:hover{
+    background-color: #0f9f0f;
+}
+.container-fluid{
+    background-color: #262626;
+}
+thead{
+    background-color: #262626;
+    color: #a7a7a7;
+    vertical-align: middle;
+}
+th{
+    background-color: #262626;
+    color: #a7a7a7;
+    border-color: #4a4a4a;
+}
+.col-sm-6{
+    margin-top: auto;
+}
+td{
+    background-color: #262626;
+    color: #a7a7a7;
+    border-color: #4a4a4a;
+}
+tr{
+    background-color: #262626;
+    color: #a7a7a7;
+    border-color: #4a4a4a;
+}
+hr{
+    width: 96%;
+    margin:auto;
+}
+.form-control, .form-select{
+    background-color: #4a4a4a;
+    border:0;
+    font-weight: 300;
+    font-size: medium;
+    color: #a7a7a7;
+    letter-spacing: 1px;
+}
+p{
+    text-align: end;
+    color: #a7a7a7;
+    letter-spacing: 1px;
+}
+p:hover{
+    user-select: none;
+}
+.pedido{
+    font-size: small;
+    text-align: center;
+}
+.linkModificar:hover{
+    color: red;
+}

@@ -1,1 +1,1 @@
-export const MP_PUBLIC_KEY = 'TEST-f8aa0187-44ba-40f6-a727-65f8b396381d'
+export const MP_PUBLIC_KEY = 'APP_USR-cd14ff5d-58f9-42ae-a9c8-bdec8504bafb'

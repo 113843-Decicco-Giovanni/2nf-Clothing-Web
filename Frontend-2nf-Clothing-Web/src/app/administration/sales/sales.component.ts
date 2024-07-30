@@ -34,7 +34,13 @@ export class SalesComponent implements OnInit{
     // var fechaFin = new Date();
     // fechaInicio.setHours(0);
     // this.fechaInicio = fechaInicio;
-    // this.store.dispatch(loadSales({fechaInicio, fechaFin}));
+    const today = new Date();
+    this.fechaFin = new Date();
+    this.fechaFin.setDate(today.getDate() + 1);
+    this.fechaInicio.setDate(today.getDate() - 30);
+    console.log(this.fechaFin);
+    console.log(this.fechaInicio);
+    this.store.dispatch(loadSales({fechaInicio: this.fechaInicio, fechaFin: this.fechaFin, clientDoc: 0}));
     this.sales$ = this.store.select(selectSales);
   }
 

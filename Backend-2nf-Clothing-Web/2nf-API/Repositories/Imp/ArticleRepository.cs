@@ -128,5 +128,12 @@ namespace _2nf_API.Repositories.Imp
             }
             throw new NullReferenceException();
         }
+
+        public async Task<Stock> UpdateStock(Stock stock)
+        {
+            var updated = _dbContext.Stocks.Update(stock);
+            await _dbContext.SaveChangesAsync();
+            return updated.Entity;
+        }
     }
 }

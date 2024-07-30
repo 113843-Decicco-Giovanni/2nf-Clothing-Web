@@ -1,10 +1,11 @@
 import { createReducer, on } from "@ngrx/store";
 import { ArticlesState } from "../states/articles.state";
-import { activateArticle, activateArticleFail, activateArticleSuccess, addArticle, addArticleSuccess, deleteArticle, deleteArticleFail, deleteArticleSuccess, loadArticleById, loadArticleByIdFail, loadArticleByIdSuccess, loadArticleTypes, loadArticleTypesSuccess, loadArticles, loadArticlesFail, loadArticlesSuccess, loadArticlesWithStock, loadSizes, loadSizesFail, loadSizesSuccess, updateArticle, updateArticleFail, updateArticleSuccess, updateStock, updateStockFail, updateStockSuccess } from "../actions/article.actions";
+import { activateArticle, activateArticleFail, activateArticleSuccess, addArticle, addArticleSuccess, deleteArticle, deleteArticleFail, deleteArticleSuccess, loadArticleById, loadArticleByIdFail, loadArticleByIdSuccess, loadArticleTypes, loadArticleTypesSuccess, loadArticles, loadArticlesFail, loadArticlesSuccess, loadArticlesWithStock, loadArticlesWithStockFail, loadArticlesWithStockSuccess, loadSizes, loadSizesFail, loadSizesSuccess, updateArticle, updateArticleFail, updateArticleSuccess, updateStock, updateStockFail, updateStockSuccess } from "../actions/article.actions";
 
 export const initialState: ArticlesState = {
     loading: false,
     articles: [],
+    articlesWithStock: null,
     article: null,
     added: false,
     deleted: false,
@@ -22,17 +23,12 @@ export const articlesReducer = createReducer(
             loading: true
         }
     }),
-    on(loadArticlesWithStock, (state) => {
-        return {
-            ...state,
-            loading: true
-        }
-    }),
     on(loadArticlesSuccess, (state, { articles }) => {
         return {
             ...state,
             loading: false,
-            articles
+            articles,
+            filteredArticles: articles
         }
     }),
     on(loadArticlesFail, (state) =>{
@@ -185,5 +181,25 @@ export const articlesReducer = createReducer(
             ...state,
             loading: false
         }
-    })
+    }),
+    on(loadArticlesWithStock, (state) => {
+        return {
+            ...state,
+            loading: true
+        }
+    }),
+    on(loadArticlesWithStockSuccess, (state, { articles }) => {
+        return {
+            ...state,
+            loading: false,
+            articlesWithStock: articles,
+            filteredArticles: articles
+        }
+    }),
+    on(loadArticlesWithStockFail, (state) =>{
+        return {
+            ...state,
+            loading: false
+        }
+    }),
 )

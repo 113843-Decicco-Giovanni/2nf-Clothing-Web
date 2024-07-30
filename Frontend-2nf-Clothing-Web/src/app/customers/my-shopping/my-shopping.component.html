@@ -8,17 +8,21 @@
             <div class="card-body">
                 <table class="table table-sm">
                     <thead>
+                        <th>Items</th>
                         <th>Fecha</th>
-                        <th>Cliente</th>
+                        <!-- <th>Cliente</th> -->
                         <th>Total</th>
                         <!-- <th>Acciones</th> -->
                     </thead>
                     <tbody>
-                        <tr *ngFor="let sale of sales$ | async" (click)="viewDetails(sale)">
-                            <td>{{sale.date | date:'dd/MM/yyyy-HH:mm'}}</td>
-                            <td>{{sale.client.name + ' ' + sale.client.surname}}</td>
+                        <tr *ngFor="let sale of sales$ | async">
+                            <td class="p-3">
+                                <p class="m-0" *ngFor="let item of sale.details">- {{item.article.name}} x{{item.amount}}</p>
+                            </td>
+                            <td>{{sale.date | date:"EEEE d 'de' MMMM 'de' yyyy"}}</td>
+                            <!-- <td>{{sale.client.name + ' ' + sale.client.surname}}</td> -->
                             <td>AR${{this.calcularTotal(sale)}}</td>
-                            <!-- <td><button class="btn btn-secondary" (click)="viewDetails(sale)">Detalles</button></td> -->
+                            <td class="p-3"><a class="btn btn-secondary" (click)="viewDetails(sale)">Ver Detalles</a></td>
                         </tr>
                     </tbody>
                 </table>

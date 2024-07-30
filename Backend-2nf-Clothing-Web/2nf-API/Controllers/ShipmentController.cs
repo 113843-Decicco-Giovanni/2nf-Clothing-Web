@@ -57,5 +57,13 @@ namespace _2nf_API.Controllers
             ShipmentResponse result = await _shipmentService.ModifyShipment(id, request);
             return Ok(result);
         }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<IActionResult> CancelShipment(int id)
+        {
+            var result = await _shipmentService.CancelShipment(id);
+            return Ok(result);
+        }   
     }
 }

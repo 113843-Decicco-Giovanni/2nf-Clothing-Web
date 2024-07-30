@@ -9,6 +9,9 @@ img{
 .card-title{
     color: #a7a7a7;
 }
+.container{
+    min-height: 100vh;
+}
 .card{
     background-color: #262626;
     max-width: 1200px;

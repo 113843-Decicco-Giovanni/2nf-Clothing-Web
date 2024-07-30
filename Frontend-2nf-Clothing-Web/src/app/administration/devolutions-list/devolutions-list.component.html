@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <div class="container pt-4">
+        <div class="card m-auto">
+            <div class="card-title">
+                <h3 class="mt-2">Devoluciones</h3>
+                <div class="row p-3 pb-2">
+                    <div class="col-md-4">
+                        <label for="fechaInicio" class="form-label">Fecha desde*</label>
+                        <input type="date" class="form-control" name="fechaInicio" id="fechaInicio" [(ngModel)]="this.fechaInicio">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="fechaFin" class="form-label">Fecha hasta*</label>
+                        <input type="date" class="form-control" name="fechaFin" id="fechaFin" [(ngModel)]="this.fechaFin">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="estado" class="form-label">Estado*</label>
+                        <select class="form-select" name="estado" id="estado" [(ngModel)]="this.state">
+                            <option value="0">Pendiente</option>
+                            <option value="1">En curso</option>
+                            <option value="2">Finalizado</option>
+                            <option value="3">Cancelado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row p-3 pt-0">
+                    <div class="col-12">
+                        <label for="cliente" class="form-label">Documento del Cliente</label>
+                        <input type="text" class="form-control" name="cliente" id="cliente" [(ngModel)]="this.cliente">
+                    </div>
+                </div>
+                <div class="row p-3 pt-2">
+                    <div class="col-12">
+                        <button class="btn btn-secondary w-100" (click)="consultarDevoluciones()">Filtrar</button>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <thead>
+                        <th>Id</th>
+                        <th>ShipmentId</th>
+                        <th>CreatedAt</th>
+                        <th>UpdatedAt</th>
+                        <th>State</th>
+                        <th>Acciones</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let devolution of devolutions$ | async">
+                            <td>{{devolution.id}}</td>
+                            <td>{{devolution.shipmentId}}</td>
+                            <td>{{devolution.createdAt | date:'dd/MM/yyyy HH:mm'}}</td>
+                            <td>{{devolution.updatedAt | date:'dd/MM/yyyy HH:mm'}}</td>
+                            <td>{{devolution.state}}</td>
+                            <td>
+                                <button class="btn btn-secondary w-100" (click)="viewDetails(devolution)">Ver</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+</div>

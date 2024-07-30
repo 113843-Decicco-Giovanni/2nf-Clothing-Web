@@ -1,27 +1,28 @@
 ﻿using _2nf_API.Entities;
 using _2nf_API.Repositories;
+using _2nf_API.Repositories.Imp;
 using _2nf_API.Requests;
 using _2nf_API.Responses;
 using AutoMapper;
-using MySqlX.XDevAPI;
-using System.Net.Mail;
 using System.Net;
+using System.Net.Mail;
 using System.Text;
-using ZstdSharp.Unsafe;
 
 namespace _2nf_API.Services.Imp
 {
     public class ShipmentService : IShipmentService
     {
         private readonly IShipmentRepository _repository;
+        private readonly IClientRepository _clientRepository;
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
 
-        public ShipmentService(IShipmentRepository repository, IMapper mapper, IConfiguration configuration)
+        public ShipmentService(IShipmentRepository repository, IMapper mapper, IConfiguration configuration, IClientRepository clientRepository)
         {
             _repository = repository;
             _mapper = mapper;
             _configuration = configuration;
+            _clientRepository = clientRepository;
         }
 
         public async Task<List<ShipmentResponse>> GetShipmentsByClient(int nroDoc)
@@ -66,8 +67,8 @@ namespace _2nf_API.Services.Imp
         {
             try
             {
-                var shipment = await _repository.GetById(updated.Id);
-                var sale = shipment.Sale;
+                //var updated = await _repository.GetById(updated.Id);
+                var sale = updated.Sale;
                 var client = sale.Client;
                 // Configuración del mensaje de correo
                 MailMessage mail = new MailMessage();
@@ -109,24 +110,24 @@ namespace _2nf_API.Services.Imp
                 sb.AppendLine();
 
                 sb.AppendLine("Datos del Envío:");
-                sb.AppendLine("Dirección: " + shipment.Street + " " + shipment.StreetNumber + ", " + shipment.City + ", " + shipment.State);
-                if (!string.IsNullOrEmpty(shipment.Floor))
+                sb.AppendLine((string)("Dirección: " + updated.Street + " " + updated.StreetNumber + ", " + updated.City + ", " + updated.State));
+                if (!string.IsNullOrEmpty((string?)updated.Floor))
                 {
-                    sb.AppendLine("Piso: " + shipment.Floor);
+                    sb.AppendLine((string)("Piso: " + updated.Floor));
                 }
-                if (!string.IsNullOrEmpty(shipment.Appartament))
+                if (!string.IsNullOrEmpty((string?)updated.Appartament))
                 {
-                    sb.AppendLine("Departamento: " + shipment.Appartament);
+                    sb.AppendLine((string)("Departamento: " + updated.Appartament));
                 }
-                sb.AppendLine("Código Postal: " + shipment.PostalCode);
-                sb.AppendLine("Estado del Envío: " + (shipment.ShipmentState == 0 ? "Pendiente" : "Procesado"));
-                if (shipment.TrackingId.HasValue)
+                sb.AppendLine((string)("Código Postal: " + updated.PostalCode));
+                sb.AppendLine((string)("Estado del Envío: " + (updated.ShipmentState == 0 ? "Pendiente" : "Procesado")));
+                if (updated.TrackingId.HasValue)
                 {
-                    sb.AppendLine("ID de Seguimiento: " + shipment.TrackingId.Value);
+                    sb.AppendLine((string)("ID de Seguimiento: " + updated.TrackingId.Value));
                 }
-                if (!string.IsNullOrEmpty(shipment.Service))
+                if (!string.IsNullOrEmpty((string?)updated.Service))
                 {
-                    sb.AppendLine("Servicio: " + shipment.Service);
+                    sb.AppendLine((string)("Servicio: " + updated.Service));
                 }
                 sb.AppendLine();
 
@@ -150,7 +151,7 @@ namespace _2nf_API.Services.Imp
                 smtpServer.Send(mail);
                 Console.WriteLine("Correo enviado exitosamente.");
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -192,6 +193,102 @@ namespace _2nf_API.Services.Imp
             var response = _mapper.Map<ShipmentResponse>(shipment);
 
             return response;
+        }
+
+        public async Task<ShipmentResponse> CancelShipment(int id)
+        {
+            var shipment = await _repository.GetById(id);
+
+            shipment.ShipmentState = 4;
+            shipment.Sale.Canceled = true;
+            shipment.Sale.RefundPending = true;
+            shipment.Sale = DevolverStock(shipment.Sale);
+
+            await NotificarClienteCancelado(shipment);
+
+            var updated = await _repository.Update(shipment);
+            var response = _mapper.Map<ShipmentResponse>(updated);
+
+            return response;
+        }
+
+        private async Task NotificarClienteCancelado(Shipment created)
+        {
+            try
+            {
+                var client = await _clientRepository.GetByDoc(created.ClientDoc);
+                // Configuración del mensaje de correo
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("2nf.clothing@gmail.com");
+                mail.To.Add(client.User.Email);
+                mail.Subject = "Se ha cancelado el envío";
+
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("Estimado/a " + client.Name + " " + client.Surname + ",");
+                sb.AppendLine();
+                sb.AppendLine("Se ha cancelado el envío del producto.");
+                sb.AppendLine("Será contactado por este medio a la brevedad cuando se reembolse el dinero");
+                sb.AppendLine();
+
+                sb.AppendLine("Si tiene alguna pregunta o necesita más información, no dude en ponerse en contacto con nosotros.");
+                sb.AppendLine();
+                sb.AppendLine("Saludos cordiales,");
+                sb.AppendLine("Equipo de Atención al Cliente");
+
+                mail.Body = sb.ToString();
+
+                // Si necesitas adjuntar un archivo
+                // mail.Attachments.Add(new Attachment("ruta/al/archivo"));
+
+                // Configuración del cliente SMTP
+                SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+                smtpServer.Port = 587; // O el puerto que uses
+                smtpServer.Credentials = new NetworkCredential(_configuration["Email:Direction"], _configuration["Email:Token"]);
+                smtpServer.EnableSsl = true; // True si el servidor SMTP requiere SSL
+
+                // Enviar el correo
+                smtpServer.Send(mail);
+                Console.WriteLine("Correo enviado exitosamente.");
+            }
+            catch { }
+
+        }
+
+        private Sale DevolverStock(Sale sale)
+        {
+            foreach (var detail in sale.Details)
+            {
+                //sale.Details.Remove(detail);
+                var stock = detail.Article.Stocks.Find(x => x.Size.Id == detail.Size.Id);
+
+                //si existe el stock
+                if (stock != null)
+                {
+                    //detail.Article.Stocks.Remove(stock);
+                    stock.Amount += detail.Amount;
+                    stock.LastAmountAdded = detail.Amount;
+                    stock.UpdatedAt = DateTime.Now;
+                    //detail.Article.Stocks.Add(stock);
+                    //var updated = await _articleRepository.UpdateArticle(article);
+                    //var response = _mapper.Map<ArticleResponse>(updated);
+                }
+                else
+                {
+                    var newstock = new Stock
+                    {
+                        Amount = detail.Amount,
+                        Article = detail.Article,
+                        LastAmountAdded = detail.Amount,
+                        Size = detail.Size,
+                        UpdatedAt = DateTime.Now
+                    };
+                    //detail.Article.Stocks.Add(newstock);
+                    //var updated = await _articleRepository.UpdateArticle(article);
+                    //var response = _mapper.Map<ArticleResponse>(updated);
+                }
+                //sale.Details.Add(detail);
+            }
+            return sale;
         }
     }
 }

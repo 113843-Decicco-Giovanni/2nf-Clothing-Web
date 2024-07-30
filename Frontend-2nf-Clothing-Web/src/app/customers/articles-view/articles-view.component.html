@@ -1,7 +1,11 @@
 <div class="container-fluid w-100">
   <div class="container h-100">
+    <div class="row mt-4">
+      <div class="col-sm-4 m-auto">
+        <input type="text" class="form-control filtro" placeholder="Buscar" name="search" id="search" [(ngModel)]="search" (ngModelChange)="onSearch()">
+      </div>
     <div class="row m-0 p-0 w-100">
-      <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-4 d-flex" *ngFor="let article of articles$ | async">
+      <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-4 d-flex" *ngFor="let article of articles">
         <div class="card flex-fill w-100" (click)="openArticle(article)">
           <div class="card-img w-100">
             <img [src]="article.images.at(0)" class="card-img-top rounded" alt="...">

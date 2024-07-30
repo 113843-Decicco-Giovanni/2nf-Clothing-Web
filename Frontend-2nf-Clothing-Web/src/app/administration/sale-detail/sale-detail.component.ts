@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { SaleResponse } from '../../models/sales/responses/sale-response';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { AppState } from '../../store/states/app.state';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute, Router } from '@angular/router';
-import { loadSaleById } from '../../store/actions/sale.actions';
-import { selectSale } from '../../store/selectors/sale.selector';
+import { loadSaleById, updatePendingRefund } from '../../store/actions/sale.actions';
+import { selectSale, selectSalesLoading } from '../../store/selectors/sale.selector';
 import { SaleDetailResponse } from '../../models/sales/responses/sale-detail-response';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sale-detail',
@@ -38,5 +39,26 @@ export class SaleDetailComponent implements OnInit{
   }
   calcularSubtotal(item: SaleDetailResponse){
     return item.amount * item.unitPrice
+  }
+
+  refundSale(){
+    Swal.fire({
+      title: '¿Desea reembolsar la venta?',
+      icon: 'warning',
+      showCancelButton: true,
+      text: 'Esto cambiará el estado de la venta a reembolsada',
+      confirmButtonColor: '#960000',
+      confirmButtonText: 'Reembolsar',
+      background: '#262626',
+      color: '#a7a7a7',
+      cancelButtonColor: '#4a4a4a',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.store.dispatch(updatePendingRefund({id: this.activatedRoute.snapshot.params['id']}));
+        this.store.select(selectSalesLoading).subscribe(loading => {
+          if(!loading) this.store.dispatch(loadSaleById({id: this.activatedRoute.snapshot.params['id']}));
+        })
+      }
+    })
   }
 }

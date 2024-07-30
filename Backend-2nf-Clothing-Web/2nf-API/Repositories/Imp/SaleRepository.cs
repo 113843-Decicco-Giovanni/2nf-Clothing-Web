@@ -21,6 +21,13 @@ namespace _2nf_API.Repositories.Imp
                         .ThenInclude(x => x.Images)
                 .Include(x => x.Details)
                     .ThenInclude(x => x.Size)
+                .Include(x => x.Details)
+                    .ThenInclude(x => x.Article)
+                        .ThenInclude(x => x.Type)
+                .Include(x => x.Details)
+                    .ThenInclude(x => x.Article)
+                        .ThenInclude(x => x.Stocks)
+                            .ThenInclude(x => x.Size)
                 .Include(x => x.Client)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
@@ -35,7 +42,13 @@ namespace _2nf_API.Repositories.Imp
                     .ThenInclude(x => x.Size)
                 .Include(x => x.Details)
                     .ThenInclude(x => x.Article)
-                    .ThenInclude(x => x.Images)
+                        .ThenInclude(x => x.Stocks)
+                .Include(x => x.Details)
+                    .ThenInclude(x => x.Article)
+                        .ThenInclude(x => x.Type)
+                .Include(x => x.Details)
+                    .ThenInclude(x => x.Article)
+                        .ThenInclude(x => x.Images)
                 .FirstOrDefaultAsync(x => x.PaymentId == id);
 
             return sale; 

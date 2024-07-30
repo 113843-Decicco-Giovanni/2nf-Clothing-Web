@@ -9,5 +9,6 @@
         public List<SaleDetail> Details { get; set; }
         public long PaymentId { get; set; }
         public bool Canceled { get; set; } = false;
+        public bool RefundPending { get; set; } = false;
     }
 }

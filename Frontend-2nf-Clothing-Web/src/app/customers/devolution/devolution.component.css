@@ -1,8 +1,8 @@
 .container-fluid{
-    background-color: #262626;
+    background-color: transparent;
 }
 .container{
-    background-color: #262626;
+    background-color: transparent;
 }
 .card{
     max-width: 900px;

@@ -1,9 +1,13 @@
 ﻿using _2nf_API.Entities;
 using _2nf_API.Repositories;
+using _2nf_API.Repositories.Imp;
 using _2nf_API.Requests;
 using _2nf_API.Responses;
 using AutoMapper;
 using FluentValidation;
+using System.Net.Mail;
+using System.Net;
+using System.Text;
 
 namespace _2nf_API.Services.Imp
 {
@@ -14,13 +18,21 @@ namespace _2nf_API.Services.Imp
         private readonly IValidator<ClientRequest> _clientValidator;
         private readonly IValidator<ClientLoginRequest> _loginValidator;
         private readonly IMapper _mapper;
-        public ClientService(IClientRepository repository, IUserRepository userRepository, IValidator<ClientRequest> clientValidator, IValidator<ClientLoginRequest> loginValidator, IMapper mapper)
+        private readonly IConfiguration _configuration;
+        public ClientService(
+            IClientRepository repository, 
+            IUserRepository userRepository, 
+            IValidator<ClientRequest> clientValidator, 
+            IValidator<ClientLoginRequest> loginValidator, 
+            IMapper mapper, 
+            IConfiguration configuration)
         {
             _repository = repository;
             _userRepository = userRepository;
             _clientValidator = clientValidator;
             _loginValidator = loginValidator;
             _mapper = mapper;
+            _configuration = configuration;
         }
         public async Task<ClientResponse> Create(ClientRequest request)
         {
@@ -126,16 +138,55 @@ namespace _2nf_API.Services.Imp
                     {
                         throw new BadHttpRequestException("Este documento ya está registrado");
                     }
-
+                    var notificarEmail = clientToUpdate.User.Email != request.Email;
                     clientToUpdate = MapearEntidad(request, clientToUpdate, id);
 
                     var updated = await _repository.Update(clientToUpdate);
                     var response = _mapper.Map<ClientResponse>(updated);
+
+                    if (notificarEmail) await NotificarCliente(request.Email, clientDoc.DocId);
+
                     return response;
                 }
                 throw new AccessViolationException("Contraseña incorrecta");
             }
             throw new BadHttpRequestException("Peticion inválida");
+        }
+
+        private async Task NotificarCliente(string email, int doc)
+        {
+            var client = await _repository.GetByDoc(doc);
+            // Configuración del mensaje de correo
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("2nf.clothing@gmail.com");
+            mail.To.Add(client.User.Email);
+            mail.Subject = "Email actualizado";
+
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Estimado/a " + client.Name + " " + client.Surname + ",");
+            sb.AppendLine();
+            sb.AppendLine("Su dirección de correo fue actualizada a la que está recibiendo este mail.");
+            sb.AppendLine();
+
+            sb.AppendLine("Si tiene alguna pregunta o necesita más información, no dude en ponerse en contacto con nosotros.");
+            sb.AppendLine();
+            sb.AppendLine("Saludos cordiales,");
+            sb.AppendLine("Equipo de Atención al Cliente");
+
+            mail.Body = sb.ToString();
+
+            // Si necesitas adjuntar un archivo
+            // mail.Attachments.Add(new Attachment("ruta/al/archivo"));
+
+            // Configuración del cliente SMTP
+            SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+            smtpServer.Port = 587; // O el puerto que uses
+            smtpServer.Credentials = new NetworkCredential(_configuration["Email:Direction"], _configuration["Email:Token"]);
+            smtpServer.EnableSsl = true; // True si el servidor SMTP requiere SSL
+
+            // Enviar el correo
+            smtpServer.Send(mail);
+            Console.WriteLine("Correo enviado exitosamente.");
         }
 
         private Client MapearEntidad(ClientRequest request, Client entity, int id)

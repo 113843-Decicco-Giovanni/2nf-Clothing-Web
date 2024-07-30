@@ -24,7 +24,7 @@
                                     <tr>
                                         <td>{{(this.shipment$ | async)?.sale?.date| date:'dd/MM/yyyy-HH:mm'}}</td>
                                         <td>{{(this.shipment$ | async)?.sale?.client?.name + ' ' + (this.shipment$ | async)?.sale?.client?.surname}}</td>
-                                        <td>{{(this.shipment$ | async)?.shipmentState == 'Pendiente' ? 'Pendiente' : 'Procesado'}}</td>
+                                        <td>{{(this.shipment$ | async)?.shipmentState}}</td>
                                         <td>{{(this.shipment$ | async)?.sale?.client?.phone}}</td>
                                     </tr>
                                 </tbody>
@@ -86,7 +86,12 @@
                                     <button [disabled]="!this.editable" class="btn btn-secondary w-100" (click)="procesar()">Procesar Pedido</button>
                                 </div>
                             </div>
-                            <div class="row mt-3" *ngIf="(this.shipment$ | async)?.shipmentState == 'Procesado'">
+                            <div class="row mt-3" *ngIf="((this.shipment$ | async)?.shipmentState == 'Pendiente')">
+                                <div class="col-12">
+                                    <button class="btn btn-danger w-100" (click)="cancelarEnvio()">Cancelar Envío</button>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="((this.shipment$ | async)?.shipmentState == 'Procesado')">
                                 <div class="col-12">
                                     <button class="btn btn-danger w-100" (click)="this.editable = !this.editable" *ngIf="!this.editable">Modificar Estado</button>
                                     <button class="btn btn-success w-100" (click)="this.editable = !this.editable" *ngIf="this.editable">Cancelar Edición</button>

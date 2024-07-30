@@ -37,4 +37,8 @@ export class ShipmentService {
   getShipmentBySaleId(id: number): Observable<ShipmentResponse> {
     return this.http.get<ShipmentResponse>(`http://localhost:5260/api/shipments/sale/${id}`)
   }
+
+  cancelShipment(id: number): Observable<ShipmentResponse> {
+    return this.http.delete<ShipmentResponse>(`http://localhost:5260/api/shipments/${id}`)
+  }
 }

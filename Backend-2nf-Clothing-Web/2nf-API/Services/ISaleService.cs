@@ -12,5 +12,6 @@ namespace _2nf_API.Services
         Task<SaleResponse> GetSaleByPaymentId(long id);
         Task<List<SaleResponse>> GetSales(DateTime fechaInicio, DateTime fechaFin, int? clientDoc);
         Task<Sale> ReadWebHook(HttpRequest request);
+        Task UpdateRefundPending(int saleId);
     }
 }

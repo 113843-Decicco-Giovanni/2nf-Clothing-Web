@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { SaleState } from "../states/sale.state";
-import { loadSaleById, loadSaleByIdSuccess, loadSales, loadSalesFail, loadSalesSuccess } from "../actions/sale.actions";
+import { loadSaleById, loadSaleByIdSuccess, loadSales, loadSalesFail, loadSalesSuccess, updatePendingRefund, updatePendingRefundFail, updatePendingRefundSuccess } from "../actions/sale.actions";
 
 export const initialState: SaleState = {
     loading: false,
@@ -44,6 +44,24 @@ export const saleReducer = createReducer(
         }
     }),
     on(loadSalesFail, (state) => {
+        return {
+            ...state,
+            loading: false
+        }
+    }),
+    on(updatePendingRefund, (state) => {
+        return {
+            ...state,
+            loading: true
+        }
+    }),
+    on(updatePendingRefundSuccess, (state) => {
+        return {
+            ...state,
+            loading: false
+        }
+    }),
+    on(updatePendingRefundFail, (state) => {
         return {
             ...state,
             loading: false

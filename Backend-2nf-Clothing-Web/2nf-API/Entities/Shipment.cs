@@ -16,7 +16,7 @@ namespace _2nf_API.Entities
         public string PostalCode { get; set; }
         public DateTime? ProcessDate { get; set; }
         /// <summary>
-        /// 0 para pendiente - 1 para procesado - 2 para pendiente devolucion - 3 para cancelado
+        /// 0 para pendiente - 1 para procesado - 2 para pendiente devolucion - 3 para devuelto - 4 para cancelado
         /// </summary>
         public int ShipmentState { get; set; }
         public string? Details { get; set; }

@@ -1,12 +1,13 @@
 .container-fluid{
-    background-color: #262626;
+    background-color: transparent;
 }
 .container{
-    background-color: #262626;
+    background-color: transparent;
 }
 .card{
     max-width: 900px;
-    background-color: #262626 ;
+    background-color: #262626c1;
+    backdrop-filter: blur(2px);
     font-family: 'Almarai';
     letter-spacing: 1px;
     box-shadow: 0 0 5px #0c0c0c9d;

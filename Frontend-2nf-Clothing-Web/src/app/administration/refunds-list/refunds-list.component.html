@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <div class="container pt-4">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3 class="card-title">Reembolsos</h3>
+                <div class="row p-3 pb-2">
+                    <div class="col-md-4">
+                        <label for="fechaInicio" class="form-label">Fecha desde*</label>
+                        <input type="date" class="form-control" name="fechaInicio" id="fechaInicio" [(ngModel)]="this.fechaInicio">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="fechaFin" class="form-label">Fecha hasta*</label>
+                        <input type="date" class="form-control" name="fechaFin" id="fechaFin" [(ngModel)]="this.fechaFin">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="estado" class="form-label">Estado*</label>
+                        <select class="form-select" name="estado" id="estado" [(ngModel)]="this.state">
+                            <option value="0">Pendiente</option>
+                            <option value="1">En proceso</option>
+                            <option value="2">Finalizado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row p-3 pt-0">
+                    <div class="col-12">
+                        <label for="cliente" class="form-label">Documento del Cliente</label>
+                        <input type="text" class="form-control" name="cliente" id="cliente" [(ngModel)]="this.cliente">
+                    </div>
+                </div>
+                <div class="row p-3 pt-2">
+                    <div class="col-12">
+                        <button class="btn btn-secondary w-100" (click)="consultarReembolsos()">Filtrar</button>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <thead>
+                        <th>Id</th>
+                        <th>Id Venta</th>
+                        <th>Documento Cliente</th>
+                        <th>Reason</th>
+                        <th>State</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let refund of refunds$ | async">
+                            <td>{{refund.id}}</td>
+                            <td>{{refund.saleId}}</td>
+                            <td>{{refund.clientDoc}}</td>
+                            <td>{{refund.reason}}</td>
+                            <td>{{refund.state}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <div class="card-footer">
+                <div class="row">
+                    <button class="btn btn-danger" (click)="addRefund()">Nuevo Reembolso</button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

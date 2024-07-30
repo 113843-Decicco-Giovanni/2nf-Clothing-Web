@@ -11,5 +11,6 @@ namespace _2nf_API.Repositories
         Task<Client> GetById(int id);
         Task<Client> GetByDoc(int doc);
         Task<List<Client>> Get(string? name, int? docId);
+
     }
 }

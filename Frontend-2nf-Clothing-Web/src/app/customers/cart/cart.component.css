@@ -10,7 +10,8 @@ img{
     color: #a7a7a7;
 }
 .card{
-    background-color: #262626;
+    background-color: #262626c1;
+    backdrop-filter: blur(2px);
     max-width: 1800px;
     margin: auto;
     font-family: 'Almarai';
@@ -19,18 +20,18 @@ img{
     text-align: center;
 }
 .container-fluid{
-    background-color: #262626;
+    background-color: transparent;
 }
 thead{
-    background-color: #262626;
+    background-color: transparent;
     color: #a7a7a7;
 }
 th{
-    background-color: #262626;
+    background-color: transparent;
     color: #a7a7a7;
 }
 td{
-    background-color: #262626;
+    background-color: transparent;
     color: #a7a7a7;
     border:none;
     border-top:#4a4a4a 1px solid;

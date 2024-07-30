@@ -66,6 +66,7 @@ namespace _2nf_API.Repositories.Imp
             var shipment = await _context.Shipments
                 .Include(x => x.Sale)
                     .ThenInclude(x => x.Client)
+                        .ThenInclude(x => x.User)
                 .Include(x => x.Sale)
                     .ThenInclude(x => x.Details)
                         .ThenInclude(x => x.Article)

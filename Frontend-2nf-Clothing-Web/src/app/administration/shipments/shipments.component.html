@@ -10,6 +10,9 @@
                         <select name="estado" id="estado" class="form-select" [(ngModel)]="this.estado">
                             <option value="0" selected>Pendiente</option>
                             <option value="1">Procesado</option>
+                            <option value="2">Pendiente Devolución</option>
+                            <option value="3">Devuelto</option>
+                            <option value="3">Cancelado</option>
                         </select>
                     </div>
                     <div class="col-md-4">
@@ -45,7 +48,7 @@
                         <tr *ngFor="let shipment of shipments$ | async">
                             <td>{{shipment.sale.client.name + ' ' + shipment.sale.client.surname}}</td>
                             <td>{{shipment.sale.date | date:'dd/MM/yyyy-HH:mm'}}</td>
-                            <td>{{shipment.shipmentState == 'Pendiente' ? 'Pendiente' : 'Procesado'}}</td>
+                            <td>{{shipment.shipmentState}}</td>
                             <td><button class="btn btn-secondary" (click)="viewDetails(shipment)">Detalles</button></td>
                         </tr>
                     </tbody>

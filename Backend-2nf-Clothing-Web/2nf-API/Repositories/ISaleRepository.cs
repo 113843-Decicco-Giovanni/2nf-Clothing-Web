@@ -10,5 +10,6 @@ namespace _2nf_API.Repositories
         Task<List<Sale>> GetSalesByClient(int value);
         Task<Sale> Save(Sale sale);
         Task<Sale> Update(Sale sale);
+
     }
 }

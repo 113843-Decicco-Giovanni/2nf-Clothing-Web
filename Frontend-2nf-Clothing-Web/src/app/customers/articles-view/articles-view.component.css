@@ -6,12 +6,28 @@ body{
     /* height: 100%; */
 }
 .container-fluid{
-    background-color: #262626;
+    background-color: transparent;
     margin: 0;
     width: 100%;
     /* height: 100%; */
 }
+.filtro{
+    background-color: #414141;
+    border: none;
+    color: #d8d8d8;
+    width: 100%;
+    border-radius: 20px;
+    /* height: 100%; */
+}
+.filtro::placeholder{
+    color: #a7a7a7;
+}
+.filtro:hover, .filtro:focus{
+    border: none;
+    box-shadow: none;
+}
 .container{
+    background-color: transparent;
     width: 100%;
     padding: 0;
     /* margin: 0; */
@@ -29,7 +45,7 @@ body{
 }
 .card{
     background-color: transparent;
-    color: #a7a7a7;
+    color: #d1d1d1;
     margin: 0;
     padding: 0;
     font-family: 'Almarai';
@@ -40,7 +56,10 @@ body{
     /* height: 100%; */
 }
 .card-title{
-    font-size: medium;
+    font-size: 2vh;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-style: italic;
 }
 .card-text{
     font-family: 'Almarai';

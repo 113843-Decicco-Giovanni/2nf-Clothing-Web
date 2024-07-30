@@ -12,14 +12,6 @@ namespace _2nf_API.Utils
             CreateMap<ArticleRequest, Article>()
                 .ForMember(dest => dest.Type, opt => opt.MapFrom(src => new ArticleType { Id = src.Type }))
                 .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images.Select(imageUrl => new Image { URL = imageUrl })))
-                //.ForMember(dest => dest.Stocks, opt => opt.MapFrom(src => src.Stocks.Select(req => new Stock
-                //{
-                //    Id = req.Id,
-                //    Size = new Size { Id = req.Size },
-                //    Amount = req.Amount,
-                //    LastAmountAdded = req.Amount,
-                //    UpdatedAt = DateTime.Now
-                //})))
                 .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTime.Now))
                 .AfterMap((src, dest) =>
                 {
@@ -27,10 +19,6 @@ namespace _2nf_API.Utils
                     {
                         image.Article = dest;
                     }
-                    //foreach (var stock in dest.Stocks)
-                    //{
-                    //    stock.Article = dest;
-                    //}
                 });
             CreateMap<Article, ArticleResponse>()
                 .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type.Id))
@@ -50,6 +38,12 @@ namespace _2nf_API.Utils
             CreateMap<SaleDetail, SaleDetailResponse>();
             CreateMap<Sale, SaleResponse>();
             CreateMap<ShipmentRequest, Shipment>();
+            CreateMap<Refund, RefundResponse>()
+                .ForMember(x => x.SaleId, opt => opt.MapFrom(x => x.Sale.Id))
+                .ForMember(x => x.State, opt => opt.ConvertUsing(new RefundStatusConverter(), src => src.State));
+            CreateMap<Devolution, DevolutionResponse>()
+                .ForMember(x => x.ShipmentId, opt => opt.MapFrom(x => x.Shipment.Id))
+                .ForMember(x => x.State, opt => opt.ConvertUsing(new DevolutionStatusConverter(), src => src.State));
         }
     }
 }

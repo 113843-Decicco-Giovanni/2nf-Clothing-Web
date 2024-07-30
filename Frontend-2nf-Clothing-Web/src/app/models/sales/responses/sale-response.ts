@@ -9,4 +9,5 @@ export interface SaleResponse{
     // shipment: ShipmentResponse;
     paymentId: number;
     canceled: boolean;
+    refoundPending: boolean;
 }

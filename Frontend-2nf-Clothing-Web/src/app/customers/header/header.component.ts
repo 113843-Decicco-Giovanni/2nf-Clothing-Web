@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output, ViewChild } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AppState } from '../../store/states/app.state';
 import { Store } from '@ngrx/store';
@@ -10,6 +10,9 @@ import { logoutClient } from '../../store/actions/client.actions';
 import Swal from 'sweetalert2';
 import { CartDetail } from '../../models/cart/cartDetail';
 import { selectCart, selectCartAmount } from '../../store/selectors/cart.selector';
+import { ClarityModule } from '@clr/angular';
+import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
+import { SideNavComponent } from '../side-nav/side-nav.component';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +20,10 @@ import { selectCart, selectCartAmount } from '../../store/selectors/cart.selecto
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ClarityModule,
+    MatSidenavModule,
+    SideNavComponent
   ],
   styleUrl: './header.component.css'
 })
@@ -30,6 +36,11 @@ export class HeaderComponent implements OnInit{
   userLogged$: Observable<Readonly<User>> = new Observable();
   loggedIn$: Observable<Boolean> = new Observable();
   cart$: Observable<number> = new Observable();
+  isSideNavOpen = false;
+
+  openSideNav() {
+    this.isSideNavOpen = true;
+  }
 
   constructor(
     private store: Store<AppState>,

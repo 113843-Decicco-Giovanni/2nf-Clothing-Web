@@ -10,7 +10,9 @@ namespace _2nf_API.Utils
             {
                 0 => "Pendiente",
                 1 => "Procesado",
-                2 => "Finalizado",
+                2 => "Pendiente Devolucion",
+                3 => "Devuelto",
+                4 => "Cancelado",
                 _ => "Desconocido" // Maneja valores no esperados
             };
         }

@@ -9,6 +9,9 @@ export const ADD_ARTICLE_SUCCESS = '[new-article] Add Article Success';
 export const ADD_ARTICLE_FAIL = '[new-article] Add Article Fail';
 // gettings
 export const LOAD_ARTICLES_WITH_STOCK = '[Home] Load Articles With Stock';
+export const LOAD_ARTICLES_WITH_STOCK_SUCCESS = '[Home] Load Articles With Stock Success';
+export const LOAD_ARTICLES_WITH_STOCK_FAIL = '[Home] Load Articles With Stock Fail';
+
 export const LOAD_ARTICLES = '[Adim-Article-List] Load Articles';
 export const LOAD_ARTICLES_SUCCESS = '[Home] Load Articles Success';
 export const LOAD_ARTICLES_FAIL = '[Home] Load Articles Fail';
@@ -50,6 +53,13 @@ export const loadArticles = createAction(
 );
 export const loadArticlesWithStock = createAction(
     LOAD_ARTICLES_WITH_STOCK
+)
+export const loadArticlesWithStockSuccess = createAction(
+    LOAD_ARTICLES_WITH_STOCK_SUCCESS,
+    props<{ articles: Article[] }>()
+)
+export const loadArticlesWithStockFail = createAction(
+    LOAD_ARTICLES_WITH_STOCK_FAIL
 )
 export const loadArticlesSuccess = createAction(
     LOAD_ARTICLES_SUCCESS, 
@@ -141,3 +151,12 @@ export const loadSizesSuccess = createAction(
 export const loadSizesFail = createAction(
     LOAD_SIZES_FAIL
 )
+
+// export const filterArticles = createAction(
+//     FILTER_ARTICLES,
+//     props<{ name?: string, articleType?: number, orderBy?: number }>()
+// )
+// export const filterArticlesSuccess = createAction(
+//     FILTER_ARTICLES_SUCCESS,
+//     props<{ filteredArticles: Article[] }>()
+// )

@@ -19,6 +19,9 @@ import { SalesByDayComponent } from "./reports/sales-by-day/sales-by-day.compone
 import { SalesByMonthComponent } from "./reports/sales-by-month/sales-by-month.component";
 import { BilledAmountByDayComponent } from "./reports/billed-amount-by-day/billed-amount-by-day.component";
 import { BilledAmountByMonthComponent } from "./reports/billed-amount-by-month/billed-amount-by-month.component";
+import { DevolutionsListComponent } from "./devolutions-list/devolutions-list.component";
+import { RefundsListComponent } from "./refunds-list/refunds-list.component";
+import { DevolutionDetailsComponent } from "./devolution-details/devolution-details.component";
 
 export const ADMINISTRATION_ROUTES: Routes = [
     {
@@ -110,6 +113,32 @@ export const ADMINISTRATION_ROUTES: Routes = [
             }
         ]
     },
+    {
+        path: 'devolutions',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        children:[
+            {
+                path: '',
+                component: DevolutionsListComponent
+            },
+            {
+                path: ':id',
+                component: DevolutionDetailsComponent
+            }
+        ]
+    },
+    // {
+    //     path: 'refunds',
+    //     canActivate: [AuthGuard],
+    //     canActivateChild: [AuthGuard],
+    //     children:[
+    //         {
+    //             path: '',
+    //             component: RefundsListComponent
+    //         }
+    //     ]
+    // },
     {
         path: 'reports',
         canActivate: [AuthGuard],

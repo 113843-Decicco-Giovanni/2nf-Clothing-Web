@@ -15,5 +15,6 @@ namespace _2nf_API.Services
         Task<List<ShipmentResponse>> GetShipmentsByClient(int nroDoc);
         Task<ShipmentResponse> ModifyShipment(int id, ShipmentRequest request);
         Task<ShipmentResponse> UpdateShipmentState(int shipmentId, long trackingId, string service);
+        Task<ShipmentResponse> CancelShipment(int id);
     }
 }

@@ -4,11 +4,11 @@ import { ShipmentResponse } from '../../models/sales/responses/shipment-response
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/states/app.state';
-import { selectShipmentResponse } from '../../store/selectors/shipments.selector';
+import { selectShipmentLoading, selectShipmentResponse } from '../../store/selectors/shipments.selector';
 import { CommonModule } from '@angular/common';
-import { loadArticleById } from '../../store/actions/article.actions';
-import { loadShipmentById, processShipment } from '../../store/actions/shipment.actions';
+import { cancelShipment, loadShipmentById, processShipment } from '../../store/actions/shipment.actions';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-shipment-detail',
@@ -40,6 +40,7 @@ export class ShipmentDetailComponent implements OnInit{
       this.service = shipment?.service ?? '';
       this.trackingId = shipment?.trackingId ?? 0;
       if (shipment?.shipmentState == 'Pendiente') this.editable = true
+      if (shipment?.shipmentState == 'Pendiente Devolucion') this.editable = false
     })
   }
 
@@ -53,5 +54,27 @@ export class ShipmentDetailComponent implements OnInit{
 
   modificarEnvio(){
     this.router.navigate(['administration', 'shipments', 'modify', this.activatedRoute.snapshot.params['id']]);
+  }
+
+  cancelarEnvio(){
+    Swal.fire({
+      title: '¿Desea cancelar el envío?',
+      showCancelButton: true,
+      confirmButtonColor: '#006912',
+      background: '#262626',
+      color: '#a7a7a7',
+      cancelButtonColor: '#4a4a4a',
+      confirmButtonText: 'Si, cancelar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.store.dispatch(cancelShipment({ id: this.activatedRoute.snapshot.params['id'] }));
+        this.store.select(selectShipmentLoading).subscribe(loading => {
+          if(!loading) this.store.dispatch(loadShipmentById({ id: this.activatedRoute.snapshot.params['id'] }));
+          this.shipment$.subscribe(shipment => {
+            if(shipment?.shipmentState == 'Cancelado') this.editable = false
+          })
+        })
+      }
+    })
   }
 }

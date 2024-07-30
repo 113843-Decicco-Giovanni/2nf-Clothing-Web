@@ -20,14 +20,21 @@ namespace _2nf_API.Repositories.Imp
 
         public async Task<Devolution> GetById(int id)
         {
-            var devolution = await _context.Devolutions.FirstOrDefaultAsync(x => x.Id == id);
+            var devolution = await _context.Devolutions
+                .Include(x => x.Shipment)
+                    .ThenInclude(x => x.Sale)
+                        .ThenInclude(x => x.Details)
+                            .ThenInclude(x => x.Article)
+                                .ThenInclude(x => x.Stocks)
+                                    .ThenInclude(x => x.Size)
+                .FirstOrDefaultAsync(x => x.Id == id);
 
             return devolution;
         }
 
         public async Task<Devolution> GetByShipment(int shipmentId)
         {
-            var devolution = await _context.Devolutions.Include(x => x.Shipment).FirstOrDefaultAsync(x => x.Shipment.Id == shipmentId);
+            var devolution = await _context.Devolutions.Include(x => x.Shipment).FirstOrDefaultAsync(x => x.Shipment.Id == shipmentId && x.State != 3);
 
             return devolution;
         }

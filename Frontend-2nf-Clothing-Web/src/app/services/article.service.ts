@@ -9,6 +9,40 @@ import { Size } from '../models/stocks/size';
   providedIn: 'root'
 })
 export class ArticleService {
+  filterArticles(articles: readonly Article[], name: string | undefined, articleType: number | undefined, orderBy: number | undefined): Article[] {
+    var filteredArticles = [...articles];
+    if (name != '') {
+      filteredArticles = filteredArticles.filter(article =>
+        article.name.toLowerCase().includes(name?.toLowerCase() || '')
+      );
+    }
+    
+    if (articleType) {
+      filteredArticles = filteredArticles.filter(article => article.type == articleType);
+    }
+
+    // Ordenar artículos
+    if (orderBy != undefined) {
+      switch (orderBy) {
+        case 0:
+          filteredArticles = filteredArticles.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        case 1:
+          filteredArticles = filteredArticles.sort((a, b) => b.name.localeCompare(a.name));
+          break;
+        case 2:
+          filteredArticles = filteredArticles.sort((a, b) => b.price - a.price);
+          break;
+        case 3:
+          filteredArticles = filteredArticles.sort((a, b) => a.price - b.price);
+          break;
+        default:
+          break;
+      }
+    }
+
+    return filteredArticles;
+  }
 
   url = "http://localhost:5260/api/articles";
   constructor(private http: HttpClient) { }

@@ -10,5 +10,6 @@ namespace _2nf_API.Repositories
         Task<User> Create(User user);
         Task<User> GetById(int id);
         Task<List<User>> GetUsers();
+
     }
 }

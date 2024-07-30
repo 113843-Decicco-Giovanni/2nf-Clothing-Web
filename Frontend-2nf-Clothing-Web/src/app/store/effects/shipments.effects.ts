@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, mergeMap, of } from "rxjs";
-import { confirmShipment, confirmShipmentSuccess, loadShipmentById, loadShipmentByIdSuccess, loadShipmentBySaleId, loadShipmentBySaleIdSuccess, loadShipments, loadShipmentsSuccess, modifyShipment, processShipment, processShipmentSuccess } from "../actions/shipment.actions";
+import { cancelShipment, cancelShipmentFail, cancelShipmentSuccess, confirmShipment, confirmShipmentSuccess, loadShipmentById, loadShipmentByIdSuccess, loadShipmentBySaleId, loadShipmentBySaleIdSuccess, loadShipments, loadShipmentsSuccess, modifyShipment, processShipment, processShipmentSuccess } from "../actions/shipment.actions";
 import { ShipmentService } from "../../services/shipment.service";
 import Swal from "sweetalert2";
 
@@ -141,6 +141,37 @@ export class ShipmentsEffects {
                             confirmButtonColor: '#a7a7a7'
                         })
                         return of({type: 'modifyShipmentFail'})
+                    })
+                )
+        })
+    ));
+
+    cancelShipment$ = createEffect(() => this.actions.pipe(
+        ofType(cancelShipment),
+        mergeMap((action) => {
+            return this.service.cancelShipment(action.id)
+                .pipe(
+                    map(shipment => {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Envío cancelado',
+                            text: 'Envío cancelado correctamente',
+                            background: '#262626',
+                            color: '#a7a7a7',
+                            confirmButtonColor: '#a7a7a7'
+                        })
+                        return cancelShipmentSuccess()
+                    }),
+                    catchError(() => {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Error al cancelar el envío',
+                            background: '#262626',
+                            color: '#a7a7a7',
+                            confirmButtonColor: '#a7a7a7'
+                        })
+                        return of(cancelShipmentFail())
                     })
                 )
         })

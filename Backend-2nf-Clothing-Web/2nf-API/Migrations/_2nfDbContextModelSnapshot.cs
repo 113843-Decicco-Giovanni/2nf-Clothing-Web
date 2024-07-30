@@ -146,7 +146,6 @@ namespace _2nf_API.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Detail")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Reason")
@@ -159,7 +158,7 @@ namespace _2nf_API.Migrations
                     b.Property<int>("State")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
@@ -205,13 +204,16 @@ namespace _2nf_API.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<long>("RefundId")
+                        .HasColumnType("bigint");
+
                     b.Property<int>("SaleId")
                         .HasColumnType("int");
 
                     b.Property<int>("State")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
@@ -241,6 +243,9 @@ namespace _2nf_API.Migrations
 
                     b.Property<long>("PaymentId")
                         .HasColumnType("bigint");
+
+                    b.Property<bool>("RefundPending")
+                        .HasColumnType("tinyint(1)");
 
                     b.HasKey("Id");
 

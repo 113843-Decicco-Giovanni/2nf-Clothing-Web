@@ -147,7 +147,7 @@ namespace _2nf_API.Services.Imp
             {
                 Items = items,
                 BackUrls = backUrls,
-                NotificationUrl = "https://500f-190-120-112-27.ngrok-free.app/api/sale/webhook-payment",
+                NotificationUrl = "https://9f5c-190-120-110-122.ngrok-free.app/api/sale/webhook-payment",
                 AutoReturn = "approved",
                 BinaryMode = true,
                 Payer = payer,
@@ -395,7 +395,7 @@ namespace _2nf_API.Services.Imp
         public async Task<List<SaleResponse>> GetSales(DateTime fechaInicio, DateTime fechaFin, int? clientDoc)
         {
             List<Sale> items;
-            if (!clientDoc.HasValue)
+            if (!clientDoc.HasValue || clientDoc == 0)
                 items = await _saleRepository.GetSales(fechaInicio, fechaFin);
             else
                 items = await _saleRepository.GetSalesByClient(clientDoc.Value);
@@ -421,6 +421,62 @@ namespace _2nf_API.Services.Imp
             var response = _mapper.Map<SaleResponse>(sale);
 
             return response;
+        }
+
+        public async Task UpdateRefundPending(int saleId)
+        {
+            var sale = await _saleRepository.GetById(saleId);
+
+            sale.RefundPending = false;
+
+            await NotificarClienteFinalizado(sale);
+
+            await _saleRepository.Update(sale);
+        }
+
+        private async Task NotificarClienteFinalizado(Sale sale)
+        {
+            try
+            {
+                var client = await _clientRepository.GetByDoc(sale.ClientDoc);
+                // Configuración del mensaje de correo
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("2nf.clothing@gmail.com");
+                mail.To.Add(client.User.Email);
+                mail.Subject = "Su compra fue cancelada con éxito";
+
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("Estimado/a " + client.Name + " " + client.Surname + ",");
+                sb.AppendLine();
+                sb.AppendLine("Hemos procesado su solicitud de cancelación de compra. Su reembolso por el monto de AR$: " + CalcularTotal(sale.Details) + " fue aprobado.");
+                sb.AppendLine("El importe debería verse reflejado en su cuenta o próximo resumen de tarjeta de crédito");
+                sb.AppendLine();
+
+                sb.AppendLine("Si tiene alguna pregunta o necesita más información, no dude en ponerse en contacto con nosotros.");
+                sb.AppendLine();
+                sb.AppendLine("Saludos cordiales,");
+                sb.AppendLine("Equipo de Atención al Cliente");
+
+                mail.Body = sb.ToString();
+
+                // Si necesitas adjuntar un archivo
+                // mail.Attachments.Add(new Attachment("ruta/al/archivo"));
+
+                // Configuración del cliente SMTP
+                SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+                smtpServer.Port = 587; // O el puerto que uses
+                smtpServer.Credentials = new NetworkCredential(_configuration["Email:Direction"], _configuration["Email:Token"]);
+                smtpServer.EnableSsl = true; // True si el servidor SMTP requiere SSL
+
+                // Enviar el correo
+                smtpServer.Send(mail);
+                Console.WriteLine("Correo enviado exitosamente.");
+            }
+            catch
+            {
+                Console.WriteLine("No se pudo enviar el correo");
+            }
+            
         }
     }
 }
