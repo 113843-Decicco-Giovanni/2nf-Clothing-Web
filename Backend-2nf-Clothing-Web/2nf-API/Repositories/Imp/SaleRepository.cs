@@ -74,6 +74,7 @@ namespace _2nf_API.Repositories.Imp
                 .Include(x => x.Client)
                 .Where(x => x.Date >= fechaInicio
                          && x.Date <= fechaFin)
+                .OrderByDescending(x => x.Date)
                 .ToListAsync();
             return sales;
         }

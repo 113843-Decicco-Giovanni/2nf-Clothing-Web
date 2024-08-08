@@ -7,7 +7,7 @@ import { UsersListComponent } from "./users/users-list/users-list.component";
 import { NewUserComponent } from "./users/new-user/new-user.component";
 import { UserProfileComponent } from "./users/user-profile/user-profile.component";
 import { ClientsViewComponent } from "./clients/clients-view/clients-view.component";
-import { AuthGuard } from "./auth.guard";
+import { AuthGuard, AuthGuardLogin } from "./auth.guard";
 import { AuthGuardAdmin } from "./auth.guard.admin";
 import { ArticleComponent } from "./articles/article-component/article.component";
 import { SalesComponent } from "./sales/sales.component";
@@ -20,7 +20,6 @@ import { SalesByMonthComponent } from "./reports/sales-by-month/sales-by-month.c
 import { BilledAmountByDayComponent } from "./reports/billed-amount-by-day/billed-amount-by-day.component";
 import { BilledAmountByMonthComponent } from "./reports/billed-amount-by-month/billed-amount-by-month.component";
 import { DevolutionsListComponent } from "./devolutions-list/devolutions-list.component";
-import { RefundsListComponent } from "./refunds-list/refunds-list.component";
 import { DevolutionDetailsComponent } from "./devolution-details/devolution-details.component";
 
 export const ADMINISTRATION_ROUTES: Routes = [
@@ -128,17 +127,6 @@ export const ADMINISTRATION_ROUTES: Routes = [
             }
         ]
     },
-    // {
-    //     path: 'refunds',
-    //     canActivate: [AuthGuard],
-    //     canActivateChild: [AuthGuard],
-    //     children:[
-    //         {
-    //             path: '',
-    //             component: RefundsListComponent
-    //         }
-    //     ]
-    // },
     {
         path: 'reports',
         canActivate: [AuthGuard],

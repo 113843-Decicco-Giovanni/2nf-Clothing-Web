@@ -3,20 +3,96 @@
   "WorkspaceRootPath": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\controllers\\salecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\controllers\\salecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\services\\imp\\saleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\services\\imp\\saleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\controllers\\shipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\controllers\\shipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\controllers\\devolutioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\controllers\\devolutioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\repositories\\imp\\salerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\repositories\\imp\\salerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\stock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\stock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\size.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\size.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\shipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\shipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\saledetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\saledetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\sale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\sale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\refund.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\refund.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\image.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\devolution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\devolution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\articletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\articletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\repositories\\imp\\reportsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\repositories\\imp\\reportsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\repositories\\imp\\refundrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\repositories\\imp\\refundrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\services\\imp\\shipmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\services\\imp\\shipmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\2nf-api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\2nf-api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\2nf-api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\2nf-api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\controllers\\salecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\controllers\\salecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\controllers\\shipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\controllers\\shipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\services\\imp\\devolutionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,28 +115,12 @@
       "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\services\\imp\\refundservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\refund.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\refund.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\controllers\\refundcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\controllers\\refundcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\responses\\saleresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\responses\\saleresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\sale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\sale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\shipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\shipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\controllers\\devolutioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\controllers\\devolutioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\requests\\devolutionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -103,10 +163,6 @@
       "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\responses\\devolutionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\entities\\devolution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\entities\\devolution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|c:\\users\\giova\\onedrive\\documentos\\2nf-clothing\\2nf-clothing-web\\backend-2nf-clothing-web\\2nf-api\\migrations\\20240701215737_cambiosvariosrefunds.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5FA1B26D-733B-4BC6-B72D-AA5C554DC8EE}|2nf-API\\2nf-API.csproj|solutionrelative:2nf-api\\migrations\\20240701215737_cambiosvariosrefunds.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -118,7 +174,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 208,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 44,
           "Children": [
             {
               "$type": "Bookmark",
@@ -154,7 +210,174 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "2nf-API\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\User.cs",
+              "RelativeToolTip": "2nf-API\\Entities\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T00:00:51.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Stock.cs",
+              "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Stock.cs",
+              "RelativeDocumentMoniker": "2nf-API\\Entities\\Stock.cs",
+              "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Stock.cs",
+              "RelativeToolTip": "2nf-API\\Entities\\Stock.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T00:00:47.581Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Size.cs",
+              "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Size.cs",
+              "RelativeDocumentMoniker": "2nf-API\\Entities\\Size.cs",
+              "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Size.cs",
+              "RelativeToolTip": "2nf-API\\Entities\\Size.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T00:00:42.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SaleDetail.cs",
+              "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\SaleDetail.cs",
+              "RelativeDocumentMoniker": "2nf-API\\Entities\\SaleDetail.cs",
+              "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\SaleDetail.cs",
+              "RelativeToolTip": "2nf-API\\Entities\\SaleDetail.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T00:00:34.133Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Image.cs",
+              "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Image.cs",
+              "RelativeDocumentMoniker": "2nf-API\\Entities\\Image.cs",
+              "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Image.cs",
+              "RelativeToolTip": "2nf-API\\Entities\\Image.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T00:00:19.479Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Client.cs",
+              "RelativeDocumentMoniker": "2nf-API\\Entities\\Client.cs",
+              "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Client.cs",
+              "RelativeToolTip": "2nf-API\\Entities\\Client.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T00:00:10.227Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ArticleType.cs",
+              "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\ArticleType.cs",
+              "RelativeDocumentMoniker": "2nf-API\\Entities\\ArticleType.cs",
+              "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\ArticleType.cs",
+              "RelativeToolTip": "2nf-API\\Entities\\ArticleType.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T00:00:04.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Article.cs",
+              "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Article.cs",
+              "RelativeDocumentMoniker": "2nf-API\\Entities\\Article.cs",
+              "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Article.cs",
+              "RelativeToolTip": "2nf-API\\Entities\\Article.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T23:59:57.395Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "2nf-API\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Controllers\\UserController.cs",
+              "RelativeToolTip": "2nf-API\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T23:37:17.989Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SaleRepository.cs",
+              "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Repositories\\Imp\\SaleRepository.cs",
+              "RelativeDocumentMoniker": "2nf-API\\Repositories\\Imp\\SaleRepository.cs",
+              "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Repositories\\Imp\\SaleRepository.cs",
+              "RelativeToolTip": "2nf-API\\Repositories\\Imp\\SaleRepository.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAwwEQAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T23:36:58.341Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ReportsRepository.cs",
+              "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Repositories\\Imp\\ReportsRepository.cs",
+              "RelativeDocumentMoniker": "2nf-API\\Repositories\\Imp\\ReportsRepository.cs",
+              "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Repositories\\Imp\\ReportsRepository.cs",
+              "RelativeToolTip": "2nf-API\\Repositories\\Imp\\ReportsRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T23:36:57.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "RefundRepository.cs",
+              "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Repositories\\Imp\\RefundRepository.cs",
+              "RelativeDocumentMoniker": "2nf-API\\Repositories\\Imp\\RefundRepository.cs",
+              "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Repositories\\Imp\\RefundRepository.cs",
+              "RelativeToolTip": "2nf-API\\Repositories\\Imp\\RefundRepository.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T23:36:54.788Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "2nf-API.csproj",
+              "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\2nf-API.csproj",
+              "RelativeDocumentMoniker": "2nf-API\\2nf-API.csproj",
+              "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\2nf-API.csproj",
+              "RelativeToolTip": "2nf-API\\2nf-API.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-30T23:22:37.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "2nf-API",
+              "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\2nf-API.csproj",
+              "RelativeDocumentMoniker": "2nf-API\\2nf-API.csproj",
+              "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\2nf-API.csproj",
+              "RelativeToolTip": "2nf-API\\2nf-API.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-30T23:22:32.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
               "Title": "IShipmentService.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Services\\IShipmentService.cs",
               "RelativeDocumentMoniker": "2nf-API\\Services\\IShipmentService.cs",
@@ -162,25 +385,23 @@
               "RelativeToolTip": "2nf-API\\Services\\IShipmentService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-17T03:47:47.431Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-17T03:47:47.431Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 21,
               "Title": "SaleController.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Controllers\\SaleController.cs",
               "RelativeDocumentMoniker": "2nf-API\\Controllers\\SaleController.cs",
               "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Controllers\\SaleController.cs",
               "RelativeToolTip": "2nf-API\\Controllers\\SaleController.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAA0wDoAAAAJAAAA",
+              "ViewState": "AQIAACkAAAAAAAAAAAAIwDoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-17T02:44:34.724Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-17T02:44:34.724Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 26,
               "Title": "ISaleService.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Services\\ISaleService.cs",
               "RelativeDocumentMoniker": "2nf-API\\Services\\ISaleService.cs",
@@ -188,12 +409,11 @@
               "RelativeToolTip": "2nf-API\\Services\\ISaleService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-17T02:40:52.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-17T02:40:52.006Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 29,
               "Title": "SaleResponse.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Responses\\SaleResponse.cs",
               "RelativeDocumentMoniker": "2nf-API\\Responses\\SaleResponse.cs",
@@ -201,25 +421,23 @@
               "RelativeToolTip": "2nf-API\\Responses\\SaleResponse.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-17T02:38:12.321Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-17T02:38:12.321Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 8,
               "Title": "Sale.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Sale.cs",
               "RelativeDocumentMoniker": "2nf-API\\Entities\\Sale.cs",
               "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Sale.cs",
               "RelativeToolTip": "2nf-API\\Entities\\Sale.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAzAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-17T02:36:55.968Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-17T02:36:55.968Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 31,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\appsettings.json",
               "RelativeDocumentMoniker": "2nf-API\\appsettings.json",
@@ -227,12 +445,11 @@
               "RelativeToolTip": "2nf-API\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-07-16T02:24:35.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-16T02:24:35.993Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 35,
               "Title": "RefundResponse.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Responses\\RefundResponse.cs",
               "RelativeDocumentMoniker": "2nf-API\\Responses\\RefundResponse.cs",
@@ -244,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 33,
               "Title": "RefundStatusConverter.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Utils\\RefundStatusConverter.cs",
               "RelativeDocumentMoniker": "2nf-API\\Utils\\RefundStatusConverter.cs",
@@ -256,7 +473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 38,
               "Title": "ClientService.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Services\\Imp\\ClientService.cs",
               "RelativeDocumentMoniker": "2nf-API\\Services\\Imp\\ClientService.cs",
@@ -268,20 +485,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 6,
               "Title": "Shipment.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Shipment.cs",
               "RelativeDocumentMoniker": "2nf-API\\Entities\\Shipment.cs",
               "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Shipment.cs",
               "RelativeToolTip": "2nf-API\\Entities\\Shipment.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAkAAAATAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAA1wBoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-13T01:10:06.93Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-13T01:10:06.93Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 27,
               "Title": "RefundService.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Services\\Imp\\RefundService.cs",
               "RelativeDocumentMoniker": "2nf-API\\Services\\Imp\\RefundService.cs",
@@ -289,24 +505,23 @@
               "RelativeToolTip": "2nf-API\\Services\\Imp\\RefundService.cs",
               "ViewState": "AQIAAI8AAAAAAAAAAAAwwJsAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-13T00:37:10.337Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-13T00:37:10.337Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 11,
               "Title": "Devolution.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Devolution.cs",
               "RelativeDocumentMoniker": "2nf-API\\Entities\\Devolution.cs",
               "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Entities\\Devolution.cs",
               "RelativeToolTip": "2nf-API\\Entities\\Devolution.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-13T00:59:08.583Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 24,
               "Title": "DevolutionRepository.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Repositories\\Imp\\DevolutionRepository.cs",
               "RelativeDocumentMoniker": "2nf-API\\Repositories\\Imp\\DevolutionRepository.cs",
@@ -314,12 +529,11 @@
               "RelativeToolTip": "2nf-API\\Repositories\\Imp\\DevolutionRepository.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAqwCAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-12T03:14:12.028Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-12T03:14:12.028Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 22,
               "Title": "ShipmentController.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Controllers\\ShipmentController.cs",
               "RelativeDocumentMoniker": "2nf-API\\Controllers\\ShipmentController.cs",
@@ -327,12 +541,11 @@
               "RelativeToolTip": "2nf-API\\Controllers\\ShipmentController.cs",
               "ViewState": "AQIAACwAAAAAAAAAAAAswEIAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-12T03:05:30.98Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-12T03:05:30.98Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 37,
               "Title": "DevolutionStatusConverter.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Utils\\DevolutionStatusConverter.cs",
               "RelativeDocumentMoniker": "2nf-API\\Utils\\DevolutionStatusConverter.cs",
@@ -344,7 +557,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 39,
               "Title": "DevolutionResponse.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Responses\\DevolutionResponse.cs",
               "RelativeDocumentMoniker": "2nf-API\\Responses\\DevolutionResponse.cs",
@@ -356,7 +569,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 36,
               "Title": "ShipmentSatusConverter.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Utils\\ShipmentSatusConverter.cs",
               "RelativeDocumentMoniker": "2nf-API\\Utils\\ShipmentSatusConverter.cs",
@@ -368,20 +581,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 18,
               "Title": "ShipmentService.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Services\\Imp\\ShipmentService.cs",
               "RelativeDocumentMoniker": "2nf-API\\Services\\Imp\\ShipmentService.cs",
               "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Services\\Imp\\ShipmentService.cs",
               "RelativeToolTip": "2nf-API\\Services\\Imp\\ShipmentService.cs",
-              "ViewState": "AQIAAHIAAAAAAAAAAAAiwM0AAAAAAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAA5wM0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-12T00:25:03.989Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-12T00:25:03.989Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 34,
               "Title": "MappingProfile.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Utils\\MappingProfile.cs",
               "RelativeDocumentMoniker": "2nf-API\\Utils\\MappingProfile.cs",
@@ -401,12 +613,11 @@
               "RelativeToolTip": "2nf-API\\Entities\\Refund.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-12T00:16:21.37Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-12T00:16:21.37Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 30,
               "Title": "DevolutionRequest.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Requests\\DevolutionRequest.cs",
               "RelativeDocumentMoniker": "2nf-API\\Requests\\DevolutionRequest.cs",
@@ -414,12 +625,11 @@
               "RelativeToolTip": "2nf-API\\Requests\\DevolutionRequest.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T23:28:50.478Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-11T23:28:50.478Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 32,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Program.cs",
               "RelativeDocumentMoniker": "2nf-API\\Program.cs",
@@ -431,20 +641,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "SaleService.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Services\\Imp\\SaleService.cs",
               "RelativeDocumentMoniker": "2nf-API\\Services\\Imp\\SaleService.cs",
               "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Services\\Imp\\SaleService.cs",
               "RelativeToolTip": "2nf-API\\Services\\Imp\\SaleService.cs",
-              "ViewState": "AQIAAIEBAAAAAAAAAAAvwJIBAAAMAAAA",
+              "ViewState": "AQIAAIwAAAAAAAAAAADgv5UAAABPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-11T23:06:44.905Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 23,
               "Title": "DevolutionService.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Services\\Imp\\DevolutionService.cs",
               "RelativeDocumentMoniker": "2nf-API\\Services\\Imp\\DevolutionService.cs",
@@ -452,12 +662,11 @@
               "RelativeToolTip": "2nf-API\\Services\\Imp\\DevolutionService.cs",
               "ViewState": "AQIAADIAAAAAAAAAAAAuwD4AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T23:00:34.565Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-11T23:00:34.565Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 40,
               "Title": "20240701215737_CambiosVariosRefunds.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Migrations\\20240701215737_CambiosVariosRefunds.cs",
               "RelativeDocumentMoniker": "2nf-API\\Migrations\\20240701215737_CambiosVariosRefunds.cs",
@@ -469,20 +678,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 1,
               "Title": "DevolutionController.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Controllers\\DevolutionController.cs",
               "RelativeDocumentMoniker": "2nf-API\\Controllers\\DevolutionController.cs",
               "ToolTip": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Controllers\\DevolutionController.cs",
               "RelativeToolTip": "2nf-API\\Controllers\\DevolutionController.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAowB4AAAAoAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-11T22:58:21.45Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 28,
               "Title": "RefundController.cs",
               "DocumentMoniker": "C:\\Users\\giova\\OneDrive\\Documentos\\2nf-Clothing\\2nf-Clothing-Web\\Backend-2nf-Clothing-Web\\2nf-API\\Controllers\\RefundController.cs",
               "RelativeDocumentMoniker": "2nf-API\\Controllers\\RefundController.cs",
@@ -490,8 +699,7 @@
               "RelativeToolTip": "2nf-API\\Controllers\\RefundController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T22:58:06.141Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-11T22:58:06.141Z"
             }
           ]
         }

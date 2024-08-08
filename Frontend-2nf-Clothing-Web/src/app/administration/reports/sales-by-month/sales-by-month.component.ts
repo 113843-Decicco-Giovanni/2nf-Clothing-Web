@@ -28,13 +28,28 @@ export class SalesByMonthComponent {
     labels: [  ],
     datasets: [
       { data: [  ], label: 'Ventas' }
-    ]
+    ],
+    
   };
 
   public barChartOptions: ChartConfiguration<'bar'>['options'] = {
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        ticks: {
+          stepSize: 1
+        }
+      },
+      y: {
+        ticks: {
+          stepSize: 1
+        }
+      }
+    }
   };
+
+  ctx = document.getElementById('myChart') as HTMLCanvasElement;
 
   constructor(
     private service: ReportsService
@@ -50,5 +65,14 @@ export class SalesByMonthComponent {
       this.ventasPorMesData.datasets[0].data = res.map(x => x.amount);
       this.chart?.update();
     })
+  }
+
+  exportar(){
+    var chart = document.getElementById('myChart') as HTMLCanvasElement;
+    const urlBase64jp = chart.toDataURL('image/jpeg');
+    const link = document.createElement('a');
+    link.href = urlBase64jp;
+    link.download = 'myChart.jpeg';
+    link.click();
   }
 }

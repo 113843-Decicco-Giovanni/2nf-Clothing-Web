@@ -49,4 +49,13 @@ export class BilledAmountByMonthComponent {
       this.chart?.update();
     })
   }
+
+  exportar(){
+    var chart = document.getElementById('myChart') as HTMLCanvasElement;
+    const urlBase64jp = chart.toDataURL('image/jpeg');
+    const link = document.createElement('a');
+    link.href = urlBase64jp;
+    link.download = 'myChart.jpeg';
+    link.click();
+  }
 }

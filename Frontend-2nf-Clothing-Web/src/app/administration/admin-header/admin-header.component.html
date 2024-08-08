@@ -1,96 +1,245 @@
-<header>
+<header [ngClass]="{ 'header-side-open' : isSideNavOpen}">
   <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/administration">
-        <img src="assets/imagenes/logoMinimal3d.png" alt="Logo" width="60">
+    <div class="container-fluid d-flex">
+      <div class="me-auto">
+        <div class="dropdown col">
+          <button class="btn profile" type="button" (click)="openSideNav()" [disabled]="!(loggedIn$ | async)">
+            <i class="bi bi-justify"></i>
+          </button>
+        </div>
+      </div>
+      <a class="navbar-brand m-1 mt-0 mb-0">
+        <ng-container *ngIf="isSmallScreen()">
+          <a [routerLink]="['/home']" routerLinkActive="router-link-active">
+            <img src="assets/imagenes/logoMinimal3d.png" width="80" alt="Logo">
+          </a>
+        </ng-container>
+        <ng-container *ngIf="!isSmallScreen()">
+          <a [routerLink]="['/home']" routerLinkActive="router-link-active">
+            <img src="assets/imagenes/logoCompleto3d.png" width="300" alt="Logo">
+          </a>
+        </ng-container>
       </a>
-      <button *ngIf="loggedIn$ | async" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <div *ngIf="loggedIn$ | async">
-            <li class="nav-item dropdown" >
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                articulos
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" [routerLink]="['/administration/articles/new']" routerLinkActive="router-link-active" >nuevo</a></li>
-                <li><a class="dropdown-item" [routerLink]="['/administration/articles']" routerLinkActive="router-link-active" >consultar</a></li>
-              </ul>
-            </li>
+      <div class="ms-auto">
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-secondary position-relative" [routerLink]="['/home']">
+              <i class="bi bi-house"></i>
+            </button>
           </div>
-          <div *ngIf="loggedIn$ | async">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                ventas
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" routerLink="/administration/sales" routerLinkActive="router-link-active">listado</a></li>
-              </ul>
-            </li>
-          </div>
-          <div *ngIf="loggedIn$ | async">
-            <li class="nav-item dropdown">
-              <a class="nav-link" [routerLink]="['/administration/shipments']">
-                envios
-              </a>
-            </li>
-          </div>
-          <div *ngIf="loggedIn$ | async">
-            <li class="nav-item dropdown">
-              <a class="nav-link" [routerLink]="['/administration/clients']">
-                clientes
-              </a>
-            </li>
-          </div>
-          <div *ngIf="(loggedIn$ | async) && (loggedUser$ | async)?.isUserAdmin">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                usuarios
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" routerLink="/administration/users" routerLinkActive="router-link-active">consultar</a></li>
-                <li><a class="dropdown-item" routerLink="/administration/users/new" routerLinkActive="router-link-active">nuevo</a></li>
-              </ul>
-            </li>
-          </div>
-          <div *ngIf="loggedIn$ | async">
-            <li class="nav-item dropdown">
-              <a class="nav-link" [routerLink]="['/administration/devolutions']">
-                devoluciones
-              </a>
-            </li>
-          </div>
-          <!-- <div *ngIf="loggedIn$ | async">
-            <li class="nav-item dropdown">
-              <a class="nav-link" [routerLink]="['/administration/refunds']">
-                reembolsos
-              </a>
-            </li>
-          </div> -->
-          <div *ngIf="loggedIn$ | async">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                reportes
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" routerLink="/administration/reports/sales-by-day" routerLinkActive="router-link-active">ventas por día</a></li>
-                <li><a class="dropdown-item" routerLink="/administration/reports/sales-by-month" routerLinkActive="router-link-active">ventas por mes</a></li>
-                <li><a class="dropdown-item" routerLink="/administration/reports/billed-amount-by-day" routerLinkActive="router-link-active">monto facturado por día</a></li>
-                <li><a class="dropdown-item" routerLink="/administration/reports/billed-amount-by-month" routerLinkActive="router-link-active">monto facturado por mes</a></li>
-              </ul>
-            </li>
-          </div>
-        </ul>
-        <div class="d-flex" *ngIf="loggedIn$ | async">
-          <span class="navbar-text me-2">
-            <a routerLink="/administration/profile" routerLinkActive="router-link-active" class="nav-link text-white">{{ (loggedUser$ | async)?.email }}</a>
-          </span>
-          <button class="btn btn-outline-danger" type="submit" (click)="logout()">Cerrar Sesión</button>
+
         </div>
       </div>
     </div>
   </nav>
-  </header>
-  
+</header>
+<app-side-nav [isOpen]="isSideNavOpen" (closeNavOutput)="this.isSideNavOpen = false">
+  <div class="row">
+    <img src="assets/imagenes/logoMinimal3d.png" class="logo-side-panel m-auto p-3">
+  </div>
+  <div class="row">
+
+    <div class="accordion" id="accordionExample">
+      <!-- Artículos Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseArticulos"
+            aria-expanded="false" aria-controls="collapseArticulos">
+            Artículos
+          </button>
+        </h2>
+        <div id="collapseArticulos" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="row">
+              <div class="col">
+                <button class="btn mb-2 w-100" *ngIf="loggedIn$ | async" [routerLink]="['/administration/articles']"
+                  (click)="isSideNavOpen = false" routerLinkActive="router-link-active">Listado</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="btn mb-2 w-100" *ngIf="loggedIn$ | async" [routerLink]="['/administration/articles/new']"
+                  (click)="isSideNavOpen = false" routerLinkActive="router-link-active">Nuevo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ventas Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVentas"
+            aria-expanded="false" aria-controls="collapseVentas">
+            Ventas
+          </button>
+        </h2>
+        <div id="collapseVentas" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="row">
+              <div class="col">
+                <button class="btn mb-2 w-100" *ngIf="loggedIn$ | async" [routerLink]="['/administration/sales']"
+                  (click)="isSideNavOpen = false" routerLinkActive="router-link-active">Listado</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Envíos Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEnvios"
+            aria-expanded="false" aria-controls="collapseEnvios">
+            Envíos
+          </button>
+        </h2>
+        <div id="collapseEnvios" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="row">
+              <div class="col">
+                <button class="btn mb-2 w-100" *ngIf="loggedIn$ | async" [routerLink]="['/administration/shipments']"
+                  (click)="isSideNavOpen = false" routerLinkActive="router-link-active">Listado</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clientes Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseClientes"
+            aria-expanded="false" aria-controls="collapseClientes">
+            Clientes
+          </button>
+        </h2>
+        <div id="collapseClientes" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="row">
+              <div class="col">
+                <button class="btn mb-2 w-100" *ngIf="loggedIn$ | async" [routerLink]="['/administration/clients']"
+                  (click)="isSideNavOpen = false" routerLinkActive="router-link-active">Listado</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Usuarios Section -->
+      <div class="accordion-item" *ngIf="(loggedIn$ | async) && (loggedUser$ | async)?.isUserAdmin">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUsuarios"
+            aria-expanded="false" aria-controls="collapseUsuarios">
+            Usuarios
+          </button>
+        </h2>
+        <div id="collapseUsuarios" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="row">
+              <div class="col">
+                <button class="btn mb-2 w-100" [routerLink]="['/administration/users']" (click)="isSideNavOpen = false"
+                  routerLinkActive="router-link-active">Consultar</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="btn mb-2 w-100" [routerLink]="['/administration/users/new']"
+                  (click)="isSideNavOpen = false" routerLinkActive="router-link-active">Nuevo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Devoluciones Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseDevoluciones" aria-expanded="false" aria-controls="collapseDevoluciones">
+            Devoluciones
+          </button>
+        </h2>
+        <div id="collapseDevoluciones" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="row">
+              <div class="col">
+                <button class="btn mb-2 w-100" *ngIf="loggedIn$ | async" [routerLink]="['/administration/devolutions']"
+                  (click)="isSideNavOpen = false" routerLinkActive="router-link-active">Listado</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reportes Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReportes"
+            aria-expanded="false" aria-controls="collapseReportes">
+            Reportes
+          </button>
+        </h2>
+        <div id="collapseReportes" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="row">
+              <div class="col">
+                <button class="btn mb-2 w-100" *ngIf="loggedIn$ | async"
+                  [routerLink]="['/administration/reports/sales-by-day']" (click)="isSideNavOpen = false"
+                  routerLinkActive="router-link-active">Ventas por Día</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="btn mb-2 w-100" *ngIf="loggedIn$ | async"
+                  [routerLink]="['/administration/reports/sales-by-month']" (click)="isSideNavOpen = false"
+                  routerLinkActive="router-link-active">Ventas por Mes</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="btn mb-2 w-100" *ngIf="loggedIn$ | async"
+                  [routerLink]="['/administration/reports/billed-amount-by-day']" (click)="isSideNavOpen = false"
+                  routerLinkActive="router-link-active">Monto Facturado por Día</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="btn mb-2 w-100" *ngIf="loggedIn$ | async"
+                  [routerLink]="['/administration/reports/billed-amount-by-month']" (click)="isSideNavOpen = false"
+                  routerLinkActive="router-link-active">Monto Facturado por Mes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sesion Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSesion"
+            aria-expanded="false" aria-controls="collapseSesion">
+            Sesión
+          </button>
+        </h2>
+        <div id="collapseSesion" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="row">
+              <div class="col">
+                <button class="btn mb-2 w-100" *ngIf="loggedIn$ | async"
+                  [routerLink]="['/administration/profile']" (click)="isSideNavOpen = false"
+                  routerLinkActive="router-link-active">Perfil</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="btn mb-2 w-100 text-danger" *ngIf="loggedIn$ | async"
+                  (click)="logout()"
+                  routerLinkActive="router-link-active">Cerrar Sesión</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-side-nav>

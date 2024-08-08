@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { SaleServiceService } from "../../services/sale-service.service";
-import { LOAD_SALES_SUCCESS, LOAD_SALE_BY_ID_SUCCESS, loadSaleById, loadSales, updatePendingRefund, updatePendingRefundFail, updatePendingRefundSuccess } from "../actions/sale.actions";
+import { LOAD_SALES_SUCCESS, LOAD_SALE_BY_ID_SUCCESS, loadSaleById, loadSales, loadSalesFail, updatePendingRefund, updatePendingRefundFail, updatePendingRefundSuccess } from "../actions/sale.actions";
 import { mergeMap, map, catchError, EMPTY, of } from "rxjs";
 import Swal from "sweetalert2";
 
@@ -27,7 +27,7 @@ export class SaleEfectts{
                     // })
                     return ({type: LOAD_SALES_SUCCESS, sales});
                 }),
-                catchError(() => EMPTY)
+                catchError(() => of(loadSalesFail()))
                 )
             )
         )

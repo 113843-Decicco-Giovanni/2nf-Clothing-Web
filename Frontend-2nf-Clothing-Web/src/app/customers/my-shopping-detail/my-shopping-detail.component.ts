@@ -43,7 +43,7 @@ export class MyShoppingDetailComponent {
   }
   calcularTotal(sale: SaleResponse | null) {
     if(sale != null)
-      return sale.details.reduce((acc, prod) => acc + prod.unitPrice, 0);
+      return sale.details.reduce((acc, prod) => acc + prod.unitPrice * prod.amount, 0);
     return 0;
   }
   calcularSubtotal(item: SaleDetailResponse){

@@ -33,7 +33,19 @@ export class SalesByDayComponent {
 
   public barChartOptions: ChartConfiguration<'bar'>['options'] = {
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        ticks: {
+          stepSize: 1
+        }
+      },
+      y: {
+        ticks: {
+          stepSize: 1
+        }
+      }
+    }
   };
 
   constructor(
@@ -50,5 +62,14 @@ export class SalesByDayComponent {
       this.ventasPorMesData.datasets[0].data = res.map(x => x.amount);
       this.chart?.update();
     })
+  }
+
+  exportar(){
+    var chart = document.getElementById('myChart') as HTMLCanvasElement;
+    const urlBase64jp = chart.toDataURL('image/jpeg');
+    const link = document.createElement('a');
+    link.href = urlBase64jp;
+    link.download = 'myChart.jpeg';
+    link.click();
   }
 }

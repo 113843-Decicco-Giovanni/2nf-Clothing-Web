@@ -35,6 +35,7 @@ export class PaymentComponent implements OnInit{
     private service: SaleServiceService) { }
   
   ngOnInit(): void {
+    window.scroll(0, 0);
 
     this.activatedRoute.queryParams.pipe(take(1)).subscribe(params => {
       var param = params['payment_id'];

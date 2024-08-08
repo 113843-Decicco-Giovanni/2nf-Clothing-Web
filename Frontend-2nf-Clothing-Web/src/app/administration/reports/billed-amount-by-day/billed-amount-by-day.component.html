@@ -1,27 +1,8 @@
 <div class="container-fluid">
     <div class="container p-3">
-        <!-- <div class="col-md-4 ">
-                <div class="card">
-                    <div class="card-header mt-2">
-                        <h3 class="card-title">Cantidad de ventas por Día</h3>
-                    </div>
-                    <div class="card-body">
-                        <canvas baseChart
-                            [data]="barChartData"
-                            [options]="barChartOptions"
-                            [plugins]="barChartPlugins"
-                            [legend]="barChartLegend"
-                            [type]="'bar'">
-                        </canvas>
-                    </div>
-                    <div class="card-footer">
-                    </div>
-                </div>
-            </div> -->
-
         <div class="card">
             <div class="card-header mt-2">
-                <h3 class="card-title">Monto facturado por día</h3>
+                <h3 class="card-title">Monto facturado por día en Pesos Argentinos</h3>
                 <div class="row">
                     <div class="col-md-4 mb-2">
                         <label for="fechaDesde" class="form-label">Día Desde*</label>
@@ -39,30 +20,17 @@
             <div class="card-body">
                 <div class="chart-container">
                     <canvas baseChart [data]="ventasPorMesData" [options]="barChartOptions" [plugins]="barChartPlugins"
-                        [legend]="barChartLegend" [type]="'bar'">
+                        [legend]="barChartLegend" [type]="'bar'" id="myChart">
                     </canvas>
                 </div>
             </div>
             <div class="card-footer">
-            </div>
-        </div>
-        <!-- <div class="col-md-4 ">
-                <div class="card">
-                    <div class="card-header mt-2">
-                        <h3 class="card-title">Monto facturado por mes</h3>
-                    </div>
-                    <div class="card-body">
-                        <canvas baseChart
-                            [data]="barChartData"
-                            [options]="barChartOptions"
-                            [plugins]="barChartPlugins"
-                            [legend]="barChartLegend"
-                            [type]="'bar'">
-                        </canvas>
-                    </div>
-                    <div class="card-footer">
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-secondary w-100" (click)="exportar()">Exportar</button>
                     </div>
                 </div>
-            </div> -->
+            </div>
+        </div>
     </div>
 </div>

@@ -9,12 +9,12 @@ import { DevolutionRequest } from '../models/devolutions/devolution.request';
 })
 export class DevolutionService {
 
-  url = "http://localhost:5260/api/devolution";
+url = "http://localhost:5260/api/devolution";
 
   constructor(private http: HttpClient) { }
 
   getDevolutions(state?: number, dni?: number, fechaInicio?: Date, fechaFin?: Date): Observable<Devolution[]> {
-    var url = this.url;
+    var url = this.url + "?";
 
     if (state) url += `?state=${state}`;
     if (dni) url += `&dni=${dni}`;

@@ -57,6 +57,6 @@ export class SalesComponent implements OnInit{
   }
 
   calcularTotal(sale: SaleResponse) {
-    return sale.details.reduce((acc, prod) => acc + prod.unitPrice, 0)
+    return sale.details.reduce((acc, prod) => acc + prod.unitPrice * prod.amount, 0)
   }
 }

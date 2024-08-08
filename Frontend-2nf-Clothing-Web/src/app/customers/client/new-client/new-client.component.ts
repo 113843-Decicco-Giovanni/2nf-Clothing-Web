@@ -63,7 +63,7 @@ export class NewClientComponent{
               showConfirmButton: false,
               timer: 1500
             }).then(() => {
-              this.router.navigate(['/home']);
+              this.router.navigate(['/cart']);
             })
         }});
       } else{

@@ -147,7 +147,7 @@ namespace _2nf_API.Services.Imp
             {
                 Items = items,
                 BackUrls = backUrls,
-                NotificationUrl = "https://9f5c-190-120-110-122.ngrok-free.app/api/sale/webhook-payment",
+                NotificationUrl = "https://2fc7-190-120-103-115.ngrok-free.appx/api/sale/webhook-payment",
                 AutoReturn = "approved",
                 BinaryMode = true,
                 Payer = payer,

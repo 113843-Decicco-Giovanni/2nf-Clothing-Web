@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from '../../models/articles/article';
 import { Observable, async, map, take } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -13,6 +13,7 @@ import { selectArticle, selectSizes } from '../../store/selectors/articles.selec
 import { addToCart } from '../../store/actions/cart.actions';
 import { CartDetail } from '../../models/cart/cartDetail';
 import { selectCart, selectCartAmount } from '../../store/selectors/cart.selector';
+import Swal from 'sweetalert2';
 
 
 
@@ -40,7 +41,8 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private router: Router
   ) {
   }
   ngOnDestroy() {
@@ -106,6 +108,16 @@ export class ArticleComponent implements OnInit, OnDestroy {
                 amount: this.amount
               }
               this.store.dispatch(addToCart({ detail: cartDetail }));
+              Swal.fire({
+                icon: 'success',
+                title: 'Artículo agregado al carrito',
+                showConfirmButton: false,
+                timer: 1500,
+                background: '#262626',
+                color: '#a7a7a7'
+              }).then( () => {
+                this.router.navigate(['cart']);
+              })
             }))
         }
       ))

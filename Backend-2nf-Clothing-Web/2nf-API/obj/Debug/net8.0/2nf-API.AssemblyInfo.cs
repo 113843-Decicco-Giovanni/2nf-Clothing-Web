@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("2nf-API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dbaedf7494df3d3927cc3b8e3012dfab9a9f01df")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef72723b2bb424066766c1d51cd479981b41fa30")]
 [assembly: System.Reflection.AssemblyProductAttribute("2nf-API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("2nf-API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

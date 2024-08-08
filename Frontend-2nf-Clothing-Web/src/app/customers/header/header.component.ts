@@ -65,6 +65,7 @@ export class HeaderComponent implements OnInit{
 
   login(){
     this.router.navigate(['/login']);
+    this.isSideNavOpen = false;
   }
   logout(){
     Swal.fire({
@@ -81,18 +82,28 @@ export class HeaderComponent implements OnInit{
         this.router.navigate(['/home']);
       }
     })
+    this.isSideNavOpen = false;
+
   }
   profile(){
     this.router.navigate(['/account']);
+    this.isSideNavOpen = false;
+
   }
   cart() {
     this.router.navigate(['cart']);
+    this.isSideNavOpen = false;
+
   }
   register(){
     this.router.navigate(['/register']);
+    this.isSideNavOpen = false;
+
   }
 
   misCompras(){
     this.router.navigate(['/my-shopping']);
+    this.isSideNavOpen = false;
+
   }
 }

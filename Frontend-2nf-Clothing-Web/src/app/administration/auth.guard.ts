@@ -17,3 +17,16 @@ export const AuthGuard : CanActivateFn = (route, state) => {
         })
     )
 }
+
+export const AuthGuardLogin : CanActivateFn = (route, state) => {
+    const router = inject(Router)
+    const store = inject(Store<AppState>)
+
+    return store.select(selectUserLogged).pipe(
+        tap((logged) => {
+            if(logged){
+                router.navigate(['administration/articles'])
+            }            
+        })
+    )
+}

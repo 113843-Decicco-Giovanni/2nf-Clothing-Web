@@ -1,0 +1,6 @@
+<div class="side-nav" [class.open]="isOpen">
+    <ng-content>
+        
+    </ng-content>
+</div>
+<div class="side-nav-overlay" *ngIf="isOpen" (click)="closeNav()"></div>
